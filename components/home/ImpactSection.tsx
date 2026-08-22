@@ -2,54 +2,65 @@
 
 import React from "react";
 import { impactItems } from "@/data/home";
-import { Palette, Building2, TrendingUp, Lightbulb } from "lucide-react";
+import { Palette, Cloud, PieChart, Bot, ShieldCheck, Headphones } from "lucide-react";
 
 const iconMap = {
   Palette: Palette,
-  Building2: Building2,
-  TrendingUp: TrendingUp,
-  Lightbulb: Lightbulb,
+  Cloud: Cloud,
+  PieChart: PieChart,
+  Bot: Bot,
+  ShieldCheck: ShieldCheck,
+  Headphones: Headphones,
 };
 
 export default function ImpactSection() {
   return (
-    <section className="bg-[#F8FAFC] py-16 sm:py-24 lg:py-28 border-y border-slate-200/60">
-      <div className="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#F8FAFF] py-16 sm:py-24 border-y border-[#0F2346]/10">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <span className="text-xs sm:text-sm font-bold text-[#E52B2F] tracking-widest uppercase block mb-2">
+          <span className="text-xs sm:text-sm font-bold uppercase tracking-widest bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] bg-clip-text text-transparent block mb-2">
             HOW WE CREATE IMPACT
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111827] tracking-tight">
             Different Expertise. Shared Possibilities.
           </h2>
         </div>
 
-        {/* 4 Minimal Icon Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8">
-          {impactItems.map((item) => {
-            const Icon = iconMap[item.iconName];
+        {/* 6 Minimal Icon Columns Horizontal */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-0">
+          {impactItems.map((item, idx) => {
+            const Icon = iconMap[item.iconName as keyof typeof iconMap] || Palette;
+            const isLast = idx === impactItems.length - 1;
+
             return (
               <div
                 key={item.id}
-                className="bg-white p-7 sm:p-8 rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-lg hover:border-[#E52B2F]/30 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+                className={`flex flex-col items-center text-center p-4 lg:px-6 transition-all duration-300 group ${
+                  !isLast ? "lg:border-r lg:border-[#0F2346]/10" : ""
+                }`}
               >
-                <div>
-                  {/* Red Outline Icon */}
-                  <div className="w-12 h-12 rounded-xl border border-[#E52B2F]/30 bg-[#E52B2F]/5 text-[#E52B2F] flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-[#E52B2F] group-hover:text-white transition-all duration-300">
-                    <Icon className="w-6 h-6" />
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 tracking-tight group-hover:text-[#E52B2F] transition-colors">
-                    {item.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {item.description}
-                  </p>
+                {/* Gradient Outlined Icon Circle */}
+                <div
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 shadow-sm"
+                  style={{
+                    background: `linear-gradient(135deg, ${item.accentColor}15, ${item.accentColor}05)`,
+                    border: `1px solid ${item.accentColor}35`,
+                    color: item.accentColor,
+                  }}
+                >
+                  <Icon className="w-7 h-7" />
                 </div>
+
+                {/* Title */}
+                <h3 className="text-base sm:text-lg font-bold text-[#111827] mb-2 tracking-tight">
+                  {item.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-xs sm:text-sm text-[#5B6475] leading-relaxed font-normal">
+                  {item.description}
+                </p>
               </div>
             );
           })}
@@ -58,3 +69,4 @@ export default function ImpactSection() {
     </section>
   );
 }
+

@@ -2,20 +2,30 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #08131d;
-  --kbs-red: #e52b2f;
-  --kbs-navy: #071421;
-  --kbs-navy-dark: #050d17;
-  --kbs-gray-bg: #f8fafc;
+  --foreground: #111827;
+  --kbs-navy: #03142B;
+  --kbs-navy-dark: #061A36;
+  --kbs-blue: #168BFF;
+  --kbs-electric: #00A8FF;
+  --kbs-violet: #6657FF;
+  --kbs-purple: #A52BFF;
+  --kbs-magenta: #D82DFF;
+  --kbs-bg-soft: #F8FAFF;
+  --kbs-text-primary: #111827;
+  --kbs-text-secondary: #5B6475;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-kbs-red: #e52b2f;
-  --color-kbs-navy: #071421;
-  --color-kbs-navy-dark: #050d17;
-  --color-kbs-gray-bg: #f8fafc;
+  --color-kbs-navy: #03142B;
+  --color-kbs-navy-dark: #061A36;
+  --color-kbs-blue: #168BFF;
+  --color-kbs-electric: #00A8FF;
+  --color-kbs-violet: #6657FF;
+  --color-kbs-purple: #A52BFF;
+  --color-kbs-magenta: #D82DFF;
+  --color-kbs-bg-soft: #F8FAFF;
   --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
 }
@@ -31,6 +41,38 @@ body {
   overflow-x: hidden;
 }
 
+/* KBS Gradient Utilities */
+.kbs-gradient-text {
+  background: linear-gradient(90deg, #168BFF 0%, #6657FF 50%, #B72CFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.kbs-gradient-btn {
+  background: linear-gradient(90deg, #168BFF 0%, #6657FF 50%, #A52BFF 100%);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.kbs-gradient-btn:hover {
+  opacity: 0.95;
+  box-shadow: 0 8px 24px -4px rgba(102, 87, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.kbs-glass-navy {
+  background: rgba(6, 26, 54, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(130, 160, 255, 0.2);
+}
+
+.kbs-glass-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(15, 35, 70, 0.08);
+}
+
 /* Custom Utilities & Animations */
 @keyframes fadeIn {
   from {
@@ -44,7 +86,7 @@ body {
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Custom scrollbars */
@@ -80,3 +122,4 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+

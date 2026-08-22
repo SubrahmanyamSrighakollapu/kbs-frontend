@@ -29,7 +29,6 @@ export default function StatsSection() {
         if (entry.isIntersecting && !hasAnimated) {
           setHasAnimated(true);
 
-          // Animate counts over 1.5 seconds
           const duration = 1500;
           const steps = 30;
           const stepTime = duration / steps;
@@ -73,23 +72,23 @@ export default function StatsSection() {
   }, [hasAnimated]);
 
   return (
-    <section
-      ref={sectionRef}
-      className="bg-[#071421] text-white py-10 sm:py-14 border-y border-slate-800/80"
-    >
-      <div className="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
-          {stats.map((item) => {
+    <section ref={sectionRef} className="relative z-20 -mt-12 sm:-mt-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1380px] mx-auto bg-[#061A36]/90 backdrop-blur-md border border-[#82A0FF]/25 rounded-2xl shadow-2xl p-6 sm:p-8 lg:p-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0">
+          {stats.map((item, idx) => {
             const Icon = iconMap[item.iconName];
             const displayVal = hasAnimated ? counts[item.id] || item.value : item.value;
+            const isLast = idx === stats.length - 1;
 
             return (
               <div
                 key={item.id}
-                className="flex items-center space-x-4 p-4 rounded-xl bg-slate-900/40 border border-slate-800/50 backdrop-blur-xs hover:border-[#E52B2F]/30 transition-all duration-300"
+                className={`flex items-center space-x-4 sm:space-x-5 lg:px-8 ${
+                  !isLast ? "lg:border-r lg:border-[#82A0FF]/20" : ""
+                }`}
               >
-                {/* Red Icon Badge */}
-                <div className="shrink-0 p-3 rounded-lg border border-[#E52B2F]/30 bg-[#E52B2F]/10 text-[#E52B2F]">
+                {/* Outlined Icon Badge */}
+                <div className="shrink-0 p-3 sm:p-3.5 rounded-xl bg-gradient-to-br from-[#168BFF]/15 to-[#6657FF]/15 border border-[#168BFF]/30 text-[#00A8FF]">
                   <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
                 </div>
 
@@ -99,7 +98,7 @@ export default function StatsSection() {
                     {displayVal}
                     {item.suffix}
                   </div>
-                  <div className="text-xs sm:text-sm text-slate-400 font-medium mt-0.5">
+                  <div className="text-xs sm:text-sm text-slate-300 font-medium mt-0.5 whitespace-nowrap">
                     {item.label}
                   </div>
                 </div>
@@ -111,3 +110,4 @@ export default function StatsSection() {
     </section>
   );
 }
+

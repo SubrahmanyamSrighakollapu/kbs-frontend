@@ -7,71 +7,67 @@ import { ArrowRight } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[580px] lg:min-h-[660px] xl:min-h-[720px] w-full overflow-hidden flex items-center bg-slate-900">
-      {/* Background Image */}
+    <section className="relative pt-24 sm:pt-28 md:pt-32 pb-24 sm:pb-28 lg:pb-32 w-full overflow-hidden flex items-center bg-[#03142B] text-white">
+      {/* Background Futuristic City Image */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/hero-bg.png"
-          alt="KBS IT City Highway Background"
+          alt="KBS Group Futuristic City & Infrastructure"
           fill
           priority
           className="object-cover object-center lg:object-right transition-transform duration-1000 scale-100"
         />
-        {/* White/Light Gradient Overlay: Strong left fade to transparent right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 md:via-white/80 via-60% to-transparent/30" />
-        {/* Additional mobile bottom overlay for text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-transparent md:hidden" />
+        
+        {/* Primary Navy Overlay: Left-to-Right Fade */}
+        <div 
+          className="absolute inset-0" 
+          style={{
+            background: "linear-gradient(90deg, rgba(2, 12, 32, 0.98) 0%, rgba(3, 18, 48, 0.90) 34%, rgba(4, 22, 55, 0.55) 60%, rgba(4, 15, 35, 0.15) 100%)"
+          }}
+        />
+
+        {/* Mobile/Tablet Bottom Gradient for Readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#03142B] via-transparent to-transparent md:hidden" />
       </div>
 
-      {/* Content Container */}
-      <div className="relative z-10 max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-28 w-full">
+      {/* Hero Content Container */}
+      <div className="relative z-10 max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="max-w-2xl lg:max-w-3xl">
           {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 mb-4 sm:mb-6">
-            <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-slate-800 bg-slate-100/80 backdrop-blur-xs px-3 py-1 rounded-md border border-slate-200/80">
-              ONE GROUP. EVERY SOLUTION.
+          <div className="inline-flex items-center gap-2 mb-4 sm:mb-5">
+            <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] bg-clip-text text-transparent">
+              ONE GROUP. MANY POSSIBILITIES.
             </span>
           </div>
 
-          {/* Heading with Diagonal Accent */}
-          <div className="relative flex items-start gap-4 sm:gap-6 mb-6">
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-950 tracking-tight leading-[1.12]">
-              Technology That <br />
-              Moves Your <br />
-              <span className="text-[#E52B2F] inline-block">
-                Business Forward
-              </span>
-            </h1>
-
-            {/* Red Diagonal Slash */}
-            <div
-              className="hidden sm:block shrink-0 w-2 sm:w-2.5 h-20 sm:h-28 lg:h-32 bg-[#E52B2F] transform rotate-[25deg] shadow-lg rounded-full mt-2"
-              aria-hidden="true"
-            />
-          </div>
+          {/* Main Heading */}
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
+            Building Today. <br />
+            <span className="bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#B72CFF] bg-clip-text text-transparent inline-block">
+              Creating a Better Tomorrow.
+            </span>
+          </h1>
 
           {/* Supporting Copy */}
-          <p className="text-base sm:text-lg lg:text-xl text-slate-700 font-normal leading-relaxed max-w-xl mb-8 sm:mb-10">
-            We design, build, and scale digital products — from fintech
-            platforms to hyperlocal marketplaces — with the reliability of a
-            group that&apos;s been solving hard technical problems since 2021.
+          <p className="text-base sm:text-lg lg:text-xl text-slate-300 font-normal leading-relaxed max-w-xl mb-8 sm:mb-10">
+            KBS Group unites innovation, construction, creativity and technology across diverse verticals to deliver real-world impact.
           </p>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+          {/* Hero CTAs */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
             <Link
-              href="#contact"
-              className="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-[#E52B2F] text-white text-sm sm:text-base font-semibold hover:bg-[#c92226] active:scale-95 transition-all shadow-md hover:shadow-lg group"
+              href="#verticals"
+              className="inline-flex items-center justify-center px-7 py-3.5 sm:py-4 rounded-xl bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] text-white text-sm sm:text-base font-semibold hover:opacity-95 hover:-translate-y-0.5 active:scale-95 transition-all shadow-lg hover:shadow-xl group"
             >
-              Schedule a Consultation
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              Explore Our Verticals
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2.5 group-hover:translate-x-1 transition-transform" />
             </Link>
 
             <Link
-              href="#services"
-              className="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-white/95 backdrop-blur-xs text-slate-900 border border-slate-300 text-sm sm:text-base font-semibold hover:bg-slate-50 hover:border-slate-400 active:scale-95 transition-all shadow-xs"
+              href="/about"
+              className="inline-flex items-center justify-center px-7 py-3.5 sm:py-4 rounded-xl bg-white/5 backdrop-blur-md text-white border border-white/20 text-sm sm:text-base font-semibold hover:bg-white/10 hover:border-white/40 active:scale-95 transition-all"
             >
-              Explore Our Solutions
+              About KBS Group
             </Link>
           </div>
         </div>
@@ -79,3 +75,4 @@ export default function HeroSection() {
     </section>
   );
 }
+
