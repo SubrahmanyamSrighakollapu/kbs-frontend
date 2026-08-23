@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { aboutHeroData } from "@/data/about";
 
 export default function WhoWeAre() {
   return (
@@ -14,14 +15,11 @@ export default function WhoWeAre() {
               WHO WE ARE
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111827] tracking-tight leading-tight mb-6">
-              Engineering Real Solutions <br className="hidden sm:block" />
+              Engineering Real Software <br className="hidden sm:block" />
               for Real Businesses
             </h2>
             <p className="text-base sm:text-lg text-[#5B6475] font-normal leading-relaxed max-w-xl">
-              Since 2021, we&apos;ve engineered powerful products across payments,
-              commerce, logistics, and enterprise platforms, solving as a new era,
-              engineering depth paired with an owner&apos;s understanding of what
-              actually drives a business.
+              {aboutHeroData.whoWeAre}
             </p>
           </div>
 
@@ -41,4 +39,3 @@ export default function WhoWeAre() {
     </section>
   );
 }
-

@@ -2,65 +2,65 @@
 
 import React from "react";
 import Link from "next/link";
+import { ArrowRight, ShieldCheck, Activity, Zap } from "lucide-react";
 import { caseStudyData } from "@/data/services";
-import { ArrowRight } from "lucide-react";
 
 export default function CaseStudySnapshot() {
-  return (
-    <section className="bg-[#F8FAFF] py-16 sm:py-24 border-b border-[#0F2346]/10">
-      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="mb-8">
-          <span className="text-xs sm:text-sm font-bold uppercase tracking-widest bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] bg-clip-text text-transparent block mb-1">
-            {caseStudyData.subtitle}
-          </span>
-        </div>
+  const icons = [ShieldCheck, Activity, Zap];
 
-        {/* Case Study Grid Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
-          {/* Left Column: Story Card */}
-          <div className="lg:col-span-5 bg-white p-8 sm:p-10 rounded-3xl border border-[#0F2346]/10 shadow-sm flex flex-col justify-between">
-            <div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#111827] tracking-tight mb-4">
+  return (
+    <section className="bg-[#020B19] py-16 sm:py-20 text-white border-t border-[#101D34]">
+      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-[#071427] rounded-3xl p-8 sm:p-12 lg:p-14 border border-[#1688FF]/20 shadow-2xl relative overflow-hidden">
+          {/* Ambient Glow */}
+          <div className="absolute top-0 right-0 w-[500px] h-[300px] bg-[#1688FF]/10 blur-3xl pointer-events-none rounded-full" />
+
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Left Copy Column */}
+            <div className="lg:col-span-6">
+              <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#1688FF] mb-3 block">
+                {caseStudyData.subtitle}
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
                 {caseStudyData.title}
-              </h3>
-              <p className="text-base text-[#5B6475] leading-relaxed font-normal mb-8">
+              </h2>
+              <p className="text-base sm:text-lg text-[#AAB7CB] font-normal leading-relaxed mb-8">
                 {caseStudyData.description}
               </p>
+              <Link
+                href={caseStudyData.href}
+                className="inline-flex items-center text-sm sm:text-base font-bold text-[#1688FF] hover:text-white transition-colors group"
+              >
+                View Full Case Study
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
 
-            <Link
-              href={caseStudyData.href}
-              className="inline-flex items-center text-sm font-bold text-[#168BFF] hover:text-[#6657FF] transition-colors group"
-            >
-              View Full Case Study
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
+            {/* Right Metrics Grid */}
+            <div className="lg:col-span-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                {caseStudyData.metrics.map((metric, idx) => {
+                  const Icon = icons[idx % icons.length];
 
-          {/* Right Column: 3 Metric Cards */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {caseStudyData.metrics.map((metric, idx) => {
-              const accentColors = ["#168BFF", "#6657FF", "#A52BFF"];
-              const accentColor = accentColors[idx % accentColors.length];
-
-              return (
-                <div
-                  key={metric.label}
-                  className="bg-white p-8 rounded-3xl border border-[#0F2346]/10 shadow-sm flex flex-col items-center justify-center text-center hover:shadow-md transition-shadow"
-                >
-                  <div
-                    className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-2"
-                    style={{ color: accentColor }}
-                  >
-                    {metric.value}
-                  </div>
-                  <div className="text-xs sm:text-sm text-[#5B6475] font-semibold">
-                    {metric.label}
-                  </div>
-                </div>
-              );
-            })}
+                  return (
+                    <div
+                      key={idx}
+                      className="p-6 rounded-2xl bg-[#101D34] border border-[#1688FF]/20 flex flex-col items-center text-center shadow-lg group hover:border-[#1688FF]/50 transition-all"
+                    >
+                      <div className="w-10 h-10 rounded-xl bg-[#1688FF]/15 text-[#1688FF] flex items-center justify-center mb-4">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <span className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-[#1688FF] via-[#7A42FF] to-[#D437FF] bg-clip-text text-transparent mb-1">
+                        {metric.value}
+                      </span>
+                      <span className="text-xs sm:text-sm font-medium text-[#AAB7CB]">
+                        {metric.label}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </div>

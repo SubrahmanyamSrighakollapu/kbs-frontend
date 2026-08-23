@@ -2,6 +2,8 @@ import React from "react";
 import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import SkillHubHero from "@/components/skill-hub/SkillHubHero";
+import GapAddressSection from "@/components/skill-hub/GapAddressSection";
+import WhatWeOfferSection from "@/components/skill-hub/WhatWeOfferSection";
 import SkillBenefits from "@/components/skill-hub/SkillBenefits";
 import PopularCourses from "@/components/skill-hub/PopularCourses";
 import LearningPaths from "@/components/skill-hub/LearningPaths";
@@ -12,7 +14,7 @@ import Footer from "@/components/layout/Footer";
 export const metadata: Metadata = {
   title: "Skill Hub | KBS Information Technology",
   description:
-    "Upskill yourself with industry-relevant courses, hands-on projects, roadmaps, and live masterclasses at KBS Information Technology Skill Hub.",
+    "KBS Skill Hub — Bridging the Gap Between Classrooms and Careers. Industry-expert led IT software and Civil engineering software training built for real employability.",
 };
 
 export default function SkillHubPage() {
@@ -22,26 +24,32 @@ export default function SkillHubPage() {
       <Header />
 
       <main className="flex-grow">
-        {/* 2. Skill Hub Dark Learning Hero */}
+        {/* 2. Hero Section */}
         <SkillHubHero />
 
-        {/* 3. Floating Learning Benefits Panel */}
-        <SkillBenefits />
+        {/* 3. The Gap We Address & Vision / Mission */}
+        <GapAddressSection />
 
-        {/* 4. Popular Courses Section */}
+        {/* 4. What We Offer (IT & Civil Software Training) */}
+        <WhatWeOfferSection />
+
+        {/* 5. Popular Courses Section */}
         <PopularCourses />
 
-        {/* 5. Learning Paths Section */}
+        {/* 6. Learning Paths Section */}
         <LearningPaths />
 
-        {/* 6. Upcoming Sessions Section */}
+        {/* 7. Why KBS Skill Hub Pillars */}
+        <SkillBenefits />
+
+        {/* 8. Upcoming Sessions Section */}
         <UpcomingSessions />
 
-        {/* 7. Closing CTA Panel */}
+        {/* 9. Closing CTA Panel */}
         <SkillHubCTA />
       </main>
 
-      {/* 8. Shared Footer */}
+      {/* 10. Shared Footer */}
       <Footer />
     </div>
   );

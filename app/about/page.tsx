@@ -5,6 +5,8 @@ import AboutHero from "@/components/about/AboutHero";
 import WhoWeAre from "@/components/about/WhoWeAre";
 import StrengthCards from "@/components/about/StrengthCards";
 import VisionMission from "@/components/about/VisionMission";
+import IndustriesWeServe from "@/components/about/IndustriesWeServe";
+import WhatWeHaveBuilt from "@/components/about/WhatWeHaveBuilt";
 import JourneyTimeline from "@/components/about/JourneyTimeline";
 import AboutStats from "@/components/about/AboutStats";
 import GroupAdvantage from "@/components/about/GroupAdvantage";
@@ -13,7 +15,7 @@ import Footer from "@/components/layout/Footer";
 export const metadata: Metadata = {
   title: "About Us | KBS Information Technology",
   description:
-    "Learn about KBS Information Technology — the technology arm of KBS Group, engineering software solutions across fintech, commerce, civic-tech, and enterprise platforms.",
+    "Learn about KBS Information Technology — the technology arm of KBS Group, building digital products across fintech, commerce, civic tech, and enterprise platforms.",
 };
 
 export default function AboutPage() {
@@ -35,17 +37,23 @@ export default function AboutPage() {
         {/* 5. Vision & Mission Dark Section */}
         <VisionMission />
 
-        {/* 6. Journey / Timeline Section */}
+        {/* 6. Industries We Serve */}
+        <IndustriesWeServe />
+
+        {/* 7. What We've Built Showcase */}
+        <WhatWeHaveBuilt />
+
+        {/* 8. Journey / Timeline Section */}
         <JourneyTimeline />
 
-        {/* 7. Stats Strip */}
+        {/* 9. Stats Strip */}
         <AboutStats />
 
-        {/* 8. KBS Group Advantage Section */}
+        {/* 10. KBS Group Advantage Section */}
         <GroupAdvantage />
       </main>
 
-      {/* 9. Footer */}
+      {/* 11. Footer */}
       <Footer />
     </div>
   );

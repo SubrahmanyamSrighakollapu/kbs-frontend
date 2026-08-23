@@ -2,14 +2,20 @@
 
 import React from "react";
 import { groupAdvantages } from "@/data/about";
-import { Users, GraduationCap, Handshake, Rocket, Star } from "lucide-react";
+import {
+  CheckCircle2,
+  ShieldCheck,
+  Layers,
+  TrendingUp,
+  HeartHandshake,
+} from "lucide-react";
 
 const iconMap = {
-  Users: Users,
-  GraduationCap: GraduationCap,
-  Handshake: Handshake,
-  Rocket: Rocket,
-  Star: Star,
+  CheckCircle2: CheckCircle2,
+  ShieldCheck: ShieldCheck,
+  Layers: Layers,
+  TrendingUp: TrendingUp,
+  HeartHandshake: HeartHandshake,
 };
 
 export default function GroupAdvantage() {
@@ -19,17 +25,17 @@ export default function GroupAdvantage() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <span className="text-xs sm:text-sm font-bold uppercase tracking-widest bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] bg-clip-text text-transparent block mb-2">
-            THE KBS GROUP ADVANTAGE
+            WHY KBS INFORMATION TECHNOLOGY
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111827] tracking-tight">
-            Stronger Together. Farther Ahead.
+            Built for Real Impact. Backed by Group Stability.
           </h2>
         </div>
 
         {/* 5 Feature Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {groupAdvantages.map((item) => {
-            const Icon = iconMap[item.iconName as keyof typeof iconMap] || Users;
+            const Icon = iconMap[item.iconName as keyof typeof iconMap] || CheckCircle2;
 
             return (
               <div
@@ -68,4 +74,3 @@ export default function GroupAdvantage() {
     </section>
   );
 }
-
