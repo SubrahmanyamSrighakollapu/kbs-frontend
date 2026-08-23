@@ -17,10 +17,15 @@ export default function HeroSection() {
           priority
           className="object-cover object-center lg:object-right transition-transform duration-1000 scale-100"
         />
-        {/* White/Light Gradient Overlay: Strong left fade to transparent right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 md:via-white/80 via-60% to-transparent/30" />
+        {/* Soft White Gradient Overlay: Clear left text backing fading smoothly so city skyline and light trails stay sharp */}
+        <div 
+          className="absolute inset-0 pointer-events-none" 
+          style={{
+            background: "linear-gradient(to right, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.82) 32%, rgba(255, 255, 255, 0.25) 60%, rgba(255, 255, 255, 0) 100%)"
+          }}
+        />
         {/* Additional mobile bottom overlay for text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-transparent md:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-transparent md:hidden pointer-events-none" />
       </div>
 
       {/* Content Container */}
@@ -33,8 +38,8 @@ export default function HeroSection() {
             </span>
           </div>
 
-          {/* Heading with Diagonal Accent */}
-          <div className="relative flex items-start gap-4 sm:gap-6 mb-6">
+          {/* Heading */}
+          <div className="mb-6">
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-950 tracking-tight leading-[1.12]">
               Technology That <br />
               Moves Your <br />
@@ -42,12 +47,6 @@ export default function HeroSection() {
                 Business Forward
               </span>
             </h1>
-
-            {/* Red Diagonal Slash */}
-            <div
-              className="hidden sm:block shrink-0 w-2 sm:w-2.5 h-20 sm:h-28 lg:h-32 bg-[#E52B2F] transform rotate-[25deg] shadow-lg rounded-full mt-2"
-              aria-hidden="true"
-            />
           </div>
 
           {/* Supporting Copy */}
@@ -60,7 +59,7 @@ export default function HeroSection() {
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
             <Link
-              href="#contact"
+              href="/contacts"
               className="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-[#E52B2F] text-white text-sm sm:text-base font-semibold hover:bg-[#c92226] active:scale-95 transition-all shadow-md hover:shadow-lg group"
             >
               Schedule a Consultation
@@ -68,7 +67,7 @@ export default function HeroSection() {
             </Link>
 
             <Link
-              href="#services"
+              href="/services"
               className="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-white/95 backdrop-blur-xs text-slate-900 border border-slate-300 text-sm sm:text-base font-semibold hover:bg-slate-50 hover:border-slate-400 active:scale-95 transition-all shadow-xs"
             >
               Explore Our Solutions

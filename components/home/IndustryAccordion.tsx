@@ -1,182 +1,202 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { industries } from "@/data/home";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import styles from "./HomeIndustriesnew.module.css";
 
 export default function IndustryAccordion() {
-  // Default active index: Consulting (index 3)
-  const [activeIndex, setActiveIndex] = useState<number>(3);
+  const [activeIndex, setActiveIndex] = useState(3); // Start with Consulting active (center node)
+  const [isPaused, setIsPaused] = useState(false);
 
-  const handlePrevMobile = () => {
-    setActiveIndex((prev) => (prev === 0 ? industries.length - 1 : prev - 1));
-  };
+  useEffect(() => {
+    if (isPaused) return;
+    if (typeof window !== "undefined" && window.innerWidth <= 767) return;
 
-  const handleNextMobile = () => {
-    setActiveIndex((prev) => (prev === industries.length - 1 ? 0 : prev + 1));
-  };
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % industries.length);
+    }, 5000); // Auto change every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  const N = industries.length;
+  const activeItem = industries[activeIndex];
 
   return (
-    <section className="bg-white py-16 sm:py-24 lg:py-28 overflow-hidden">
-      <div className="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className={styles.industriesSection}>
+      <div className="max-w-[1480px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <span className="text-xs sm:text-sm font-bold text-[#E52B2F] tracking-widest uppercase block mb-2">
+        <div className={styles.heading}>
+          <span className={styles.pillBadge}>
             EXPANDING CAPABILITIES
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-            End-to-End Solutions Across Key Sectors
+          <h2 className={styles.sectionTitle}>
+            Intelligent Digital Solutions Across Key Industries
           </h2>
+          <p className={styles.sectionDesc}>
+            Every industry has unique demands. KBS IT engineers cloud-native platforms, AI automation, and scalable systems tailored for enterprise growth.
+          </p>
         </div>
 
-        {/* DESKTOP/TABLET: 7-Panel Interactive Expanding Accordion */}
-        <div className="hidden md:flex h-[480px] lg:h-[540px] xl:h-[580px] gap-3 lg:gap-4 items-stretch justify-center w-full">
-          {industries.map((item, index) => {
-            const isActive = index === activeIndex;
+        {/* 3D Rotational Circular Carousel Wheel Container (Desktop/Tablet) */}
+        <div
+          className={styles.coverflowContainer}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {industries.map((item, idx) => {
+            // Calculate offset relative to activeIndex for circular 3D rotational wheel
+            let offset = idx - activeIndex;
+            if (offset > N / 2) offset -= N;
+            if (offset < -N / 2) offset += N;
+
+            const isActive = offset === 0;
+            const isVisible = Math.abs(offset) <= 3; // Render 7 visible items in 3D wheel arc
+            if (!isVisible) return null;
+
+            // Class mapping based on offset level (-3, -2, -1, 0, 1, 2, 3)
+            const offsetKey =
+              offset < 0
+                ? `left_${Math.abs(offset)}`
+                : offset > 0
+                ? `right_${offset}`
+                : "center";
+            const slotClass = styles[`slot_${offsetKey}`] || "";
 
             return (
               <div
                 key={item.id}
-                onClick={() => setActiveIndex(index)}
-                className={`relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out flex flex-col justify-between p-6 select-none group border border-slate-100 shadow-md ${
-                  isActive
-                    ? "flex-[3.5] bg-slate-900 shadow-xl border-slate-800"
-                    : "flex-1 min-w-[64px] lg:min-w-[76px] bg-slate-950 hover:flex-[1.2]"
-                }`}
+                className={`${styles.rotationalCard} ${slotClass}`}
+                onClick={() => setActiveIndex(idx)}
               >
-                {/* Background Image */}
                 <Image
                   src={item.image}
                   alt={item.category}
-                  fill
-                  className={`object-cover object-center transition-transform duration-700 ease-out ${
-                    isActive ? "scale-105" : "group-hover:scale-110 opacity-70"
-                  }`}
+                  width={isActive ? 500 : 220}
+                  height={isActive ? 600 : 500}
+                  className={styles.cardBgImg}
+                  priority={isActive}
                 />
 
-                {/* Dark Overlay */}
+                {/* Active Text Content Overlay */}
                 <div
-                  className={`absolute inset-0 transition-opacity duration-500 ${
-                    isActive
-                      ? "bg-gradient-to-t from-slate-950 via-slate-950/75 via-60% to-slate-950/40"
-                      : "bg-slate-950/75 group-hover:bg-slate-950/60"
+                  className={`${styles.activeOverlay} ${
+                    isActive ? styles.activeOverlayVisible : styles.activeOverlayHidden
                   }`}
-                />
+                >
+                  <div className={styles.activeContentInner}>
+                    <span className={styles.activeCategory}>{item.category}</span>
+                    <h3 className={styles.activeTitle}>{item.title}</h3>
+                    <p className={styles.activeDesc}>{item.description}</p>
+                    <Link href={item.link || "/services"} className={styles.exploreBtn}>
+                      <span>Explore More</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </div>
 
-                {/* ACTIVE CARD CONTENT */}
-                {isActive ? (
-                  <div className="relative z-10 h-full flex flex-col justify-between text-white animate-fade-in">
-                    {/* Top Tag */}
-                    <div className="inline-self-start">
-                      <span className="text-xs font-bold uppercase tracking-widest text-[#E52B2F] bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
-                        {item.category}
-                      </span>
-                    </div>
-
-                    {/* Bottom Main Details */}
-                    <div className="mt-auto max-w-xl">
-                      <h3 className="text-2xl lg:text-3xl xl:text-4xl font-extrabold text-white tracking-tight leading-tight mb-3">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm lg:text-base text-slate-200 leading-relaxed font-normal mb-6">
-                        {item.description}
-                      </p>
-                      <Link
-                        href={item.link}
-                        className="inline-flex items-center text-sm lg:text-base font-semibold text-white hover:text-[#E52B2F] transition-colors group/link"
+                {/* Inactive Vertical Spelled Name Overlay */}
+                <div
+                  className={`${styles.inactiveOverlay} ${
+                    !isActive ? styles.inactiveOverlayVisible : styles.inactiveOverlayHidden
+                  }`}
+                >
+                  <div className={styles.verticalTextWrap}>
+                    {item.category.toUpperCase().split("").map((char, i) => (
+                      <span
+                        key={i}
+                        className={char === " " ? styles.verticalSpace : styles.verticalChar}
                       >
-                        <span>Explore More</span>
-                        <ArrowRight className="w-5 h-5 ml-2 text-[#E52B2F] group-hover/link:translate-x-1.5 transition-transform" />
-                      </Link>
-                    </div>
+                        {char === " " ? "\u00A0" : char}
+                      </span>
+                    ))}
                   </div>
-                ) : (
-                  /* COLLAPSED CARD CONTENT (Vertical Orientation) */
-                  <div className="relative z-10 h-full flex flex-col justify-end items-center pb-4 text-white">
-                    <span className="writing-mode-vertical text-sm lg:text-base font-bold uppercase tracking-widest text-slate-200 group-hover:text-white whitespace-nowrap">
-                      {item.category}
-                    </span>
-                  </div>
-                )}
+                </div>
               </div>
             );
           })}
         </div>
 
-        {/* MOBILE CAROUSEL (< 768px) */}
-        <div className="md:hidden">
-          <div className="relative rounded-2xl overflow-hidden min-h-[440px] flex flex-col justify-between p-6 bg-slate-900 shadow-lg border border-slate-800">
-            {/* Background Image */}
-            <Image
-              src={industries[activeIndex].image}
-              alt={industries[activeIndex].category}
-              fill
-              className="object-cover object-center"
+        {/* Carousel Dots Navigation */}
+        <div className={styles.carouselDots}>
+          {industries.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setActiveIndex(idx)}
+              aria-label={`Go to slide ${idx + 1}`}
+              className={`${styles.dotBtn} ${idx === activeIndex ? styles.activeDot : ""}`}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 via-60% to-slate-950/40" />
+          ))}
+        </div>
 
-            {/* Top Category Tag */}
-            <div className="relative z-10">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#E52B2F] bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
-                {industries[activeIndex].category}
-              </span>
-            </div>
-
-            {/* Card Content */}
-            <div className="relative z-10 mt-auto text-white">
-              <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-tight mb-2">
-                {industries[activeIndex].title}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-normal mb-5">
-                {industries[activeIndex].description}
-              </p>
-              <Link
-                href={industries[activeIndex].link}
-                className="inline-flex items-center text-sm font-semibold text-white hover:text-[#E52B2F] transition-colors"
+        {/* Mobile Responsive View (< 768px) with Arrow & Pill Navigation */}
+        <div
+          className={styles.mobileCarouselWrapper}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {/* Mobile Pill Nav */}
+          <div className={styles.mobilePillNav}>
+            {industries.map((item, idx) => (
+              <button
+                key={item.id}
+                onClick={() => setActiveIndex(idx)}
+                className={`${styles.mobilePillBtn} ${
+                  idx === activeIndex ? styles.activeMobilePill : ""
+                }`}
               >
-                <span>Explore More</span>
-                <ArrowRight className="w-4 h-4 ml-2 text-[#E52B2F]" />
-              </Link>
-            </div>
+                {item.category}
+              </button>
+            ))}
           </div>
 
-          {/* Mobile Controls & Dots */}
-          <div className="flex items-center justify-between mt-6 px-2">
+          {/* Active Mobile Display Card */}
+          <div className={styles.mobileCardContainer}>
             <button
-              onClick={handlePrevMobile}
-              aria-label="Previous slide"
-              className="p-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 transition-colors"
+              type="button"
+              className={`${styles.mobileNavArrow} ${styles.prevArrow}`}
+              onClick={() => setActiveIndex((prev) => (prev - 1 + N) % N)}
+              aria-label="Previous Industry"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
 
-            {/* Pagination Dots */}
-            <div className="flex items-center space-x-2">
-              {industries.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveIndex(idx)}
-                  aria-label={`Go to slide ${idx + 1}`}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    idx === activeIndex
-                      ? "w-8 bg-[#E52B2F]"
-                      : "w-2.5 bg-slate-300 hover:bg-slate-400"
-                  }`}
-                />
-              ))}
+            <div key={`mobile-card-${activeItem.id}`} className={styles.mobileActiveCard}>
+              <Image
+                src={activeItem.image}
+                alt={activeItem.category}
+                fill
+                className={styles.cardBgImg}
+                priority
+              />
+              <div className={styles.activeOverlay}>
+                <div className={styles.activeContentInner}>
+                  <span className={styles.activeCategory}>{activeItem.category}</span>
+                  <h3 className={styles.activeTitle}>{activeItem.title}</h3>
+                  <p className={styles.activeDesc}>{activeItem.description}</p>
+                  <Link href={activeItem.link || "/services"} className={styles.exploreBtn}>
+                    <span>Explore More</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
             </div>
 
             <button
-              onClick={handleNextMobile}
-              aria-label="Next slide"
-              className="p-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 transition-colors"
+              type="button"
+              className={`${styles.mobileNavArrow} ${styles.nextArrow}`}
+              onClick={() => setActiveIndex((prev) => (prev + 1) % N)}
+              aria-label="Next Industry"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>
         </div>
+
       </div>
     </section>
   );

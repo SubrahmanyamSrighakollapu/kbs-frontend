@@ -52,7 +52,12 @@ export default function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
           {navItems.map((item) => {
-            const isActive = pathname === item.href;
+            const isActive =
+              item.href === "/"
+                ? pathname === "/"
+                : pathname === item.href ||
+                  (item.href !== "/" && pathname?.startsWith(item.href)) ||
+                  (item.href === "/contacts" && pathname === "/contact");
             return (
               <Link
                 key={item.label}
@@ -73,7 +78,7 @@ export default function Header() {
         <div className="flex items-center space-x-3 sm:space-x-4">
           {/* Let's Talk Button */}
           <Link
-            href="#contact"
+            href="/contacts"
             className="hidden sm:inline-flex items-center justify-center px-5 sm:px-6 py-2 sm:py-2.5 rounded-full bg-[#E52B2F] text-white text-xs sm:text-sm font-semibold tracking-wide hover:bg-[#c92226] active:scale-95 transition-all shadow-sm hover:shadow-md"
           >
             Let&apos;s Talk
@@ -174,7 +179,7 @@ export default function Header() {
 
         <div className="p-6 border-t border-slate-100 bg-slate-50">
           <Link
-            href="#contact"
+            href="/contacts"
             onClick={() => setIsMobileMenuOpen(false)}
             className="w-full inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#E52B2F] text-white font-semibold hover:bg-[#c92226] transition-colors shadow-sm text-center"
           >

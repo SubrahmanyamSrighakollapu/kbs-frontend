@@ -3,6 +3,8 @@ export interface VerticalCard {
   title: string;
   subtitle: string;
   description: string;
+  hoverDetails?: string;
+  tags?: string[];
   image: string;
   link: string;
 }
@@ -44,12 +46,12 @@ export interface NavItem {
 }
 
 export const navItems: NavItem[] = [
+  { label: "Home", href: "/" },
   { label: "Who We Are", href: "/about" },
-  { label: "What We Do", href: "/#what-we-do" },
-  { label: "Services & Products", href: "/#services" },
-  { label: "Skill Hub", href: "/#skill-hub" },
-  { label: "Careers", href: "/#careers" },
-  { label: "Contact Us", href: "/#contact" },
+  { label: "Services & Products", href: "/services" },
+  { label: "Skill Hub", href: "/skill-hub" },
+  { label: "Careers", href: "/careers" },
+  { label: "Contact Us", href: "/contacts" },
 ];
 
 export const stats: StatItem[] = [
@@ -89,32 +91,40 @@ export const verticals: VerticalCard[] = [
     title: "Design",
     subtitle: "Creative thinking.",
     description: "Visual experiences.",
+    hoverDetails: "Human-centered UI/UX design, brand identity systems, motion graphics, and interactive prototyping built to elevate digital products.",
+    tags: ["UI/UX", "Branding", "Design Systems"],
     image: "/design.png",
-    link: "#design",
+    link: "/services/ui-ux-design",
   },
   {
     id: "civil",
     title: "Civil & Infrastructure",
     subtitle: "Building spaces.",
     description: "Building the future.",
+    hoverDetails: "Precision BIM modeling, structural engineering, clash detection, 3D architectural detailing, and smart construction management.",
+    tags: ["BIM Modeling", "Structural", "3D Detailing"],
     image: "/civil.png",
-    link: "#civil",
+    link: "/services",
   },
   {
     id: "business",
     title: "Business Solutions",
     subtitle: "Business growth.",
     description: "Operational excellence.",
+    hoverDetails: "Enterprise SaaS platforms, financial infrastructure, automated payouts, workflow optimization, and business venture scaling.",
+    tags: ["Fintech", "Automation", "SaaS Tools"],
     image: "/business.png",
-    link: "#business",
+    link: "/services",
   },
   {
     id: "it",
     title: "Information Technology",
     subtitle: "Intelligent systems.",
     description: "Digital innovation.",
+    hoverDetails: "Scalable web & mobile platforms, cloud architecture, microservices API engineering, AI integration, and 24/7 product support.",
+    tags: ["Full Stack", "Cloud & DevOps", "AI Integration"],
     image: "/it.png",
-    link: "#it",
+    link: "/services/product-engineering",
   },
 ];
 
@@ -147,60 +157,60 @@ export const impactItems: ImpactItem[] = [
 
 export const industries: IndustryItem[] = [
   {
-    id: "technology",
+    id: "it-software",
     category: "Technology",
-    title: "Scalable Cloud Architecture & Enterprise Platforms",
-    description: "Architecting cloud-native solutions that empower global enterprises to innovate faster with unyielding security and speed.",
+    title: "Scalable Cloud Platforms & Enterprise Software",
+    description: "Architecting resilient cloud-native solutions, microservices, and enterprise applications engineered for extreme speed and bank-grade security.",
     image: "/it.png",
-    link: "#technology",
+    link: "/services/product-engineering",
   },
   {
-    id: "education",
-    category: "Education",
-    title: "Next-Gen EdTech & Skill Learning Hubs",
-    description: "Transforming learning environments through interactive digital learning hubs, skill validation, and adaptive assessment tools.",
-    image: "/skills-hub-bg.png",
-    link: "#education",
-  },
-  {
-    id: "manufacturing",
-    category: "Manufacturing",
-    title: "IoT & Smart Factory Operations",
-    description: "Connecting factory operations with real-time analytics, smart sensory monitoring, and predictive operational flow.",
-    image: "/civil.png",
-    link: "#manufacturing",
-  },
-  {
-    id: "consulting",
-    category: "Consulting",
-    title: "AI-Powered Workforce for Digital Innovation",
-    description: "RightlyHR enables IT organizations to manage teams, projects, freelancers, and workforce performance through intelligent automation.",
-    image: "/about-us-bg.png",
-    link: "#consulting",
-  },
-  {
-    id: "logistics",
-    category: "Logistics",
-    title: "Hyperlocal & Global Supply Chain Systems",
-    description: "Optimizing last-mile delivery, fleet management, and automated warehouse tracking with precision location technology.",
+    id: "fintech",
+    category: "Fintech",
+    title: "Financial Infrastructure & Digital Payments",
+    description: "Building secure fintech platforms for payments, payouts, BNPL, lending engines, and real-time transaction processing.",
     image: "/services-bg.png",
-    link: "#logistics",
+    link: "/services",
   },
   {
-    id: "retail",
-    category: "Retail",
-    title: "Omnichannel Commerce & Hyperlocal Marketplaces",
-    description: "Empowering retailers with unified inventory systems, instant checkout experiences, and data-driven customer loyalty.",
+    id: "commerce",
+    category: "Commerce",
+    title: "Multi-Vendor Marketplaces & Retail Systems",
+    description: "Empowering hyperlocal commerce with multi-tenant merchant engines, dynamic delivery logistics, and unified inventory.",
     image: "/business.png",
-    link: "#retail",
+    link: "/services",
   },
   {
-    id: "healthcare",
-    category: "Healthcare",
-    title: "Telehealth & Intelligent Health Record Platforms",
-    description: "Building secure, compliant health platforms that connect patients, practitioners, and medical devices seamlessly.",
-    image: "/design.png",
-    link: "#healthcare",
+    id: "business-solutions",
+    category: "Business",
+    title: "AI-Driven Enterprise Automation & SaaS Tools",
+    description: "KBS IT empowers enterprises to optimize workflows, team operations, and business performance through intelligent automation.",
+    image: "/about-us-bg.png",
+    link: "/services/ai-automation",
+  },
+  {
+    id: "civil-infra",
+    category: "Civil & Infra",
+    title: "BIM Modeling & Smart Construction Tech",
+    description: "Delivering precision 3D BIM modeling, structural detailing, clash detection, and digital engineering for modern spaces.",
+    image: "/civil.png",
+    link: "/about",
+  },
+  {
+    id: "ui-ux-design",
+    category: "Design",
+    title: "Human-Centered Product Design & Branding",
+    description: "Crafting engaging digital experiences, scalable Figma design systems, motion graphics, and brand identity systems.",
+    image: "/about-us-ui-design.png",
+    link: "/services/ui-ux-design",
+  },
+  {
+    id: "skill-hub",
+    category: "Skill Hub",
+    title: "Next-Gen Technical Training & Upskilling",
+    description: "Transforming workforce learning with hands-on technical bootcamps, skill validation, and industry certification hubs.",
+    image: "/skills-hub-bg.png",
+    link: "/skill-hub",
   },
 ];
 
