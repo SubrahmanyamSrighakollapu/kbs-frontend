@@ -36,7 +36,7 @@ export default function Header() {
             : "bg-white/80 backdrop-blur-md py-4 md:py-5 border-b border-[#0F2346]/10"
           : isScrolled
           ? "bg-[#03142B]/85 backdrop-blur-md border-b border-[#82A0FF]/15 shadow-xl py-3"
-          : "bg-transparent py-4 md:py-5 border-b border-white/10"
+          : "bg-transparent py-4 md:py-5 border-b border-transparent"
       }`}
     >
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">

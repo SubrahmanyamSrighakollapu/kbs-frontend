@@ -1,78 +1,253 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+
+interface HeroSlide {
+  id: string;
+  mediaType: "video" | "image";
+  mediaSrc: string;
+  eyebrow: string;
+  titlePrefix: string;
+  titleHighlight: string;
+  description: string;
+  primaryCtaText: string;
+  primaryCtaLink: string;
+  secondaryCtaText: string;
+  secondaryCtaLink: string;
+  tabLabel: string;
+}
+
+const slides: HeroSlide[] = [
+  {
+    id: "hero-group",
+    mediaType: "video",
+    mediaSrc: "/hero-bg-animated.mp4",
+    eyebrow: "ONE GROUP. MANY POSSIBILITIES.",
+    titlePrefix: "Building Today.",
+    titleHighlight: "Creating a Better Tomorrow.",
+    description:
+      "KBS Group unites innovation, construction, creativity and technology across diverse verticals to deliver enterprise scale and real-world impact.",
+    primaryCtaText: "Explore Our Verticals",
+    primaryCtaLink: "/services-products",
+    secondaryCtaText: "About KBS Group",
+    secondaryCtaLink: "/about",
+    tabLabel: "01 Group Vision",
+  },
+  {
+    id: "hero-tech",
+    mediaType: "video",
+    mediaSrc: "/hero-bg-2-animated.mp4",
+    eyebrow: "ENTERPRISE TECHNOLOGY & AI",
+    titlePrefix: "Engineered for Scale.",
+    titleHighlight: "Driven by Intelligence.",
+    description:
+      "Empowering enterprises with cloud-native architecture, AI-driven automation, and secure custom software engineering for digital transformation.",
+    primaryCtaText: "Discover IT Services",
+    primaryCtaLink: "/services-products",
+    secondaryCtaText: "View Skill Hub",
+    secondaryCtaLink: "/skill-hub",
+    tabLabel: "02 Tech & AI",
+  },
+  {
+    id: "hero-infrastructure",
+    mediaType: "image",
+    mediaSrc: "/hero-bg-3.png",
+    eyebrow: "INFRASTRUCTURE & CREATIVE MEDIA",
+    titlePrefix: "Designing Spaces.",
+    titleHighlight: "Shaping Brand Futures.",
+    description:
+      "From sustainable construction and smart infrastructure to high-impact creative media and strategic business growth solutions.",
+    primaryCtaText: "Products & Services",
+    primaryCtaLink: "/services-products",
+    secondaryCtaText: "Contact Us",
+    secondaryCtaLink: "/contact",
+    tabLabel: "03 Infrastructure",
+  },
+];
 
 export default function HeroSection() {
-  return (
-    <section className="relative pt-24 sm:pt-28 md:pt-32 pb-24 sm:pb-28 lg:pb-32 w-full overflow-hidden flex items-center bg-[#03142B] text-white">
-      {/* Background Futuristic City Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/hero-bg.png"
-          alt="KBS Group Futuristic City & Infrastructure"
-          fill
-          priority
-          className="object-cover object-center lg:object-right transition-transform duration-1000 scale-100"
-        />
-        
-        {/* Primary Navy Overlay: Left-to-Right Fade */}
-        <div 
-          className="absolute inset-0" 
-          style={{
-            background: "linear-gradient(90deg, rgba(2, 12, 32, 0.98) 0%, rgba(3, 18, 48, 0.90) 34%, rgba(4, 22, 55, 0.55) 60%, rgba(4, 15, 35, 0.15) 100%)"
-          }}
-        />
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
-        {/* Mobile/Tablet Bottom Gradient for Readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#03142B] via-transparent to-transparent md:hidden" />
-      </div>
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 6500);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  const handlePrev = () => {
+    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  };
+
+  const activeSlide = slides[currentSlide];
+
+  return (
+    <section
+      className="relative pt-32 sm:pt-36 lg:pt-40 pb-36 sm:pb-40 lg:pb-44 w-full min-h-[600px] lg:min-h-[660px] overflow-hidden flex items-center bg-[#03142B] text-white select-none"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/* Background Video & Image Carousel with Ultra-Sharp Clarity */}
+      {slides.map((slide, idx) => {
+        const isActive = idx === currentSlide;
+
+        return (
+          <div
+            key={slide.id}
+            className={`absolute inset-0 z-0 transition-opacity duration-1000 ease-in-out ${
+              isActive ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+            }`}
+          >
+            {slide.mediaType === "video" ? (
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover object-center lg:object-right pointer-events-none scale-[1.06] brightness-[1.08] contrast-[1.05] saturate-[1.1]"
+              >
+                <source src={slide.mediaSrc} type="video/mp4" />
+              </video>
+            ) : (
+              <Image
+                src={slide.mediaSrc}
+                alt={slide.eyebrow}
+                fill
+                priority={idx === 0}
+                unoptimized
+                className="object-cover object-center lg:object-right brightness-[1.08] contrast-[1.05] saturate-[1.1]"
+              />
+            )}
+
+            {/* Left Gradient: Text Legibility on Left (0-45%), 100% Untouched Crystal Clarity on Right */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(90deg, rgba(2, 12, 32, 0.98) 0%, rgba(3, 16, 42, 0.85) 35%, rgba(3, 16, 42, 0.2) 55%, transparent 75%)",
+              }}
+            />
+
+            {/* Mobile/Tablet Bottom Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#03142B] via-transparent to-transparent md:hidden" />
+          </div>
+        );
+      })}
+
+      {/* SHARP SIDE NAVIGATION ARROWS (Left & Right Edges - No Overlap) */}
+      <button
+        onClick={handlePrev}
+        aria-label="Previous Hero Slide"
+        className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-none bg-[#03142B]/80 hover:bg-[#168BFF] text-white border border-white/20 hover:border-[#168BFF] backdrop-blur-md transition-all shadow-2xl items-center justify-center group"
+      >
+        <ChevronLeft className="w-6 h-6 group-hover:-translate-x-0.5 transition-transform" />
+      </button>
+
+      <button
+        onClick={handleNext}
+        aria-label="Next Hero Slide"
+        className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-none bg-[#03142B]/80 hover:bg-[#168BFF] text-white border border-white/20 hover:border-[#168BFF] backdrop-blur-md transition-all shadow-2xl items-center justify-center group"
+      >
+        <ChevronRight className="w-6 h-6 group-hover:translate-x-0.5 transition-transform" />
+      </button>
 
       {/* Hero Content Container */}
-      <div className="relative z-10 max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div className="relative z-10 max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-12 w-full">
         <div className="max-w-2xl lg:max-w-3xl">
-          {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 mb-4 sm:mb-5">
-            <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] bg-clip-text text-transparent">
-              ONE GROUP. MANY POSSIBILITIES.
-            </span>
+          {/* Animated Slide Content Block */}
+          <div key={`hero-slide-${currentSlide}`} className="animate-fade-in">
+            {/* Eyebrow */}
+            <div className="inline-flex items-center gap-2 mb-3 sm:mb-4">
+              <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] bg-clip-text text-transparent">
+                {activeSlide.eyebrow}
+              </span>
+            </div>
+
+            {/* Main Heading */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] mb-5">
+              {activeSlide.titlePrefix} <br />
+              <span className="bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#B72CFF] bg-clip-text text-transparent inline-block">
+                {activeSlide.titleHighlight}
+              </span>
+            </h1>
+
+            {/* Supporting Copy */}
+            <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-xl mb-8">
+              {activeSlide.description}
+            </p>
+
+            {/* Hero CTAs */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              <Link
+                href={activeSlide.primaryCtaLink}
+                className="inline-flex items-center justify-center px-7 py-3.5 sm:py-4 rounded-xl bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] text-white text-sm sm:text-base font-semibold hover:opacity-95 hover:-translate-y-0.5 active:scale-95 transition-all shadow-lg hover:shadow-xl group"
+              >
+                {activeSlide.primaryCtaText}
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2.5 group-hover:translate-x-1.5 transition-transform" />
+              </Link>
+
+              <Link
+                href={activeSlide.secondaryCtaLink}
+                className="inline-flex items-center justify-center px-7 py-3.5 sm:py-4 rounded-xl bg-white/5 backdrop-blur-md text-white border border-white/20 text-sm sm:text-base font-semibold hover:bg-white/10 hover:border-white/40 active:scale-95 transition-all"
+              >
+                {activeSlide.secondaryCtaText}
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* SHARP SLIDE INDICATOR TABS (Anchored safely above Stats bar) */}
+        <div className="mt-12 sm:mt-16 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6">
+          {/* Sharp Slide Tabs */}
+          <div className="flex items-center gap-2 sm:gap-4 overflow-x-auto no-scrollbar">
+            {slides.map((slide, idx) => {
+              const isActive = idx === currentSlide;
+
+              return (
+                <button
+                  key={slide.id}
+                  onClick={() => setCurrentSlide(idx)}
+                  className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold tracking-wide rounded-none transition-all border ${
+                    isActive
+                      ? "bg-gradient-to-r from-[#168BFF] to-[#6657FF] text-white border-[#6657FF] shadow-lg"
+                      : "bg-white/5 text-slate-400 border-white/10 hover:text-white hover:border-white/30"
+                  }`}
+                >
+                  {slide.tabLabel}
+                </button>
+              );
+            })}
           </div>
 
-          {/* Main Heading */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
-            Building Today. <br />
-            <span className="bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#B72CFF] bg-clip-text text-transparent inline-block">
-              Creating a Better Tomorrow.
-            </span>
-          </h1>
-
-          {/* Supporting Copy */}
-          <p className="text-base sm:text-lg lg:text-xl text-slate-300 font-normal leading-relaxed max-w-xl mb-8 sm:mb-10">
-            KBS Group unites innovation, construction, creativity and technology across diverse verticals to deliver real-world impact.
-          </p>
-
-          {/* Hero CTAs */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-            <Link
-              href="#verticals"
-              className="inline-flex items-center justify-center px-7 py-3.5 sm:py-4 rounded-xl bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] text-white text-sm sm:text-base font-semibold hover:opacity-95 hover:-translate-y-0.5 active:scale-95 transition-all shadow-lg hover:shadow-xl group"
+          {/* Mobile Sharp Arrow Navigation Controls */}
+          <div className="flex md:hidden items-center gap-2 ml-auto">
+            <button
+              onClick={handlePrev}
+              aria-label="Previous Slide"
+              className="w-9 h-9 rounded-none bg-white/10 text-white flex items-center justify-center border border-white/20 active:scale-90"
             >
-              Explore Our Verticals
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2.5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-
-            <Link
-              href="/about"
-              className="inline-flex items-center justify-center px-7 py-3.5 sm:py-4 rounded-xl bg-white/5 backdrop-blur-md text-white border border-white/20 text-sm sm:text-base font-semibold hover:bg-white/10 hover:border-white/40 active:scale-95 transition-all"
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={handleNext}
+              aria-label="Next Slide"
+              className="w-9 h-9 rounded-none bg-white/10 text-white flex items-center justify-center border border-white/20 active:scale-90"
             >
-              About KBS Group
-            </Link>
+              <ChevronRight className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </div>
     </section>
   );
 }
-

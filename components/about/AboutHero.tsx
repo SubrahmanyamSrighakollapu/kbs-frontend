@@ -7,15 +7,17 @@ import Link from "next/link";
 export default function AboutHero() {
   return (
     <section className="relative w-full pt-28 sm:pt-32 pb-20 sm:pb-24 lg:pb-28 overflow-hidden flex items-center bg-[#03142B] text-white">
-      {/* Background Team Photograph */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/about-us-bg.png"
-          alt="KBS Information Technology Team Collaboration"
-          fill
-          priority
-          className="object-cover object-center lg:object-right transition-transform duration-1000 scale-100"
-        />
+      {/* Background Animated Video */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover object-center lg:object-right pointer-events-none"
+        >
+          <source src="/about-bg-animated.mp4" type="video/mp4" />
+        </video>
         
         {/* Navy Left-to-Right Gradient Overlay */}
         <div

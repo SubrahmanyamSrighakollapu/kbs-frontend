@@ -1,0 +1,813 @@
+/* ==========================================================================
+   HomeIndustriesnew Stylesheet
+   Applies to: Home Page 3D Coverflow / Accordion Industries Section
+   - Active Card: Blended /industries-bg.png
+   - Side Cards: Blended /industries-side-bg.png
+   - Text Alignment: PERFECT VERTICAL & HORIZONTAL CENTERING FOR ALL SIDE CARDS
+   ========================================================================== */
+
+.industriesSection {
+  padding: 80px 0;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .industriesSection {
+    padding: 50px 0;
+  }
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+@media (max-width: 768px) {
+  .heading {
+    margin-bottom: 28px;
+  }
+}
+
+.pillBadge {
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: rgba(102, 87, 255, 0.1);
+  border: 1px solid rgba(102, 87, 255, 0.2);
+  color: #6657FF;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.sectionDesc {
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  font-weight: 400;
+  color: #64748B;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ---------- 3D ROTATIONAL CIRCULAR CAROUSEL WHEEL TRACK ---------- */
+.coverflowContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1380px;
+  min-height: 480px;
+  margin: 0 auto;
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1399px) {
+  .coverflowContainer {
+    min-height: 440px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .coverflowContainer {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 767px) {
+  .coverflowContainer {
+    display: none;
+  }
+}
+
+/* 3D Rotational Circular Wheel Card Base */
+.rotationalCard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  background: #F8FAFF;
+  border: 1.5px solid rgba(102, 87, 255, 0.2);
+  box-shadow: 0px 10px 25px 0px rgba(15, 23, 42, 0.06);
+  transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+    width 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+    height 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+    border-radius 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+    background 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity, width, height;
+}
+
+.rotationalCard:hover {
+  background: #EEF2FF;
+  border-color: rgba(102, 87, 255, 0.4);
+}
+
+/* Slot Positions - Proportional Dimensions matching Image 1 */
+.slot_center {
+  width: 480px;
+  height: 380px;
+  border-radius: 22px;
+  transform: translate(-50%, -50%) translate3d(0, 0, 0px);
+  z-index: 30;
+  opacity: 1;
+  filter: brightness(1);
+  background: #ffffff;
+  border: 1.5px solid rgba(124, 58, 237, 0.35);
+  box-shadow: 
+    0 20px 45px -10px rgba(99, 102, 241, 0.25),
+    0 0 25px 2px rgba(165, 43, 255, 0.15);
+}
+
+@media (max-width: 1399px) {
+  .slot_center {
+    width: 420px;
+    height: 350px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .slot_center {
+    width: 370px;
+    height: 330px;
+  }
+}
+
+@media (max-width: 991px) {
+  .slot_center {
+    width: 310px;
+    height: 310px;
+  }
+}
+
+.slot_left_1 {
+  width: 90px;
+  height: 340px;
+  border-radius: 16px;
+  transform: translate(-50%, -50%) translate3d(-300px, 0, 0px);
+  z-index: 20;
+  opacity: 1;
+  filter: brightness(0.98);
+}
+
+@media (max-width: 1399px) {
+  .slot_left_1 {
+    width: 76px;
+    height: 310px;
+    transform: translate(-50%, -50%) translate3d(-260px, 0, 0px);
+  }
+}
+
+@media (max-width: 1199px) {
+  .slot_left_1 {
+    width: 64px;
+    height: 290px;
+    transform: translate(-50%, -50%) translate3d(-220px, 0, 0px);
+  }
+}
+
+@media (max-width: 991px) {
+  .slot_left_1 {
+    width: 52px;
+    height: 270px;
+    transform: translate(-50%, -50%) translate3d(-180px, 0, 0px);
+  }
+}
+
+.slot_left_2 {
+  width: 90px;
+  height: 300px;
+  border-radius: 14px;
+  transform: translate(-50%, -50%) translate3d(-405px, 0, 0px);
+  z-index: 15;
+  opacity: 1;
+  filter: brightness(0.95);
+}
+
+@media (max-width: 1399px) {
+  .slot_left_2 {
+    width: 76px;
+    height: 270px;
+    transform: translate(-50%, -50%) translate3d(-350px, 0, 0px);
+  }
+}
+
+@media (max-width: 1199px) {
+  .slot_left_2 {
+    width: 58px;
+    height: 250px;
+    transform: translate(-50%, -50%) translate3d(-290px, 0, 0px);
+  }
+}
+
+@media (max-width: 991px) {
+  .slot_left_2 {
+    width: 46px;
+    height: 230px;
+    transform: translate(-50%, -50%) translate3d(-235px, 0, 0px);
+  }
+}
+
+.slot_left_3 {
+  width: 90px;
+  height: 260px;
+  border-radius: 12px;
+  transform: translate(-50%, -50%) translate3d(-510px, 0, 0px);
+  z-index: 10;
+  opacity: 1;
+  filter: brightness(0.9);
+}
+
+@media (max-width: 1399px) {
+  .slot_left_3 {
+    width: 76px;
+    height: 230px;
+    transform: translate(-50%, -50%) translate3d(-435px, 0, 0px);
+  }
+}
+
+@media (max-width: 1199px) {
+  .slot_left_3 {
+    width: 52px;
+    height: 210px;
+    transform: translate(-50%, -50%) translate3d(-355px, 0, 0px);
+    opacity: 0.85;
+    pointer-events: auto;
+  }
+}
+
+@media (max-width: 991px) {
+  .slot_left_3 {
+    width: 42px;
+    height: 190px;
+    transform: translate(-50%, -50%) translate3d(-285px, 0, 0px);
+    opacity: 0.85;
+    pointer-events: auto;
+  }
+}
+
+.slot_right_1 {
+  width: 90px;
+  height: 340px;
+  border-radius: 16px;
+  transform: translate(-50%, -50%) translate3d(300px, 0, 0px);
+  z-index: 20;
+  opacity: 1;
+  filter: brightness(0.98);
+}
+
+@media (max-width: 1399px) {
+  .slot_right_1 {
+    width: 76px;
+    height: 310px;
+    transform: translate(-50%, -50%) translate3d(260px, 0, 0px);
+  }
+}
+
+@media (max-width: 1199px) {
+  .slot_right_1 {
+    width: 64px;
+    height: 290px;
+    transform: translate(-50%, -50%) translate3d(220px, 0, 0px);
+  }
+}
+
+@media (max-width: 991px) {
+  .slot_right_1 {
+    width: 52px;
+    height: 270px;
+    transform: translate(-50%, -50%) translate3d(180px, 0, 0px);
+  }
+}
+
+.slot_right_2 {
+  width: 90px;
+  height: 300px;
+  border-radius: 14px;
+  transform: translate(-50%, -50%) translate3d(405px, 0, 0px);
+  z-index: 15;
+  opacity: 1;
+  filter: brightness(0.95);
+}
+
+@media (max-width: 1399px) {
+  .slot_right_2 {
+    width: 76px;
+    height: 270px;
+    transform: translate(-50%, -50%) translate3d(350px, 0, 0px);
+  }
+}
+
+@media (max-width: 1199px) {
+  .slot_right_2 {
+    width: 58px;
+    height: 250px;
+    transform: translate(-50%, -50%) translate3d(290px, 0, 0px);
+  }
+}
+
+@media (max-width: 991px) {
+  .slot_right_2 {
+    width: 46px;
+    height: 230px;
+    transform: translate(-50%, -50%) translate3d(235px, 0, 0px);
+  }
+}
+
+.slot_right_3 {
+  width: 90px;
+  height: 260px;
+  border-radius: 12px;
+  transform: translate(-50%, -50%) translate3d(510px, 0, 0px);
+  z-index: 10;
+  opacity: 1;
+  filter: brightness(0.9);
+}
+
+@media (max-width: 1399px) {
+  .slot_right_3 {
+    width: 76px;
+    height: 230px;
+    transform: translate(-50%, -50%) translate3d(435px, 0, 0px);
+  }
+}
+
+@media (max-width: 1199px) {
+  .slot_right_3 {
+    width: 52px;
+    height: 210px;
+    transform: translate(-50%, -50%) translate3d(355px, 0, 0px);
+    opacity: 0.85;
+    pointer-events: auto;
+  }
+}
+
+@media (max-width: 991px) {
+  .slot_right_3 {
+    width: 42px;
+    height: 190px;
+    transform: translate(-50%, -50%) translate3d(285px, 0, 0px);
+    opacity: 0.85;
+    pointer-events: auto;
+  }
+}
+
+/* ---------- ACTIVE CARD BACKGROUND IMAGE & BLENDING ---------- */
+.activeBgImageWrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.activeBgImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  opacity: 0.95;
+  transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rotationalCard:hover .activeBgImg {
+  transform: scale(1.03);
+}
+
+/* Soft gradient overlay on left for 100% text readability while keeping globe crisp on right */
+.activeBgFadeOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    #FFFFFF 0%,
+    rgba(255, 255, 255, 0.96) 42%,
+    rgba(255, 255, 255, 0.5) 70%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+}
+
+/* ---------- INACTIVE SIDE CARDS BACKGROUND IMAGE (/industries-side-bg.png) ---------- */
+.inactiveBgImageWrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.inactiveBgImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.85;
+  transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.rotationalCard:hover .inactiveBgImg {
+  transform: scale(1.06);
+  opacity: 1;
+}
+
+.inactiveBgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(248, 250, 255, 0.25) 0%, rgba(238, 242, 255, 0.55) 100%);
+  pointer-events: none;
+}
+
+/* Inactive Side Card Layout - EXACT VERTICAL & HORIZONTAL CENTERING */
+.inactiveOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center; /* Centered in exact vertical middle of every side card */
+  justify-content: center; /* Centered in exact horizontal middle */
+  padding: 12px 0;
+  transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
+  z-index: 5;
+}
+
+.inactiveOverlayVisible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.inactiveOverlayHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.verticalTextWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  user-select: none;
+  pointer-events: none;
+}
+
+@media (max-width: 1399px) {
+  .verticalTextWrap {
+    gap: 2.5px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .verticalTextWrap {
+    gap: 2px;
+  }
+}
+
+@media (max-width: 991px) {
+  .verticalTextWrap {
+    gap: 1.5px;
+  }
+}
+
+.verticalChar {
+  font-family: inherit;
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #334155;
+  line-height: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.9);
+  transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+.rotationalCard:hover .verticalChar {
+  color: #0F172A;
+}
+
+@media (max-width: 1399px) {
+  .verticalChar {
+    font-size: 10.5px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .verticalChar {
+    font-size: 9.5px;
+  }
+}
+
+@media (max-width: 991px) {
+  .verticalChar {
+    font-size: 8.5px;
+  }
+}
+
+.verticalSpace {
+  display: block;
+  height: 8px;
+}
+
+/* Active Card Content Overlay */
+.activeOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 36px 38px;
+  color: #0F172A;
+  transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
+  overflow: hidden;
+  z-index: 10;
+}
+
+@media (max-width: 1399px) {
+  .activeOverlay {
+    padding: 30px 30px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .activeOverlay {
+    padding: 24px 24px;
+  }
+}
+
+.activeContentInner {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+@media (max-width: 1399px) {
+  .activeContentInner {
+    max-width: 260px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .activeContentInner {
+    max-width: 230px;
+  }
+}
+
+.activeOverlayVisible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.activeOverlayHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.activeCategoryText {
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6657FF;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 1199px) {
+  .activeCategoryText {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+}
+
+.activeTitle {
+  font-size: clamp(1.4rem, 2vw, 1.75rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: #0F172A;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 1199px) {
+  .activeTitle {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 991px) {
+  .activeTitle {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+}
+
+.activeDesc {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.55;
+  text-align: left;
+  color: #475569;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 1199px) {
+  .activeDesc {
+    font-size: 12.5px;
+    margin-bottom: 18px;
+  }
+}
+
+.exploreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0F172A;
+  transition: all 0.3s ease;
+  width: max-content;
+}
+
+.exploreBtn:hover {
+  color: #6657FF;
+}
+
+/* ---------- NAV DOTS / AUTOPLAY CONTROLS ---------- */
+.carouselDots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 40px;
+}
+
+@media (max-width: 767px) {
+  .carouselDots {
+    display: none;
+  }
+}
+
+.dotBtn {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 0;
+  background: #CBD5E1;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
+}
+
+.activeDot {
+  width: 32px;
+  background: linear-gradient(90deg, #168BFF 0%, #6657FF 100%);
+}
+
+/* ---------- MOBILE RESPONSIVE CAROUSEL (< 768px) ---------- */
+.mobileCarouselWrapper {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .mobileCarouselWrapper {
+    display: block;
+    padding: 0 0.5rem;
+  }
+}
+
+.mobilePillNav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  scrollbar-width: none;
+}
+
+.mobilePillNav::-webkit-scrollbar {
+  display: none;
+}
+
+.mobilePillBtn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #ffffff;
+  color: #475569;
+  border: 1px solid #E2E8F0;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.activeMobilePill {
+  background: linear-gradient(90deg, #168BFF 0%, #6657FF 100%);
+  color: #ffffff !important;
+  border-color: #6657FF;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(102, 87, 255, 0.35);
+}
+
+.mobileCardContainer {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileNavArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  color: #0F172A;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mobileNavArrow:hover {
+  background: #ffffff;
+  color: #6657FF;
+  border-color: #6657FF;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prevArrow {
+  left: 8px;
+}
+
+.nextArrow {
+  right: 8px;
+}
+
+.mobileActiveCard {
+  position: relative;
+  width: 100%;
+  min-height: 360px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1.5px solid rgba(124, 58, 237, 0.35);
+  box-shadow: 0 12px 32px rgba(102, 87, 255, 0.15);
+  padding: 28px 24px;
+}
+
+@media (max-width: 575px) {
+  .mobileActiveCard {
+    min-height: 340px;
+    border-radius: 16px;
+    padding: 24px 20px;
+  }
+}

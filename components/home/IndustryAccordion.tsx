@@ -1,189 +1,225 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { industries } from "@/data/home";
-import { ArrowRight, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import styles from "./HomeIndustriesnew.module.css";
 
 export default function IndustryAccordion() {
-  // Default active index: Consulting (index 3)
-  const [activeIndex, setActiveIndex] = useState<number>(3);
+  const [activeIndex, setActiveIndex] = useState(3); // Start with Consulting active (center node)
+  const [isPaused, setIsPaused] = useState(false);
 
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev === 0 ? industries.length - 1 : prev - 1));
-  };
+  useEffect(() => {
+    if (isPaused) return;
+    if (typeof window !== "undefined" && window.innerWidth <= 767) return;
 
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev === industries.length - 1 ? 0 : prev + 1));
-  };
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % industries.length);
+    }, 5000); // Auto change every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  const N = industries.length;
+  const activeItem = industries[activeIndex];
 
   return (
-    <section className="bg-white py-16 sm:py-24 lg:py-28 overflow-hidden">
-      <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className={styles.industriesSection}>
+      <div className="max-w-[1480px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <span className="text-xs sm:text-sm font-bold uppercase tracking-widest bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] bg-clip-text text-transparent block mb-2">
+        <div className={styles.heading}>
+          <span className={styles.pillBadge}>
             EXPANDING CAPABILITIES
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111827] tracking-tight">
+          <h2 className={styles.sectionTitle}>
             End-to-End Solutions Across Key Sectors
           </h2>
+          <p className={styles.sectionDesc}>
+            Every industry has unique demands. KBS IT engineers cloud-native platforms, AI automation, and scalable systems tailored for enterprise growth.
+          </p>
         </div>
 
-        {/* Accordion Container with Side Nav Controls */}
-        <div className="relative flex items-center gap-3 sm:gap-4">
-          {/* Left Nav Button */}
-          <button
-            onClick={handlePrev}
-            aria-label="Previous capability"
-            className="hidden lg:flex shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-[#168BFF] to-[#6657FF] text-white items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-all z-10"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
+        {/* 3D Rotational Circular Carousel Wheel Container (Desktop/Tablet) */}
+        <div
+          className={styles.coverflowContainer}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {industries.map((item, idx) => {
+            // Calculate offset relative to activeIndex for circular 3D rotational wheel
+            let offset = idx - activeIndex;
+            if (offset > N / 2) offset -= N;
+            if (offset < -N / 2) offset += N;
 
-          {/* DESKTOP/TABLET: 7-Panel Interactive Expanding Accordion */}
-          <div className="hidden md:flex h-[480px] lg:h-[520px] gap-3 lg:gap-4 items-stretch justify-center w-full">
-            {industries.map((item, index) => {
-              const isActive = index === activeIndex;
+            const isActive = offset === 0;
+            const isVisible = Math.abs(offset) <= 3; // Render 7 visible items in 3D wheel arc
+            if (!isVisible) return null;
 
-              return (
+            // Class mapping based on offset level (-3, -2, -1, 0, 1, 2, 3)
+            const offsetKey =
+              offset < 0
+                ? `left_${Math.abs(offset)}`
+                : offset > 0
+                ? `right_${offset}`
+                : "center";
+            const slotClass = styles[`slot_${offsetKey}`] || "";
+
+            return (
+              <div
+                key={item.id}
+                className={`${styles.rotationalCard} ${slotClass}`}
+                onClick={() => setActiveIndex(idx)}
+              >
+                {/* Active Card Blended Background (/industries-bg.png) */}
+                {isActive && (
+                  <div className={styles.activeBgImageWrapper}>
+                    <Image
+                      src="/industries-bg.png"
+                      alt="Industries Background"
+                      fill
+                      className={styles.activeBgImg}
+                      priority
+                    />
+                    <div className={styles.activeBgFadeOverlay} />
+                  </div>
+                )}
+
+                {/* Inactive Side Cards Background (/industries-side-bg.png) */}
+                {!isActive && (
+                  <div className={styles.inactiveBgImageWrapper}>
+                    <Image
+                      src="/industries-side-bg.png"
+                      alt={`${item.category} background`}
+                      fill
+                      className={styles.inactiveBgImg}
+                    />
+                    <div className={styles.inactiveBgOverlay} />
+                  </div>
+                )}
+
+                {/* Active Text Content Overlay */}
                 <div
-                  key={item.id}
-                  onClick={() => setActiveIndex(index)}
-                  className={`relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out flex flex-col justify-between p-6 sm:p-8 select-none border ${
-                    isActive
-                      ? "flex-[3.5] bg-gradient-to-br from-[#F3F6FF] via-[#EBF0FF] to-[#F8FAFF] border-[#6657FF]/40 shadow-xl"
-                      : "flex-1 min-w-[60px] lg:min-w-[72px] bg-[#F8FAFF] hover:bg-[#EEF2FF] border-[#0F2346]/10 hover:border-[#6657FF]/30"
+                  className={`${styles.activeOverlay} ${
+                    isActive ? styles.activeOverlayVisible : styles.activeOverlayHidden
                   }`}
                 >
-                  {/* Subtle Background Pattern for Active Card */}
-                  {isActive && (
-                    <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-30">
-                      <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-gradient-to-br from-[#168BFF] to-[#A52BFF] blur-3xl" />
-                      <Image
-                        src={item.image}
-                        alt={item.category}
-                        fill
-                        className="object-cover object-center opacity-10 mix-blend-multiply"
-                      />
-                    </div>
-                  )}
-
-                  {/* ACTIVE CARD CONTENT */}
-                  {isActive ? (
-                    <div className="relative z-10 h-full flex flex-col justify-between text-[#111827] animate-fade-in">
-                      {/* Top Tag */}
-                      <div className="inline-self-start">
-                        <span className="text-xs font-bold uppercase tracking-widest text-[#6657FF] bg-[#6657FF]/10 px-3.5 py-1.5 rounded-full border border-[#6657FF]/20 flex items-center gap-1.5 w-max">
-                          <Sparkles className="w-3.5 h-3.5" />
-                          {item.category}
-                        </span>
-                      </div>
-
-                      {/* Bottom Details */}
-                      <div className="mt-auto max-w-xl">
-                        <h3 className="text-2xl lg:text-3xl xl:text-4xl font-extrabold text-[#111827] tracking-tight leading-tight mb-4">
-                          {item.title}
-                        </h3>
-                        <p className="text-sm lg:text-base text-[#5B6475] leading-relaxed font-normal mb-6">
-                          {item.description}
-                        </p>
-                        <Link
-                          href={item.link}
-                          className="inline-flex items-center text-sm lg:text-base font-semibold text-[#168BFF] hover:text-[#6657FF] transition-colors group/link"
-                        >
-                          <span>Explore More</span>
-                          <ArrowRight className="w-5 h-5 ml-2 group-hover/link:translate-x-1.5 transition-transform" />
-                        </Link>
-                      </div>
-                    </div>
-                  ) : (
-                    /* COLLAPSED CARD CONTENT (Vertical Orientation) */
-                    <div className="relative z-10 h-full flex flex-col justify-end items-center pb-4 text-[#111827]">
-                      <span className="writing-mode-vertical text-sm lg:text-base font-bold uppercase tracking-widest text-[#5B6475] hover:text-[#111827] whitespace-nowrap">
-                        {item.category}
-                      </span>
-                    </div>
-                  )}
+                  <div className={styles.activeContentInner}>
+                    <span className={styles.activeCategoryText}>{item.category}</span>
+                    <h3 className={styles.activeTitle}>{item.title}</h3>
+                    <p className={styles.activeDesc}>{item.description}</p>
+                    <Link href={item.link || "/services-products"} className={styles.exploreBtn}>
+                      <span>Explore More</span>
+                      <ArrowRight className="w-4.5 h-4.5 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </div>
                 </div>
-              );
-            })}
-          </div>
 
-          {/* Right Nav Button */}
-          <button
-            onClick={handleNext}
-            aria-label="Next capability"
-            className="hidden lg:flex shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-[#6657FF] to-[#A52BFF] text-white items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-all z-10"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
+                {/* Inactive Vertical Spelled Name Overlay */}
+                <div
+                  className={`${styles.inactiveOverlay} ${
+                    !isActive ? styles.inactiveOverlayVisible : styles.inactiveOverlayHidden
+                  }`}
+                >
+                  <div className={styles.verticalTextWrap}>
+                    {item.category.toUpperCase().split("").map((char, i) => (
+                      <span
+                        key={i}
+                        className={char === " " ? styles.verticalSpace : styles.verticalChar}
+                      >
+                        {char === " " ? "\u00A0" : char}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
-        {/* MOBILE CAROUSEL (< 768px) */}
-        <div className="md:hidden">
-          <div className="relative rounded-2xl overflow-hidden min-h-[380px] flex flex-col justify-between p-6 bg-gradient-to-br from-[#F3F6FF] to-[#F8FAFF] border border-[#6657FF]/30 shadow-lg">
-            <div className="relative z-10">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#6657FF] bg-[#6657FF]/10 px-3 py-1 rounded-full border border-[#6657FF]/20">
-                {industries[activeIndex].category}
-              </span>
-            </div>
+        {/* Carousel Dots Navigation */}
+        <div className={styles.carouselDots}>
+          {industries.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setActiveIndex(idx)}
+              aria-label={`Go to slide ${idx + 1}`}
+              className={`${styles.dotBtn} ${idx === activeIndex ? styles.activeDot : ""}`}
+            />
+          ))}
+        </div>
 
-            <div className="relative z-10 mt-auto text-[#111827]">
-              <h3 className="text-xl sm:text-2xl font-extrabold text-[#111827] tracking-tight leading-tight mb-3">
-                {industries[activeIndex].title}
-              </h3>
-              <p className="text-xs sm:text-sm text-[#5B6475] leading-relaxed font-normal mb-5">
-                {industries[activeIndex].description}
-              </p>
-              <Link
-                href={industries[activeIndex].link}
-                className="inline-flex items-center text-sm font-semibold text-[#168BFF]"
+        {/* Mobile Responsive View (< 768px) with Arrow & Pill Navigation */}
+        <div
+          className={styles.mobileCarouselWrapper}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {/* Mobile Pill Nav */}
+          <div className={styles.mobilePillNav}>
+            {industries.map((item, idx) => (
+              <button
+                key={item.id}
+                onClick={() => setActiveIndex(idx)}
+                className={`${styles.mobilePillBtn} ${
+                  idx === activeIndex ? styles.activeMobilePill : ""
+                }`}
               >
-                <span>Explore More</span>
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Link>
-            </div>
+                {item.category}
+              </button>
+            ))}
           </div>
 
-          {/* Mobile Controls & Dots */}
-          <div className="flex items-center justify-between mt-6 px-2">
+          {/* Active Mobile Display Card */}
+          <div className={styles.mobileCardContainer}>
             <button
-              onClick={handlePrev}
-              aria-label="Previous slide"
-              className="p-2.5 rounded-full bg-slate-100 text-slate-800"
+              type="button"
+              className={`${styles.mobileNavArrow} ${styles.prevArrow}`}
+              onClick={() => setActiveIndex((prev) => (prev - 1 + N) % N)}
+              aria-label="Previous Industry"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
 
-            {/* Pagination Dots */}
-            <div className="flex items-center space-x-2">
-              {industries.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveIndex(idx)}
-                  aria-label={`Go to slide ${idx + 1}`}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    idx === activeIndex
-                      ? "w-8 bg-gradient-to-r from-[#168BFF] to-[#6657FF]"
-                      : "w-2.5 bg-slate-300"
-                  }`}
+            <div key={`mobile-card-${activeItem.id}`} className={styles.mobileActiveCard}>
+              <div className={styles.activeBgImageWrapper}>
+                <Image
+                  src="/industries-bg.png"
+                  alt="Industries Background"
+                  fill
+                  className={styles.activeBgImg}
+                  priority
                 />
-              ))}
+                <div className={styles.activeBgFadeOverlay} />
+              </div>
+
+              <div className="relative z-10 h-full flex flex-col justify-start text-left">
+                <div className={styles.activeContentInner}>
+                  <span className={styles.activeCategoryText}>{activeItem.category}</span>
+                  <h3 className={styles.activeTitle}>{activeItem.title}</h3>
+                  <p className={styles.activeDesc}>{activeItem.description}</p>
+                  <Link href={activeItem.link || "/services-products"} className={styles.exploreBtn}>
+                    <span>Explore More</span>
+                    <ArrowRight className="w-4.5 h-4.5" />
+                  </Link>
+                </div>
+              </div>
             </div>
 
             <button
-              onClick={handleNext}
-              aria-label="Next slide"
-              className="p-2.5 rounded-full bg-slate-100 text-slate-800"
+              type="button"
+              className={`${styles.mobileNavArrow} ${styles.nextArrow}`}
+              onClick={() => setActiveIndex((prev) => (prev + 1) % N)}
+              aria-label="Next Industry"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>
         </div>
+
       </div>
     </section>
   );
 }
-
