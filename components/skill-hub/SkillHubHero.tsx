@@ -12,7 +12,7 @@ export default function SkillHubHero() {
       {/* Background High-Resolution Photograph */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/skills-hub-bg.png"
+          src="/skills-hub-bg-2.png"
           alt="KBS Skill Hub Learner"
           fill
           priority
