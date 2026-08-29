@@ -103,13 +103,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: What We Do */}
+          {/* Column 3: Verticals */}
           <div>
             <h4 className="text-sm font-bold uppercase tracking-wider text-slate-200 mb-4">
-              What We Do
+              Our Verticals
             </h4>
             <ul className="space-y-2.5">
-              {footerLinks.whatWeDo.map((link) => (
+              {footerLinks.verticals.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}

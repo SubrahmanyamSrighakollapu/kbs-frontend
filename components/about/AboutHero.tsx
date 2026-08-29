@@ -16,17 +16,17 @@ export default function AboutHero() {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover object-center lg:object-right pointer-events-none"
+          className="w-full h-full object-cover object-center lg:object-right pointer-events-none scale-[1.06] brightness-[1.08] contrast-[1.05] saturate-[1.1]"
         >
           <source src="/about-bg-animated.mp4" type="video/mp4" />
         </video>
         
-        {/* Navy Left-to-Right Gradient Overlay */}
+        {/* Navy Left-to-Right Fading Gradient Overlay for Crystal Clarity */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(90deg, rgba(2, 12, 32, 0.98) 0%, rgba(3, 17, 43, 0.94) 34%, rgba(4, 20, 48, 0.62) 58%, rgba(4, 15, 35, 0.15) 80%)",
+              "linear-gradient(90deg, rgba(2, 12, 32, 0.98) 0%, rgba(3, 16, 42, 0.85) 35%, rgba(3, 16, 42, 0.2) 55%, transparent 75%)",
           }}
         />
 

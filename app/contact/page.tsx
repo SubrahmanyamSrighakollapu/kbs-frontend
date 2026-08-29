@@ -9,9 +9,9 @@ import NewsletterCTA from "@/components/contact/NewsletterCTA";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "Contact Us | KBS Information Technology",
+  title: "Contact Us | KBS Group",
   description:
-    "Get in touch with KBS Information Technology. Reach out for project inquiries, technical consultations, partnerships, or visit our engineering headquarters in HITEC City, Hyderabad.",
+    "Get in touch with KBS Group. Reach out for project inquiries, consultations, partnerships, or visit our corporate headquarters at Manjeera Trinity Corporate, Kukatpally, Hyderabad.",
 };
 
 export default function ContactPage() {

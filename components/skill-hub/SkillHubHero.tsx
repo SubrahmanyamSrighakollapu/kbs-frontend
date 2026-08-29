@@ -9,22 +9,24 @@ import { skillHubHeroData } from "@/data/skill-hub";
 export default function SkillHubHero() {
   return (
     <section className="relative w-full pt-28 sm:pt-32 pb-20 sm:pb-24 overflow-hidden flex items-center bg-[#03142B] text-white">
-      {/* Background High-Resolution Photograph */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/skills-hub-bg-2.png"
-          alt="KBS Skill Hub Learner"
-          fill
-          priority
-          className="object-cover object-center lg:object-right transition-transform duration-1000 scale-100"
-        />
+      {/* Background High-Definition Video */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover object-center lg:object-right pointer-events-none scale-[1.06] brightness-[1.08] contrast-[1.05] saturate-[1.1]"
+        >
+          <source src="/Skill Hub Video.mp4" type="video/mp4" />
+        </video>
 
-        {/* Left-to-Right Navy Gradient Overlay */}
+        {/* Left-to-Right Fading Gradient Overlay for Crystal Clarity */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(90deg, rgba(2, 12, 32, 0.96) 0%, rgba(3, 17, 43, 0.88) 38%, rgba(4, 20, 48, 0.55) 60%, rgba(4, 15, 35, 0.10) 84%)",
+              "linear-gradient(90deg, rgba(2, 12, 32, 0.98) 0%, rgba(3, 16, 42, 0.85) 35%, rgba(3, 16, 42, 0.2) 55%, transparent 75%)",
           }}
         />
 

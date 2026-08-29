@@ -17,23 +17,26 @@ export const contactInfoList: ContactInfoItem[] = [
   {
     id: "office",
     title: "Office",
-    lines: ["KBS IT / KBS Group", "HITEC City, Hyderabad, Telangana, India"],
+    lines: [
+      "KBS PVT LTD, Manjeera Trinity Corporate",
+      "KPHB Phase 3, Kukatpally, Hyderabad 500072",
+    ],
     iconName: "MapPin",
     accentColor: "#6657FF",
   },
   {
     id: "email",
     title: "Email",
-    lines: ["hello@kbsit.com"],
-    link: "mailto:hello@kbsit.com",
+    lines: ["kbsgroup@gmail.com"],
+    link: "mailto:kbsgroup@gmail.com",
     iconName: "Mail",
     accentColor: "#168BFF",
   },
   {
     id: "phone",
     title: "Phone",
-    lines: ["+91 91234 56789"],
-    link: "tel:+919123456789",
+    lines: ["+91 8750749299"],
+    link: "tel:+918750749299",
     iconName: "Phone",
     accentColor: "#A52BFF",
   },
@@ -57,7 +60,7 @@ export const faqList: FAQItem[] = [
     id: "faq-2",
     question: "How can I start a project with KBS IT?",
     answer:
-      "You can get started by filling out our contact form, scheduling a consultation, or emailing us directly at hello@kbsit.com. Our team will review your requirements and respond within 24 hours.",
+      "You can get started by filling out our contact form, scheduling a consultation, or emailing us directly at kbsgroup@gmail.com. Our team will review your requirements and respond within 24 hours.",
   },
   {
     id: "faq-3",
@@ -69,7 +72,7 @@ export const faqList: FAQItem[] = [
     id: "faq-4",
     question: "Where is KBS IT located?",
     answer:
-      "Our primary engineering headquarters is located in HITEC City, Hyderabad, Telangana, India, serving clients across 20+ cities globally.",
+      "Our corporate headquarters is located at KBS PVT LTD, Manjeera Trinity Corporate, 1010, 10th floor, KPHB Phase 3, Kukatpally, Hyderabad, Telangana 500072.",
   },
   {
     id: "faq-5",

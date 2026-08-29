@@ -473,38 +473,38 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3px;
+  gap: 1.5px;
   user-select: none;
   pointer-events: none;
 }
 
 @media (max-width: 1399px) {
   .verticalTextWrap {
-    gap: 2.5px;
+    gap: 1px;
   }
 }
 
 @media (max-width: 1199px) {
   .verticalTextWrap {
-    gap: 2px;
+    gap: 0.8px;
   }
 }
 
 @media (max-width: 991px) {
   .verticalTextWrap {
-    gap: 1.5px;
+    gap: 0.5px;
   }
 }
 
 .verticalChar {
   font-family: inherit;
-  font-size: 11.5px;
+  font-size: 10px;
   font-weight: 800;
   color: #334155;
   line-height: 100%;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-shadow: 0 1px 4px rgba(255, 255, 255, 0.9);
   transition: color 0.3s ease, font-size 0.3s ease;
 }
@@ -515,25 +515,25 @@
 
 @media (max-width: 1399px) {
   .verticalChar {
-    font-size: 10.5px;
+    font-size: 9px;
   }
 }
 
 @media (max-width: 1199px) {
   .verticalChar {
-    font-size: 9.5px;
+    font-size: 8px;
   }
 }
 
 @media (max-width: 991px) {
   .verticalChar {
-    font-size: 8.5px;
+    font-size: 7.5px;
   }
 }
 
 .verticalSpace {
   display: block;
-  height: 8px;
+  height: 4px;
 }
 
 /* Active Card Content Overlay */

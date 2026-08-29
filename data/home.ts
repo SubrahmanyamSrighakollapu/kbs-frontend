@@ -38,7 +38,57 @@ export interface PartnerBrand {
   id: string;
   name: string;
   tagline?: string;
-  iconType: string;
+  logo: string;
+  iconType?: string;
+}
+
+export interface NavItem {
+  label: string;
+  href: string;
+}
+
+export interface VerticalCard {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+  link: string;
+  accentColor: string;
+  badgeBg: string;
+}
+
+export interface StatItem {
+  id: string;
+  value: number;
+  suffix: string;
+  label: string;
+  iconName: "Calendar" | "PackageCheck" | "Users" | "Globe";
+}
+
+export interface ImpactItem {
+  id: string;
+  title: string;
+  description: string;
+  iconName: "Palette" | "Cloud" | "PieChart" | "Bot" | "ShieldCheck" | "Headphones";
+  accentColor: string;
+}
+
+export interface IndustryItem {
+  id: string;
+  category: string;
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+}
+
+export interface PartnerBrand {
+  id: string;
+  name: string;
+  tagline?: string;
+  logo: string;
+  iconType?: string;
 }
 
 export interface NavItem {
@@ -48,9 +98,9 @@ export interface NavItem {
 
 export const navItems: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "What We Are", href: "/about" },
-  { label: "Services & Products", href: "/services-products" },
+  { label: "About Us", href: "/about" },
   { label: "Skill Hub", href: "/skill-hub" },
+  { label: "Careers", href: "/careers" },
   { label: "Contact Us", href: "/contact" },
 ];
 
@@ -78,53 +128,63 @@ export const stats: StatItem[] = [
   },
   {
     id: "industries",
-    value: 6,
-    suffix: "+",
-    label: "Industries Served",
+    value: 5,
+    suffix: "",
+    label: "Core Verticals",
     iconName: "Globe",
   },
 ];
 
 export const verticals: VerticalCard[] = [
   {
-    id: "creavo",
-    title: "Creavo",
-    subtitle: "Creative Design & Media",
-    description: "Bringing ideas to life through stunning design, branding and digital creativity.",
-    image: "/vertical-one.png",
-    link: "/services-products",
+    id: "it-solutions",
+    title: "IT Solutions",
+    subtitle: "KBS Information Technology",
+    description: "Web, mobile, AI platforms & custom software engineering designed for business growth.",
+    image: "/It Services.png",
+    link: "/verticals/it",
+    accentColor: "#168BFF",
+    badgeBg: "rgba(22, 139, 255, 0.12)",
+  },
+  {
+    id: "automation-tools",
+    title: "Automation Tools",
+    subtitle: "KBS Automation & SaaS",
+    description: "Automate repetitive tasks, simplify operations, and empower teams to work smarter.",
+    image: "/Automation Tools.png",
+    link: "/verticals/automation",
     accentColor: "#A52BFF",
     badgeBg: "rgba(165, 43, 255, 0.12)",
   },
   {
-    id: "build-right",
-    title: "Build Right",
-    subtitle: "Construction & Infrastructure",
-    description: "Delivering quality construction, smart infrastructure and sustainable living spaces.",
-    image: "/vertical-two.png",
-    link: "/services-products",
+    id: "civil-engineering",
+    title: "Civil Engineering Services",
+    subtitle: "KBS Infrastructure & Engineering",
+    description: "Smart infrastructure, structural engineering, SCADA monitoring & AI drawing analysis.",
+    image: "/Civil Services.png",
+    link: "/verticals/civil",
     accentColor: "#FF6B35",
     badgeBg: "rgba(255, 107, 53, 0.12)",
   },
   {
-    id: "vividuss",
-    title: "Vividuss",
-    subtitle: "Business Solutions",
-    description: "Driving growth with strategic insights, smart solutions and future-ready approaches.",
-    image: "/vertical-three.png",
-    link: "/services-products",
+    id: "financial-services",
+    title: "Financial Services",
+    subtitle: "KBS Financial Services",
+    description: "Fintech solutions, payment gateways, payouts, BNPL, and practical business financing.",
+    image: "/Financial services.png",
+    link: "/verticals/financial",
     accentColor: "#00A8FF",
     badgeBg: "rgba(0, 168, 255, 0.12)",
   },
   {
-    id: "it-solutions",
-    title: "IT Solutions",
-    subtitle: "Technology & Innovation",
-    description: "Building scalable, secure and intelligent tech solutions for a digital-first world.",
-    image: "/vertical-four.png",
-    link: "/services-products",
-    accentColor: "#168BFF",
-    badgeBg: "rgba(22, 139, 255, 0.12)",
+    id: "skill-hub",
+    title: "Skill Hub",
+    subtitle: "KBS Skill Hub",
+    description: "Practical, industry-led training in IT & Civil software for career-ready skills.",
+    image: "/Skill Hub.png",
+    link: "/skill-hub",
+    accentColor: "#6657FF",
+    badgeBg: "rgba(102, 87, 255, 0.12)",
   },
 ];
 
@@ -175,95 +235,80 @@ export const impactItems: ImpactItem[] = [
 
 export const industries: IndustryItem[] = [
   {
-    id: "management",
-    category: "Management",
-    title: "Strategic Management & Digital Leadership",
-    description: "Orchestrating technology ecosystems, cross-functional teams, and enterprise growth strategies.",
-    image: "/about-us-bg.png",
-    link: "/services-products",
+    id: "it-vertical",
+    category: "IT Solutions",
+    title: "Web, Mobile, AI Platforms & Cloud Engineering",
+    description: "Custom software solutions, SaaS platforms, and mobile applications built for scale and reliability.",
+    image: "/It Services.png",
+    link: "/verticals/it",
   },
   {
-    id: "development",
-    category: "Development",
-    title: "Full-Stack Custom Software & Web Engineering",
-    description: "Building resilient, high-performance digital platforms with modern frameworks and robust security.",
-    image: "/it.png",
-    link: "/services-products",
+    id: "automation-vertical",
+    category: "Automation & SaaS",
+    title: "Workflow Automation & SaaS Products",
+    description: "Eliminate repetitive tasks, retail loyalty platforms, marketing creative generators, and AI website builders.",
+    image: "/Automation Tools.png",
+    link: "/verticals/automation",
   },
   {
-    id: "marketing",
-    category: "Marketing",
-    title: "Data-Driven Brand Strategy & Growth Marketing",
-    description: "Accelerating customer acquisition and digital presence with creative campaigns and actionable insights.",
-    image: "/design.png",
-    link: "/services-products",
+    id: "civil-vertical",
+    category: "Civil Engineering",
+    title: "Infrastructure, Structural & Drawing AI",
+    description: "AI-driven drawing analysis, SCADA central monitoring, structural design, and smart infrastructure engineering.",
+    image: "/Civil Services.png",
+    link: "/verticals/civil",
   },
   {
-    id: "consulting",
-    category: "Consulting",
-    title: "AI-Powered Solutions for Digital Innovation",
-    description: "Leverage AI, data, and modern engineering to build smarter products and accelerate digital transformation.",
-    image: "/services-bg.png",
-    link: "/services-products",
+    id: "financial-vertical",
+    category: "Financial Services",
+    title: "Fintech, Payment Gateways & Business Financing",
+    description: "Accept payments, manage payouts, offer BNPL solutions, and access working capital for growing businesses.",
+    image: "/Financial services.png",
+    link: "/verticals/financial",
   },
   {
-    id: "data-science",
-    category: "Data Science",
-    title: "Predictive Analytics & Machine Learning Models",
-    description: "Transforming complex datasets into actionable foresight and intelligent automation systems.",
-    image: "/business.png",
-    link: "/services-products",
-  },
-  {
-    id: "cyber-security",
-    category: "Cyber Security",
-    title: "Zero-Trust Defense & Enterprise Cloud Security",
-    description: "Protecting critical assets, data integrity, and compliance across multi-cloud environments.",
-    image: "/skills-hub-bg.png",
-    link: "/services-products",
-  },
-  {
-    id: "data-strategy",
-    category: "Data Strategy",
-    title: "Enterprise Data Governance & Modern Infrastructure",
-    description: "Structuring scalable data pipelines, warehouses, and real-time streaming architectures.",
-    image: "/civil.png",
-    link: "/services-products",
+    id: "skill-hub-vertical",
+    category: "Skill Hub",
+    title: "Practical Workplace & Career Training",
+    description: "Hands-on courses in IT software and Civil Engineering tools led by industry professionals.",
+    image: "/Skill Hub.png",
+    link: "/skill-hub",
   },
 ];
 
 export const partnerBrands: PartnerBrand[] = [
-  { id: "finjo", name: "Finjo", tagline: "Fintech Platform", iconType: "shield" },
-  { id: "helyi", name: "Helyi", tagline: "Hyperlocal Tech", iconType: "map" },
-  { id: "desidukan", name: "DesiDukan", tagline: "E-Commerce", iconType: "store" },
-  { id: "winwala", name: "WinWala", tagline: "Gaming & Engagement", iconType: "trophy" },
-  { id: "creavo", name: "Creavo", tagline: "Creative Studio", iconType: "sparkles" },
-  { id: "nayaleader", name: "NAYA LEADER", tagline: "Leadership Network", iconType: "award" },
+  { id: "desidukan", name: "Desi Dukan", tagline: "Hyperlocal Commerce", logo: "/desi-dukan-org.jpeg" },
+  { id: "desisafai", name: "Desi Safai", tagline: "On-Demand Services", logo: "/desi-safai-org.png" },
+  { id: "landvestinfra", name: "Landvest Infra", tagline: "Infrastructure & Living", logo: "/landvestintra-org.png" },
+  { id: "brightspark", name: "Bright Spark", tagline: "Creative Media", logo: "/bright-spark-org.png" },
+  { id: "tutershub", name: "Tuters Hub", tagline: "EdTech Platform", logo: "/tutershub-org.png" },
 ];
 
 export const footerLinks = {
   company: [
-    { label: "Who We Are", href: "/about" },
+    { label: "About Us", href: "/about" },
     { label: "Careers", href: "/careers" },
-    { label: "Newsroom", href: "/about#newsroom" },
+    { label: "Skill Hub", href: "/skill-hub" },
     { label: "Contact Us", href: "/contact" },
   ],
-  whatWeDo: [
-    { label: "Services & Products", href: "/services-products" },
-    { label: "Industries", href: "/services-products#industries" },
-    { label: "Our Products", href: "/services-products#products" },
-    { label: "Skill Hub", href: "/skill-hub" },
+  verticals: [
+    { label: "Information Technology", href: "/verticals/it" },
+    { label: "Business Automation & SaaS", href: "/verticals/automation" },
+    { label: "Civil Engineering Services", href: "/verticals/civil" },
+    { label: "Financial Services", href: "/verticals/financial" },
+    { label: "KBS Skill Hub", href: "/skill-hub" },
   ],
   resources: [
-    { label: "Case Studies", href: "/about#case-studies" },
-    { label: "Blog", href: "/about#blog" },
-    { label: "Insights", href: "/about#insights" },
-    { label: "Events", href: "/about#events" },
+    { label: "WinWala Platform", href: "/verticals/automation#winwala" },
+    { label: "Creavo Creative Studio", href: "/verticals/automation#creavo" },
+    { label: "Finjo Fintech", href: "/verticals/financial#finjo" },
+    { label: "AI Drawing Analysis", href: "/verticals/civil#ai-drawing" },
   ],
   contact: {
-    address: "KBS IT, HITEC City,\nHyderabad, Telangana, India",
-    phone: "+91 91234 56789",
-    email: "hello@kbsit.com",
+    address: "KBS PVT LTD, Manjeera Trinity Corporate,\nKPHB Phase 3, Kukatpally,\nHyderabad, Telangana 500072",
+    phone: "+91 8750749299",
+    email: "kbsgroup@gmail.com",
   },
 };
+
 

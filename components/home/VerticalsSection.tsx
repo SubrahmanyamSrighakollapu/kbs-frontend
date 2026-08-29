@@ -4,13 +4,14 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { verticals } from "@/data/home";
-import { ArrowRight, Sparkles, Building2, TrendingUp, Cpu } from "lucide-react";
+import { ArrowRight, Sparkles, Building2, Cpu, GraduationCap, Bot, Landmark } from "lucide-react";
 
 const verticalIconMap = {
-  creavo: Sparkles,
-  "build-right": Building2,
-  vividuss: TrendingUp,
   "it-solutions": Cpu,
+  "automation-tools": Bot,
+  "civil-engineering": Building2,
+  "financial-services": Landmark,
+  "skill-hub": GraduationCap,
 };
 
 export default function VerticalsSection() {
@@ -23,12 +24,15 @@ export default function VerticalsSection() {
             OUR VERTICALS
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111827] tracking-tight">
-            Multiple Strengths. One Vision.
+            One Group. Multiple Possibilities.
           </h2>
+          <p className="text-sm sm:text-base text-[#5B6475] mt-3 max-w-lg mx-auto">
+            Deep domain expertise across technology, business automation, civil engineering, fintech, and industry learning.
+          </p>
         </div>
 
-        {/* 4 Vertical Sector Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        {/* 5 Vertical Sector Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {verticals.map((card) => {
             const Icon = verticalIconMap[card.id as keyof typeof verticalIconMap] || Sparkles;
 
@@ -42,7 +46,7 @@ export default function VerticalsSection() {
                 }}
               >
                 {/* Top Image Container */}
-                <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-100">
+                <div className="relative h-44 sm:h-48 w-full overflow-hidden bg-slate-100">
                   <Image
                     src={card.image}
                     alt={card.title}
@@ -53,11 +57,11 @@ export default function VerticalsSection() {
                 </div>
 
                 {/* Bottom White Info Block */}
-                <div className="p-6 flex flex-col flex-grow justify-between bg-white">
+                <div className="p-5 flex flex-col flex-grow justify-between bg-white">
                   <div>
                     {/* Icon Badge */}
                     <div
-                      className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110"
+                      className="w-10 h-10 rounded-xl flex items-center justify-center mb-3 transition-transform duration-300 group-hover:scale-110"
                       style={{
                         backgroundColor: card.badgeBg,
                         color: card.accentColor,
@@ -67,25 +71,25 @@ export default function VerticalsSection() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-xl sm:text-2xl font-extrabold text-[#111827] tracking-tight mb-1">
+                    <h3 className="text-lg font-extrabold text-[#111827] tracking-tight mb-1">
                       {card.title}
                     </h3>
 
                     {/* Subtitle / Category */}
-                    <p className="text-xs sm:text-sm font-semibold mb-3" style={{ color: card.accentColor }}>
+                    <p className="text-xs font-semibold mb-2.5" style={{ color: card.accentColor }}>
                       {card.subtitle}
                     </p>
 
                     {/* Description */}
-                    <p className="text-sm text-[#5B6475] leading-relaxed font-normal mb-6">
+                    <p className="text-xs text-[#5B6475] leading-relaxed font-normal mb-5 line-clamp-3">
                       {card.description}
                     </p>
                   </div>
 
                   {/* Explore Link with Sliding Arrow */}
-                  <div className="flex items-center text-sm font-semibold transition-colors duration-200" style={{ color: card.accentColor }}>
-                    <span>Explore {card.title}</span>
-                    <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1.5 transition-transform duration-200" />
+                  <div className="flex items-center text-xs font-bold transition-colors duration-200 mt-auto" style={{ color: card.accentColor }}>
+                    <span>Explore Now</span>
+                    <ArrowRight className="w-3.5 h-3.5 ml-1.5 transform group-hover:translate-x-1.5 transition-transform duration-200" />
                   </div>
                 </div>
               </Link>

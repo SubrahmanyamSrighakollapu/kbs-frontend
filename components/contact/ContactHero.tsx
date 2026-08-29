@@ -7,26 +7,28 @@ import Link from "next/link";
 export default function ContactHero() {
   return (
     <section className="relative w-full pt-28 sm:pt-32 pb-20 sm:pb-24 overflow-hidden flex items-center bg-[#03142B] text-white">
-      {/* Background High-Resolution Night City Skyline & Highway Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/hero-bg.png"
-          alt="KBS IT Global Headquarters & Connectivity"
-          fill
-          priority
-          className="object-cover object-center lg:object-right transition-transform duration-1000 scale-100"
-        />
+      {/* Background High-Definition Video */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover object-center lg:object-right pointer-events-none scale-[1.06] brightness-[1.08] contrast-[1.05] saturate-[1.1]"
+        >
+          <source src="/contact-us-video.mp4" type="video/mp4" />
+        </video>
 
         {/* Left-to-Right Navy Gradient Overlay */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(90deg, rgba(2, 12, 32, 0.98) 0%, rgba(3, 17, 43, 0.88) 38%, rgba(4, 20, 48, 0.52) 62%, rgba(4, 15, 35, 0.10) 86%)",
+              "linear-gradient(90deg, rgba(2, 12, 32, 0.98) 0%, rgba(3, 16, 42, 0.85) 35%, rgba(3, 16, 42, 0.2) 55%, transparent 75%)",
           }}
         />
 
-        {/* Mobile Gradient Fallback */}
+        {/* Mobile Gradient Fallback Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#03142B] via-[#03142B]/70 to-transparent md:hidden" />
       </div>
 
@@ -62,23 +64,22 @@ export default function ContactHero() {
         </div>
       </div>
 
-      {/* Decorative Digital Network Wave SVG */}
-      <div className="absolute bottom-0 left-0 w-80 sm:w-96 h-28 pointer-events-none opacity-40 z-10 overflow-hidden">
-        <svg viewBox="0 0 400 120" fill="none" className="w-full h-full">
-          <path
-            d="M-50 90 Q 50 30, 150 70 T 350 40 T 450 80"
-            stroke="url(#contactHeroWave)"
-            strokeWidth="2.5"
-            strokeDasharray="4 6"
-          />
-          <defs>
-            <linearGradient id="contactHeroWave" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#168BFF" />
-              <stop offset="50%" stopColor="#6657FF" />
-              <stop offset="100%" stopColor="#D82DFF" />
-            </linearGradient>
-          </defs>
-        </svg>
+      {/* Bottom-Left Hero Section Design Graphic */}
+      <div
+        className="absolute bottom-0 left-0 w-[550px] sm:w-[750px] md:w-[950px] lg:w-[1100px] max-w-full pointer-events-none z-[1] select-none mix-blend-screen opacity-85"
+        style={{
+          WebkitMaskImage: "radial-gradient(ellipse 85% 90% at 0% 100%, #000 40%, transparent 85%)",
+          maskImage: "radial-gradient(ellipse 85% 90% at 0% 100%, #000 40%, transparent 85%)",
+        }}
+      >
+        <Image
+          src="/hero-section-design.png"
+          alt=""
+          width={2103}
+          height={748}
+          className="w-full h-auto object-contain object-bottom-left"
+          priority
+        />
       </div>
     </section>
   );

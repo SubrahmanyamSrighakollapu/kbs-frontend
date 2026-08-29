@@ -8,7 +8,7 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import styles from "./HomeIndustriesnew.module.css";
 
 export default function IndustryAccordion() {
-  const [activeIndex, setActiveIndex] = useState(3); // Start with Consulting active (center node)
+  const [activeIndex, setActiveIndex] = useState(2); // Center node of 5 verticals
   const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
@@ -32,13 +32,13 @@ export default function IndustryAccordion() {
         {/* Section Header */}
         <div className={styles.heading}>
           <span className={styles.pillBadge}>
-            EXPANDING CAPABILITIES
+            OUR VERTICALS
           </span>
           <h2 className={styles.sectionTitle}>
-            End-to-End Solutions Across Key Sectors
+            Five Core Verticals. Infinite Scale.
           </h2>
           <p className={styles.sectionDesc}>
-            Every industry has unique demands. KBS IT engineers cloud-native platforms, AI automation, and scalable systems tailored for enterprise growth.
+            Deep domain expertise across technology, business automation, civil engineering, financial services, and workplace skill development.
           </p>
         </div>
 

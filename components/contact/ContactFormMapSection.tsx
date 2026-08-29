@@ -209,8 +209,8 @@ export default function ContactFormMapSection() {
               <div className="relative w-full h-full min-h-[460px] rounded-2xl overflow-hidden border border-[#0F2346]/10 shadow-sm bg-slate-100">
                 {/* Embed Map Iframe */}
                 <iframe
-                  title="KBS IT Office Location Map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.3117462007817!2d78.3789438!3d17.4447385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93dc8c5d69df%3A0x19688beb557fa0ee!2sHITEC%20City%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                  title="KBS PVT LTD Office Location Map"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.3117462007817!2d78.3905!3d17.4878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91f3a2c5b3ab%3A0x6b8f1b9b9b9b9b9b!2sManjeera%20Trinity%20Corporate!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0, minHeight: "460px" }}
@@ -221,15 +221,15 @@ export default function ContactFormMapSection() {
                 />
 
                 {/* Map Bottom-Left Location Card Overlay */}
-                <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-[#0F2346]/10 shadow-xl max-w-[260px]">
+                <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-[#0F2346]/10 shadow-xl max-w-[280px]">
                   <h4 className="text-base font-extrabold text-[#111827] tracking-tight">
-                    Hyderabad
+                    KBS PVT LTD
                   </h4>
-                  <p className="text-xs text-[#5B6475] font-medium mb-3">
-                    Telangana, India
+                  <p className="text-xs text-[#5B6475] font-medium mb-3 leading-relaxed">
+                    Manjeera Trinity Corporate, 1010, 10th floor, KPHB Phase 3, Kukatpally, Hyderabad, Telangana 500072
                   </p>
                   <a
-                    href="https://maps.google.com/?q=HITEC+City+Hyderabad+Telangana"
+                    href="https://maps.google.com/?q=Manjeera+Trinity+Corporate+Kukatpally+Hyderabad"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center text-xs font-bold text-[#168BFF] hover:text-[#6657FF] transition-colors group"

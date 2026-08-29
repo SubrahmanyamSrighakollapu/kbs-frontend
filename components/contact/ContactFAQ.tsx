@@ -12,21 +12,21 @@ export default function ContactFAQ() {
   };
 
   return (
-    <section id="faq" className="bg-[#F8FAFF] py-12 sm:py-16 border-b border-[#0F2346]/10">
+    <section id="faq" className="bg-[#F8FAFF] py-16 sm:py-24 border-b border-[#0F2346]/10">
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="mb-8 sm:mb-10">
-          <span className="text-xs sm:text-sm font-bold uppercase tracking-widest bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] bg-clip-text text-transparent block mb-1">
-            FAQ
+        {/* Section Header - Centered */}
+        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+          <span className="text-xs sm:text-sm font-bold uppercase tracking-widest bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] bg-clip-text text-transparent block mb-2">
+            FREQUENTLY ASKED QUESTIONS
           </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#111827] tracking-tight mb-2">
-            Frequently Asked Questions
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111827] tracking-tight">
+            Have Questions? We Have Answers.
           </h2>
-          <div className="w-12 h-1 rounded-full bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF]" />
+          <div className="w-16 h-1 rounded-full bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] mx-auto mt-4" />
         </div>
 
-        {/* Accordion Container */}
-        <div className="space-y-3.5 max-w-4xl">
+        {/* Centered Accordion Container */}
+        <div className="space-y-4 max-w-4xl mx-auto">
           {faqList.map((faq) => {
             const isOpen = openId === faq.id;
 
@@ -47,8 +47,8 @@ export default function ContactFAQ() {
                   className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
                 >
                   <div className="flex items-center gap-3.5">
-                    <div className="w-8 h-8 rounded-full bg-[#168BFF]/10 text-[#168BFF] flex items-center justify-center shrink-0">
-                      <HelpCircle className="w-4 h-4" />
+                    <div className="w-9 h-9 rounded-xl bg-[#168BFF]/10 text-[#168BFF] flex items-center justify-center shrink-0">
+                      <HelpCircle className="w-5 h-5" />
                     </div>
                     <span className="text-base sm:text-lg font-extrabold text-[#111827] tracking-tight">
                       {faq.question}
@@ -70,7 +70,7 @@ export default function ContactFAQ() {
                     id={`faq-answer-${faq.id}`}
                     className="px-5 sm:px-6 pb-6 pt-0 text-sm sm:text-base text-[#5B6475] font-normal leading-relaxed border-t border-[#0F2346]/06"
                   >
-                    <p className="pt-3">{faq.answer}</p>
+                    <p className="pt-4 pl-12">{faq.answer}</p>
                   </div>
                 )}
               </div>

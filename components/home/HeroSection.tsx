@@ -22,49 +22,34 @@ interface HeroSlide {
 
 const slides: HeroSlide[] = [
   {
-    id: "hero-group",
+    id: "hero-globe",
     mediaType: "video",
-    mediaSrc: "/hero-bg-animated.mp4",
+    mediaSrc: "/Globe Video.mp4",
     eyebrow: "ONE GROUP. MANY POSSIBILITIES.",
     titlePrefix: "Building Today.",
     titleHighlight: "Creating a Better Tomorrow.",
     description:
       "KBS Group unites innovation, construction, creativity and technology across diverse verticals to deliver enterprise scale and real-world impact.",
     primaryCtaText: "Explore Our Verticals",
-    primaryCtaLink: "/services-products",
+    primaryCtaLink: "#verticals",
     secondaryCtaText: "About KBS Group",
     secondaryCtaLink: "/about",
     tabLabel: "01 Group Vision",
   },
   {
-    id: "hero-tech",
+    id: "hero-all-verticals",
     mediaType: "video",
-    mediaSrc: "/hero-bg-2-animated.mp4",
-    eyebrow: "ENTERPRISE TECHNOLOGY & AI",
+    mediaSrc: "/All Verticals video.mp4",
+    eyebrow: "ENTERPRISE TECHNOLOGY & VERTICALS",
     titlePrefix: "Engineered for Scale.",
     titleHighlight: "Driven by Intelligence.",
     description:
-      "Empowering enterprises with cloud-native architecture, AI-driven automation, and secure custom software engineering for digital transformation.",
-    primaryCtaText: "Discover IT Services",
-    primaryCtaLink: "/services-products",
-    secondaryCtaText: "View Skill Hub",
-    secondaryCtaLink: "/skill-hub",
-    tabLabel: "02 Tech & AI",
-  },
-  {
-    id: "hero-infrastructure",
-    mediaType: "image",
-    mediaSrc: "/hero-bg-3.png",
-    eyebrow: "INFRASTRUCTURE & CREATIVE MEDIA",
-    titlePrefix: "Designing Spaces.",
-    titleHighlight: "Shaping Brand Futures.",
-    description:
-      "From sustainable construction and smart infrastructure to high-impact creative media and strategic business growth solutions.",
-    primaryCtaText: "Products & Services",
-    primaryCtaLink: "/services-products",
+      "Empowering enterprises with cloud-native architecture, AI-driven automation, fintech solutions, civil engineering, and workplace skill development.",
+    primaryCtaText: "Explore Verticals",
+    primaryCtaLink: "#verticals",
     secondaryCtaText: "Contact Us",
     secondaryCtaLink: "/contact",
-    tabLabel: "03 Infrastructure",
+    tabLabel: "02 Core Verticals",
   },
 ];
 
@@ -93,11 +78,11 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative pt-32 sm:pt-36 lg:pt-40 pb-36 sm:pb-40 lg:pb-44 w-full min-h-[600px] lg:min-h-[660px] overflow-hidden flex items-center bg-[#03142B] text-white select-none"
+      className="relative pt-32 sm:pt-36 lg:pt-40 pb-24 sm:pb-28 lg:pb-32 w-full min-h-[580px] lg:min-h-[640px] overflow-hidden flex items-center bg-[#03142B] text-white select-none"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Background Video & Image Carousel with Ultra-Sharp Clarity */}
+      {/* Background Video Carousel with Ultra-Sharp Clarity */}
       {slides.map((slide, idx) => {
         const isActive = idx === currentSlide;
 
@@ -108,26 +93,15 @@ export default function HeroSection() {
               isActive ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
             }`}
           >
-            {slide.mediaType === "video" ? (
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover object-center lg:object-right pointer-events-none scale-[1.06] brightness-[1.08] contrast-[1.05] saturate-[1.1]"
-              >
-                <source src={slide.mediaSrc} type="video/mp4" />
-              </video>
-            ) : (
-              <Image
-                src={slide.mediaSrc}
-                alt={slide.eyebrow}
-                fill
-                priority={idx === 0}
-                unoptimized
-                className="object-cover object-center lg:object-right brightness-[1.08] contrast-[1.05] saturate-[1.1]"
-              />
-            )}
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover object-center lg:object-right pointer-events-none scale-[1.06] brightness-[1.08] contrast-[1.05] saturate-[1.1]"
+            >
+              <source src={slide.mediaSrc} type="video/mp4" />
+            </video>
 
             {/* Left Gradient: Text Legibility on Left (0-45%), 100% Untouched Crystal Clarity on Right */}
             <div
@@ -148,7 +122,7 @@ export default function HeroSection() {
       <button
         onClick={handlePrev}
         aria-label="Previous Hero Slide"
-        className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-none bg-[#03142B]/80 hover:bg-[#168BFF] text-white border border-white/20 hover:border-[#168BFF] backdrop-blur-md transition-all shadow-2xl items-center justify-center group"
+        className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-[#03142B]/80 hover:bg-[#168BFF] text-white border border-white/20 hover:border-[#168BFF] backdrop-blur-md transition-all shadow-2xl items-center justify-center group"
       >
         <ChevronLeft className="w-6 h-6 group-hover:-translate-x-0.5 transition-transform" />
       </button>
@@ -156,7 +130,7 @@ export default function HeroSection() {
       <button
         onClick={handleNext}
         aria-label="Next Hero Slide"
-        className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-none bg-[#03142B]/80 hover:bg-[#168BFF] text-white border border-white/20 hover:border-[#168BFF] backdrop-blur-md transition-all shadow-2xl items-center justify-center group"
+        className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-[#03142B]/80 hover:bg-[#168BFF] text-white border border-white/20 hover:border-[#168BFF] backdrop-blur-md transition-all shadow-2xl items-center justify-center group"
       >
         <ChevronRight className="w-6 h-6 group-hover:translate-x-0.5 transition-transform" />
       </button>
@@ -190,7 +164,7 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <Link
                 href={activeSlide.primaryCtaLink}
-                className="inline-flex items-center justify-center px-7 py-3.5 sm:py-4 rounded-xl bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] text-white text-sm sm:text-base font-semibold hover:opacity-95 hover:-translate-y-0.5 active:scale-95 transition-all shadow-lg hover:shadow-xl group"
+                className="inline-flex items-center justify-center px-7 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] text-white text-sm sm:text-base font-semibold hover:opacity-95 hover:-translate-y-0.5 active:scale-95 transition-all shadow-lg hover:shadow-xl group"
               >
                 {activeSlide.primaryCtaText}
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2.5 group-hover:translate-x-1.5 transition-transform" />
@@ -198,53 +172,11 @@ export default function HeroSection() {
 
               <Link
                 href={activeSlide.secondaryCtaLink}
-                className="inline-flex items-center justify-center px-7 py-3.5 sm:py-4 rounded-xl bg-white/5 backdrop-blur-md text-white border border-white/20 text-sm sm:text-base font-semibold hover:bg-white/10 hover:border-white/40 active:scale-95 transition-all"
+                className="inline-flex items-center justify-center px-7 py-3.5 sm:py-4 rounded-full bg-white/5 backdrop-blur-md text-white border border-white/20 text-sm sm:text-base font-semibold hover:bg-white/10 hover:border-white/40 active:scale-95 transition-all"
               >
                 {activeSlide.secondaryCtaText}
               </Link>
             </div>
-          </div>
-        </div>
-
-        {/* SHARP SLIDE INDICATOR TABS (Anchored safely above Stats bar) */}
-        <div className="mt-12 sm:mt-16 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6">
-          {/* Sharp Slide Tabs */}
-          <div className="flex items-center gap-2 sm:gap-4 overflow-x-auto no-scrollbar">
-            {slides.map((slide, idx) => {
-              const isActive = idx === currentSlide;
-
-              return (
-                <button
-                  key={slide.id}
-                  onClick={() => setCurrentSlide(idx)}
-                  className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold tracking-wide rounded-none transition-all border ${
-                    isActive
-                      ? "bg-gradient-to-r from-[#168BFF] to-[#6657FF] text-white border-[#6657FF] shadow-lg"
-                      : "bg-white/5 text-slate-400 border-white/10 hover:text-white hover:border-white/30"
-                  }`}
-                >
-                  {slide.tabLabel}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Mobile Sharp Arrow Navigation Controls */}
-          <div className="flex md:hidden items-center gap-2 ml-auto">
-            <button
-              onClick={handlePrev}
-              aria-label="Previous Slide"
-              className="w-9 h-9 rounded-none bg-white/10 text-white flex items-center justify-center border border-white/20 active:scale-90"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={handleNext}
-              aria-label="Next Slide"
-              className="w-9 h-9 rounded-none bg-white/10 text-white flex items-center justify-center border border-white/20 active:scale-90"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
           </div>
         </div>
       </div>

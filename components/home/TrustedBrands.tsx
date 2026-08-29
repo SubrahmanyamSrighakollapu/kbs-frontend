@@ -1,65 +1,61 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { partnerBrands } from "@/data/home";
-import { Shield, MapPin, Store, Trophy, Sparkles, Award } from "lucide-react";
-
-const brandIconMap: { [key: string]: React.ElementType } = {
-  shield: Shield,
-  map: MapPin,
-  store: Store,
-  trophy: Trophy,
-  sparkles: Sparkles,
-  award: Award,
-};
-
-const brandColorMap: { [key: string]: string } = {
-  finjo: "#6657FF",
-  helyi: "#111827",
-  desidukan: "#E52B2F",
-  winwala: "#168BFF",
-  creavo: "#00A8FF",
-  nayaleader: "#111827",
-};
 
 export default function TrustedBrands() {
+  // Multiply array for seamless infinite looping scroll ticker
+  const tickerItems = [...partnerBrands, ...partnerBrands, ...partnerBrands, ...partnerBrands];
+
   return (
-    <section className="bg-white py-12 sm:py-16 border-t border-[#0F2346]/10">
+    <section className="bg-white py-12 sm:py-16 border-t border-b border-[#0F2346]/10 overflow-hidden select-none">
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Eyebrow */}
-        <h3 className="text-center text-xs sm:text-sm font-extrabold tracking-widest text-[#5B6475] uppercase mb-8 sm:mb-10">
+        {/* Section Eyebrow */}
+        <h3 className="text-center text-xs sm:text-sm font-extrabold tracking-widest text-[#5B6475] uppercase mb-8 sm:mb-12">
           TRUSTED BY FORWARD-THINKING ORGANIZATIONS
         </h3>
 
-        {/* Brand Logos Container */}
-        <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 md:gap-16 lg:gap-20">
-          {partnerBrands.map((brand) => {
-            const Icon = brandIconMap[brand.iconType] || Shield;
-            const accentColor = brandColorMap[brand.id] || "#168BFF";
-
-            return (
+        {/* Auto-Scrolling Infinite Logo Ticker with Gradient Fading Edge Masks */}
+        <div
+          className="relative w-full overflow-hidden"
+          style={{
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+            maskImage:
+              "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+          }}
+        >
+          <div className="flex items-center space-x-8 sm:space-x-12 md:space-x-16 animate-marquee w-max py-2 hover:[animation-play-state:paused]">
+            {tickerItems.map((brand, idx) => (
               <div
-                key={brand.id}
-                className="group flex items-center space-x-3 cursor-pointer opacity-80 hover:opacity-100 transition-all duration-300 transform hover:-translate-y-0.5"
+                key={`${brand.id}-${idx}`}
+                className="group flex items-center space-x-3.5 px-5 py-3 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-[#168BFF]/40 shadow-xs hover:shadow-md transition-all duration-300 cursor-pointer shrink-0"
               >
-                <div
-                  className="p-2 rounded-xl transition-all duration-300 group-hover:scale-110"
-                  style={{
-                    backgroundColor: `${accentColor}12`,
-                    color: accentColor,
-                  }}
-                >
-                  <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                <div className="relative h-9 sm:h-10 w-auto min-w-[36px] flex items-center justify-center overflow-hidden">
+                  <Image
+                    src={brand.logo}
+                    alt={brand.name}
+                    width={140}
+                    height={48}
+                    className="h-8 sm:h-9 w-auto max-w-[140px] object-contain transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
-                <span className="text-lg sm:text-xl font-extrabold tracking-tight text-[#111827]">
-                  {brand.name}
-                </span>
+                <div className="flex flex-col">
+                  <span className="text-sm sm:text-base font-extrabold tracking-tight text-[#111827] group-hover:text-[#168BFF] transition-colors whitespace-nowrap">
+                    {brand.name}
+                  </span>
+                  {brand.tagline && (
+                    <span className="text-[11px] font-semibold text-slate-400 whitespace-nowrap">
+                      {brand.tagline}
+                    </span>
+                  )}
+                </div>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
