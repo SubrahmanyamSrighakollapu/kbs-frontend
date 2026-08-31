@@ -97,9 +97,9 @@ export interface NavItem {
 }
 
 export const navItems: NavItem[] = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { label: "Skill Hub", href: "/skill-hub" },
+  { label: "Who We Are", href: "/#who-we-are" },
+  { label: "What We Do", href: "/#what-we-do" },
+  { label: "Insights & Updates", href: "/#insights" },
   { label: "Careers", href: "/careers" },
   { label: "Contact Us", href: "/contact" },
 ];
@@ -114,16 +114,16 @@ export const stats: StatItem[] = [
   },
   {
     id: "products",
-    value: 50,
+    value: 20000,
     suffix: "+",
-    label: "Products Delivered",
+    label: "Projects Done",
     iconName: "PackageCheck",
   },
   {
     id: "clients",
-    value: 100,
+    value: 175,
     suffix: "+",
-    label: "Happy Clients",
+    label: "Team Members",
     iconName: "Users",
   },
   {
@@ -138,7 +138,7 @@ export const stats: StatItem[] = [
 export const verticals: VerticalCard[] = [
   {
     id: "it-solutions",
-    title: "IT Solutions",
+    title: "Information Technology",
     subtitle: "KBS Information Technology",
     description: "Web, mobile, AI platforms & custom software engineering designed for business growth.",
     image: "/It Services.png",
@@ -236,7 +236,7 @@ export const impactItems: ImpactItem[] = [
 export const industries: IndustryItem[] = [
   {
     id: "it-vertical",
-    category: "IT Solutions",
+    category: "Information Technology",
     title: "Web, Mobile, AI Platforms & Cloud Engineering",
     description: "Custom software solutions, SaaS platforms, and mobile applications built for scale and reliability.",
     image: "/It Services.png",
@@ -278,10 +278,13 @@ export const industries: IndustryItem[] = [
 
 export const partnerBrands: PartnerBrand[] = [
   { id: "desidukan", name: "Desi Dukan", tagline: "Hyperlocal Commerce", logo: "/desi-dukan-org.jpeg" },
+  { id: "helyi", name: "Helyi", tagline: "Hyperlocal Marketplace", logo: "/desi-dukan-org.jpeg" },
   { id: "desisafai", name: "Desi Safai", tagline: "On-Demand Services", logo: "/desi-safai-org.png" },
   { id: "landvestinfra", name: "Landvest Infra", tagline: "Infrastructure & Living", logo: "/landvestintra-org.png" },
   { id: "brightspark", name: "Bright Spark", tagline: "Creative Media", logo: "/bright-spark-org.png" },
+  { id: "spoorthi", name: "Spoorthi", tagline: "Media & Broadcast", logo: "/bright-spark-org.png" },
   { id: "tutershub", name: "Tuters Hub", tagline: "EdTech Platform", logo: "/tutershub-org.png" },
+  { id: "sudharshan", name: "Sudarshan News Channel", tagline: "News Network", logo: "/tutershub-org.png" },
 ];
 
 export const footerLinks = {
@@ -305,9 +308,9 @@ export const footerLinks = {
     { label: "AI Drawing Analysis", href: "/verticals/civil#ai-drawing" },
   ],
   contact: {
-    address: "KBS PVT LTD, Manjeera Trinity Corporate,\nKPHB Phase 3, Kukatpally,\nHyderabad, Telangana 500072",
+    address: "KBS PVT LTD, Manjeera Trinity Corporate, KPHB Phase 3, Kukatpally, Hyderabad, Telangana 500072",
     phone: "+91 8750749299",
-    email: "kbsgroup@gmail.com",
+    email: "hr@kbs.group",
   },
 };
 

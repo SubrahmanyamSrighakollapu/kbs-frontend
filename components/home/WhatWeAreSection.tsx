@@ -50,7 +50,7 @@ export default function WhatWeAreSection() {
   ];
 
   return (
-    <section className="relative py-24 sm:py-32 bg-[#03142B] text-white overflow-hidden select-none border-t border-[#82A0FF]/15">
+    <section id="who-we-are" className="relative py-24 sm:py-32 bg-[#03142B] text-white overflow-hidden select-none border-t border-[#82A0FF]/15">
       {/* Dynamic Background Ambient Glow & Mesh Grid */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-[#168BFF]/15 via-[#6657FF]/10 to-transparent blur-3xl pointer-events-none rounded-full" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-[#A52BFF]/15 via-transparent to-transparent blur-3xl pointer-events-none rounded-full" />
@@ -61,19 +61,19 @@ export default function WhatWeAreSection() {
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs sm:text-sm font-semibold text-[#168BFF] mb-4 backdrop-blur-md">
               <Building2 className="w-4 h-4 text-[#168BFF]" />
-              WHAT WE ARE
+              WHO WE ARE
             </div>
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1]">
-              A Multi-Vertical Group <br />
+              KBS Group <br />
               <span className="bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] bg-clip-text text-transparent inline-block">
-                Engineered for Execution.
+                One Group. Every Solution.
               </span>
             </h2>
           </div>
 
           <div className="lg:col-span-5">
             <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed mb-6">
-              KBS Group is an enterprise ecosystem bridging technology, business automation, fintech, civil engineering, and workplace skill development. We design, build, and operate digital and physical solutions that power modern enterprise growth.
+              KBS Group is a multi-vertical enterprise built on a simple belief: real transformation happens when engineering precision, digital innovation, financial access, and skilled talent come together under one roof. From structural and civil engineering to cutting-edge IT products, from business automation to accessible financial services, and from skill development to workforce readiness — we don&apos;t just serve industries, we power them end-to-end.
             </p>
 
             <Link

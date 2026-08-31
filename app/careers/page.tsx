@@ -9,7 +9,7 @@ import { ArrowRight, Briefcase, Users, Zap, ShieldCheck, Heart, Sparkles } from 
 export const metadata: Metadata = {
   title: "Careers | KBS Group",
   description:
-    "Join KBS Group. Explore career opportunities in technology, software engineering, fintech, civil engineering, and business automation.",
+    "Join KBS Group. Explore career opportunities across Information Technology, Civil Engineering, Business Automation, Finance Services, and Skill Development. Send your resume to hr@kbs.group.",
 };
 
 export default function CareersPage() {
@@ -174,6 +174,20 @@ export default function CareersPage() {
                   </Link>
                 </div>
               ))}
+            </div>
+
+            {/* HR Contact Box */}
+            <div className="mt-12 max-w-4xl mx-auto p-8 rounded-3xl bg-[#061A36] text-white border border-[#82A0FF]/20 text-center shadow-xl">
+              <h3 className="text-xl sm:text-2xl font-extrabold mb-2">Don&apos;t see your role? Send us your resume</h3>
+              <p className="text-sm text-slate-300 mb-4 font-normal">
+                We are always looking for exceptional talent across technology, engineering, finance, and training.
+              </p>
+              <a
+                href="mailto:hr@kbs.group"
+                className="inline-flex items-center justify-center px-7 py-3 rounded-full bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] text-white font-bold text-sm sm:text-base hover:opacity-95 transition-all shadow-md"
+              >
+                Send Resume to hr@kbs.group
+              </a>
             </div>
           </div>
         </section>

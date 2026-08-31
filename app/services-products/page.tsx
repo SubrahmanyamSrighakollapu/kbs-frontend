@@ -14,9 +14,9 @@ import ServicesCTA from "@/components/services/ServicesCTA";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "Services & Products | KBS Information Technology",
+  title: "Services & Products | KBS Group",
   description:
-    "Explore KBS Information Technology Services & Products — Scalable, secure software engineered for impact across financial services, SaaS automation, and enterprise platforms.",
+    "Explore KBS Group services and digital products — scalable solutions across Information Technology, Civil Engineering, Business Automation, Finance Services, and Skill Development.",
 };
 
 export default function ServicesProductsPage() {

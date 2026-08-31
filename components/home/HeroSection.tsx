@@ -159,24 +159,6 @@ export default function HeroSection() {
             <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-xl mb-8">
               {activeSlide.description}
             </p>
-
-            {/* Hero CTAs */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              <Link
-                href={activeSlide.primaryCtaLink}
-                className="inline-flex items-center justify-center px-7 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] text-white text-sm sm:text-base font-semibold hover:opacity-95 hover:-translate-y-0.5 active:scale-95 transition-all shadow-lg hover:shadow-xl group"
-              >
-                {activeSlide.primaryCtaText}
-                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2.5 group-hover:translate-x-1.5 transition-transform" />
-              </Link>
-
-              <Link
-                href={activeSlide.secondaryCtaLink}
-                className="inline-flex items-center justify-center px-7 py-3.5 sm:py-4 rounded-full bg-white/5 backdrop-blur-md text-white border border-white/20 text-sm sm:text-base font-semibold hover:bg-white/10 hover:border-white/40 active:scale-95 transition-all"
-              >
-                {activeSlide.secondaryCtaText}
-              </Link>
-            </div>
           </div>
         </div>
       </div>

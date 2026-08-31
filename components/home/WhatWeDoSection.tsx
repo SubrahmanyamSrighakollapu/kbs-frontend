@@ -10,17 +10,35 @@ export default function WhatWeDoSection() {
 
   const capabilities = [
     {
+      id: "civil",
+      label: "Civil Engineering",
+      title: "🏗️ Civil Engineering Services",
+      subtitle: "KBS Infrastructure & Engineering",
+      description:
+        "Specialized structural solutions including Tilt-Up construction, Light Gauge Steel Framing, Precast, Pre-Engineered Buildings (PEMB), Structural Steel, and BIM services — engineered for speed, strength, and scale.",
+      bullets: [
+        "Tilt-Up & Precast Construction",
+        "Light Gauge Steel Framing (LGSF)",
+        "Pre-Engineered Buildings (PEMB)",
+        "Structural Steel & BIM Services",
+      ],
+      image: "/Civil Services.png",
+      link: "/verticals/civil",
+      accent: "#FF6B35",
+      icon: Building2,
+    },
+    {
       id: "it",
-      label: "IT & Software",
-      title: "Custom Software Engineering & Cloud Platforms",
+      label: "Information Technology",
+      title: "💻 Information Technology",
       subtitle: "KBS Information Technology",
       description:
-        "We build scalable web applications, mobile apps, fintech platforms, and custom software systems designed around your real operational needs.",
+        "Since 2021, we've been building digital products and platforms that solve real business problems, from custom software to scalable digital ecosystems.",
       bullets: [
-        "Websites & Full-Stack Web Applications",
-        "Android & iOS Mobile Apps",
-        "Cloud Architecture & AI Integration",
-        "E-Commerce & Hyperlocal Marketplaces",
+        "Custom Software Development",
+        "Scalable Digital Ecosystems",
+        "Websites & Mobile Applications",
+        "Cloud Architecture & AI Products",
       ],
       image: "/It Services.png",
       link: "/verticals/it",
@@ -29,16 +47,16 @@ export default function WhatWeDoSection() {
     },
     {
       id: "automation",
-      label: "Automation & SaaS",
-      title: "Workflow Automation & SaaS Products",
+      label: "Business Automation",
+      title: "⚙️ Business Automation Tools",
       subtitle: "KBS Business Automation & SaaS",
       description:
-        "Turn repetitive manual processes into automated digital workflows. Save time, eliminate errors, and let your team focus on core growth.",
+        "Smart, streamlined systems that help businesses eliminate manual bottlenecks and operate at their full potential.",
       bullets: [
-        "WinWala Retail Loyalty & Engagement",
+        "WinWala Retail Loyalty Platform",
         "Creavo Self-Service Creative Studio",
-        "AI Website Generator & Deployment",
-        "SCADA Central Process Monitoring",
+        "AI Website Generator & Automation",
+        "SCADA Central System Monitoring",
       ],
       image: "/Automation Tools.png",
       link: "/verticals/automation",
@@ -47,16 +65,16 @@ export default function WhatWeDoSection() {
     },
     {
       id: "financial",
-      label: "Fintech & Payments",
-      title: "Payment Gateways & Business Financial Tools",
+      label: "Finance Services",
+      title: "💰 Finance Services",
       subtitle: "KBS Financial Services",
       description:
-        "Fintech solutions built for businesses. Collect payments seamlessly, disburse payouts, offer flexible BNPL financing, and access working capital.",
+        "Payment gateways, payouts, BNPL, and business lending solutions designed to make capital and transactions frictionless for businesses of every size.",
       bullets: [
-        "Secure Payment Gateway Collection",
-        "Automated Vendor & Recipient Payouts",
+        "Secure Payment Gateways",
+        "Automated Recipient Payouts",
         "Retail Buy Now Pay Later (BNPL)",
-        "Practical Business Working Capital",
+        "Practical Business Lending",
       ],
       image: "/Financial services.png",
       link: "/verticals/financial",
@@ -64,35 +82,17 @@ export default function WhatWeDoSection() {
       icon: Landmark,
     },
     {
-      id: "civil",
-      label: "Civil & Infra",
-      title: "Civil Engineering, Structural Design & AI Drawing",
-      subtitle: "KBS Civil & Infrastructure",
-      description:
-        "Delivering quality construction, structural load analysis, BIM 3D drafting, SCADA monitoring, and AI-powered architectural drawing comparison.",
-      bullets: [
-        "Structural Engineering & RCC Design",
-        "BIM 3D Drafting & Revit Workflows",
-        "AI Drawing Difference Analysis",
-        "Smart Infrastructure & Site Control",
-      ],
-      image: "/Civil Services.png",
-      link: "/verticals/civil",
-      accent: "#FF6B35",
-      icon: Building2,
-    },
-    {
       id: "skill-hub",
-      label: "Skill Hub",
-      title: "Industry-Focused Workplace Software Training",
+      label: "Skill Services",
+      title: "🎓 Skill Services",
       subtitle: "KBS Skill Hub",
       description:
-        "Bridging the gap between classrooms and careers. Hands-on IT software and Civil Engineering training guided by active working industry professionals.",
+        "Talent development and training programs that build the workforce of tomorrow, bridging the gap between industry needs and employable skills.",
       bullets: [
-        "Full-Stack Web & API Engineering",
-        "AutoCAD, Revit & Structural Software",
-        "Practitioner-Led Project Workflows",
-        "Career-Ready Job Employability",
+        "Industry-Oriented Software Training",
+        "IT & Civil Tool-Level Mastery",
+        "Practitioner-Led Instruction",
+        "Job-Ready Talent Development",
       ],
       image: "/Skill Hub.png",
       link: "/skill-hub",
@@ -105,7 +105,7 @@ export default function WhatWeDoSection() {
   const Icon = current.icon;
 
   return (
-    <section className="py-24 sm:py-32 bg-slate-50 text-[#111827] relative overflow-hidden select-none border-b border-slate-200">
+    <section id="what-we-do" className="py-24 sm:py-32 bg-slate-50 text-[#111827] relative overflow-hidden select-none border-b border-slate-200">
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
@@ -113,10 +113,10 @@ export default function WhatWeDoSection() {
             WHAT WE DO
           </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-[#111827] tracking-tight">
-            Turning Complex Business Challenges Into Scalable Reality.
+            One Group. Every Solution.
           </h2>
           <p className="text-sm sm:text-base text-[#5B6475] mt-4 font-normal">
-            Explore our core operational streams across software, SaaS, fintech, civil engineering, and skill training.
+            Explore our core operational verticals across engineering, technology, automation, finance, and skill development.
           </p>
         </div>
 
@@ -147,63 +147,82 @@ export default function WhatWeDoSection() {
         </div>
 
         {/* Active Tab Highlight Showcase Card */}
-        <div className="rounded-3xl bg-white border border-slate-200/80 p-8 sm:p-12 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Left Text & Bullets */}
-          <div className="lg:col-span-7">
-            <div
-              className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4"
-              style={{ backgroundColor: `${current.accent}15`, color: current.accent }}
-            >
-              <Icon className="w-4 h-4" />
-              {current.subtitle}
-            </div>
+        <Link href={current.link} className="block rounded-3xl bg-white border border-slate-200/80 p-8 sm:p-12 shadow-xl hover:shadow-2xl transition-all group">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            {/* Left Text & Bullets */}
+            <div className="lg:col-span-7">
+              <div
+                className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4"
+                style={{ backgroundColor: `${current.accent}15`, color: current.accent }}
+              >
+                <Icon className="w-4 h-4" />
+                {current.subtitle}
+              </div>
 
-            <h3 className="text-2xl sm:text-4xl font-extrabold text-[#111827] tracking-tight mb-4 leading-tight">
-              {current.title}
-            </h3>
+              <h3 className="text-2xl sm:text-4xl font-extrabold text-[#111827] tracking-tight mb-4 leading-tight">
+                {current.title}
+              </h3>
 
-            <p className="text-base text-[#5B6475] font-normal leading-relaxed mb-8">
-              {current.description}
-            </p>
+              <p className="text-base text-[#5B6475] font-normal leading-relaxed mb-8">
+                {current.description}
+              </p>
 
-            {/* Bullet Points */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-              {current.bullets.map((item, bIdx) => (
-                <div key={bIdx} className="flex items-center gap-3">
-                  <div
-                    className="w-6 h-6 rounded-full flex items-center justify-center shrink-0"
-                    style={{ backgroundColor: `${current.accent}15`, color: current.accent }}
-                  >
-                    <CheckCircle2 className="w-4 h-4" />
+              {/* Bullet Points */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                {current.bullets.map((item, bIdx) => (
+                  <div key={bIdx} className="flex items-center gap-3">
+                    <div
+                      className="w-6 h-6 rounded-full flex items-center justify-center shrink-0"
+                      style={{ backgroundColor: `${current.accent}15`, color: current.accent }}
+                    >
+                      <CheckCircle2 className="w-4 h-4" />
+                    </div>
+                    <span className="text-sm font-bold text-[#111827]">{item}</span>
                   </div>
-                  <span className="text-sm font-bold text-[#111827]">{item}</span>
-                </div>
-              ))}
+                ))}
+              </div>
+
+              <div
+                className="inline-flex items-center justify-center px-7 py-3.5 rounded-full text-white font-semibold text-sm sm:text-base hover:opacity-95 active:scale-95 transition-all shadow-md"
+                style={{
+                  background: `linear-gradient(135deg, ${current.accent}, #03142B)`,
+                }}
+              >
+                Explore {current.label} Vertical
+                <ArrowRight className="w-4 h-4 ml-2.5 group-hover:translate-x-1.5 transition-transform" />
+              </div>
             </div>
 
-            <Link
-              href={current.link}
-              className="inline-flex items-center justify-center px-7 py-3.5 rounded-full text-white font-semibold text-sm sm:text-base hover:opacity-95 active:scale-95 transition-all shadow-md group"
-              style={{
-                background: `linear-gradient(135deg, ${current.accent}, #03142B)`,
-              }}
-            >
-              Explore {current.label} Vertical
-              <ArrowRight className="w-4 h-4 ml-2.5 group-hover:translate-x-1.5 transition-transform" />
-            </Link>
+            {/* Right Image Display */}
+            <div className="lg:col-span-5">
+              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-slate-900 border border-slate-200">
+                <Image
+                  src={current.image}
+                  alt={current.title}
+                  fill
+                  priority
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#03142B]/60 via-transparent to-transparent pointer-events-none" />
+              </div>
+            </div>
           </div>
+        </Link>
 
-          {/* Right Image Display */}
-          <div className="lg:col-span-5">
-            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-slate-900 border border-slate-200">
-              <Image
-                src={current.image}
-                alt={current.title}
-                fill
-                priority
-                className="object-cover object-center hover:scale-105 transition-transform duration-700 ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#03142B]/60 via-transparent to-transparent pointer-events-none" />
+        {/* Why KBS Group Showcase Card */}
+        <div className="mt-16 bg-[#061A36] rounded-3xl p-8 sm:p-12 text-white border border-[#82A0FF]/20 shadow-2xl relative overflow-hidden">
+          <div className="max-w-3xl">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#168BFF] block mb-2">
+              WHY KBS GROUP
+            </span>
+            <h3 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+              Infrastructure &amp; Innovation Unified.
+            </h3>
+            <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal mb-6">
+              We operate at the intersection of infrastructure and innovation — where a construction site, a codebase, a credit line, and a classroom are all part of the same growth story. Headquartered in Hyderabad, we bring together diverse expertise to deliver integrated, reliable, and forward-thinking solutions across sectors.
+            </p>
+            <div className="inline-block px-5 py-2 rounded-full bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] text-white font-extrabold text-sm sm:text-base shadow-lg">
+              One Group. Every Solution. That&apos;s KBS.
             </div>
           </div>
         </div>

@@ -11,7 +11,7 @@ import Footer from "@/components/layout/Footer";
 export const metadata: Metadata = {
   title: "Contact Us | KBS Group",
   description:
-    "Get in touch with KBS Group. Reach out for project inquiries, consultations, partnerships, or visit our corporate headquarters at Manjeera Trinity Corporate, Kukatpally, Hyderabad.",
+    "Get connected with KBS Group headquarters in Hyderabad or reach out to our global team for consultations, project inquiries, and enterprise solutions.",
 };
 
 export default function ContactPage() {

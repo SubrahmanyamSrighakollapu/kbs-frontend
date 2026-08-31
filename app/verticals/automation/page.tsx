@@ -25,9 +25,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Business Automation & SaaS | KBS Group",
+  title: "Business Automation Tools | KBS Group",
   description:
-    "Software That Works While You Work. Practical SaaS products and automation solutions that help businesses save time, reduce errors, and work smarter.",
+    "Systems that work while you unwind. Smart, streamlined business automation tools and SaaS products that help businesses eliminate manual bottlenecks and operate at their full potential.",
 };
 
 export default function AutomationPage() {
@@ -152,9 +152,9 @@ export default function AutomationPage() {
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
-                Software That Works <br />
+                Systems That Work <br />
                 <span className="bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] bg-clip-text text-transparent inline-block">
-                  While You Work
+                  While You Unwind
                 </span>
               </h1>
 

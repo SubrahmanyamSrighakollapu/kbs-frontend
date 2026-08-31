@@ -13,9 +13,9 @@ import GroupAdvantage from "@/components/about/GroupAdvantage";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "About Us | KBS Information Technology",
+  title: "Who We Are | KBS Group",
   description:
-    "Learn about KBS Information Technology — the technology arm of KBS Group, building digital products across fintech, commerce, civic tech, and enterprise platforms.",
+    "KBS Group is a multi-vertical enterprise built on a simple belief: real transformation happens when engineering precision, digital innovation, financial access, and skilled talent come together under one roof.",
 };
 
 export default function AboutPage() {

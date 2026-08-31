@@ -22,9 +22,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Financial Services | KBS Group",
+  title: "Finance Services | KBS Group",
   description:
-    "Financial Solutions Built for Business. Accept payments, manage payouts, offer flexible BNPL payment options, and access business finance.",
+    "Payment gateways, payouts, Buy Now Pay Later (BNPL), and business lending solutions designed to make capital and transactions frictionless for businesses of every size.",
 };
 
 export default function FinancialPage() {

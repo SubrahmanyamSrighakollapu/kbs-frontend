@@ -70,8 +70,14 @@ export default function IndustryAccordion() {
             return (
               <div
                 key={item.id}
-                className={`${styles.rotationalCard} ${slotClass}`}
-                onClick={() => setActiveIndex(idx)}
+                className={`${styles.rotationalCard} ${slotClass} ${isActive ? "cursor-pointer" : "cursor-pointer"}`}
+                onClick={(e) => {
+                  if (isActive) {
+                    window.location.href = item.link || "/verticals/it";
+                  } else {
+                    setActiveIndex(idx);
+                  }
+                }}
               >
                 {/* Active Card Blended Background (/industries-bg.png) */}
                 {isActive && (
@@ -110,7 +116,7 @@ export default function IndustryAccordion() {
                     <span className={styles.activeCategoryText}>{item.category}</span>
                     <h3 className={styles.activeTitle}>{item.title}</h3>
                     <p className={styles.activeDesc}>{item.description}</p>
-                    <Link href={item.link || "/services-products"} className={styles.exploreBtn}>
+                    <Link href={item.link || "/verticals/it"} className={styles.exploreBtn}>
                       <span>Explore More</span>
                       <ArrowRight className="w-4.5 h-4.5 transition-transform group-hover:translate-x-1" />
                     </Link>
@@ -183,7 +189,7 @@ export default function IndustryAccordion() {
               <ChevronLeft className="w-5 h-5" />
             </button>
 
-            <div key={`mobile-card-${activeItem.id}`} className={styles.mobileActiveCard}>
+            <Link href={activeItem.link || "/verticals/it"} key={`mobile-card-${activeItem.id}`} className={`${styles.mobileActiveCard} block cursor-pointer`}>
               <div className={styles.activeBgImageWrapper}>
                 <Image
                   src="/industries-bg.png"
@@ -200,13 +206,13 @@ export default function IndustryAccordion() {
                   <span className={styles.activeCategoryText}>{activeItem.category}</span>
                   <h3 className={styles.activeTitle}>{activeItem.title}</h3>
                   <p className={styles.activeDesc}>{activeItem.description}</p>
-                  <Link href={activeItem.link || "/services-products"} className={styles.exploreBtn}>
+                  <span className={styles.exploreBtn}>
                     <span>Explore More</span>
                     <ArrowRight className="w-4.5 h-4.5" />
-                  </Link>
+                  </span>
                 </div>
               </div>
-            </div>
+            </Link>
 
             <button
               type="button"

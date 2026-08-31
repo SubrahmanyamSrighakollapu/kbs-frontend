@@ -241,6 +241,39 @@ export default function ContactFormMapSection() {
               </div>
             </div>
           </div>
+
+          {/* Global Locations Single Window View per Point 15 */}
+          <div className="mt-12 pt-10 border-t border-[#0F2346]/10">
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#168BFF] block mb-1">
+                GLOBAL PRESENCE
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#111827] tracking-tight">
+                Our Global Locations
+              </h3>
+              <p className="text-xs sm:text-sm text-[#5B6475] mt-1 font-normal">
+                Serving clients and operations worldwide from our key regional hubs in a single window.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { region: "India (HQ)", city: "Hyderabad", desc: "Manjeera Trinity Corporate, Kukatpally", tag: "Corporate & Tech Hub", color: "#168BFF" },
+                { region: "North America", city: "United States", desc: "Enterprise Client Services & Solutions", tag: "US Operations", color: "#6657FF" },
+                { region: "Middle East", city: "UAE", desc: "Fintech, Payments & Civil Operations", tag: "MENA Hub", color: "#A52BFF" },
+                { region: "APAC & Europe", city: "Global Delivery", desc: "24/7 Client Support & Software Delivery", tag: "Global Support", color: "#00A8FF" },
+              ].map((loc, idx) => (
+                <div key={idx} className="p-5 rounded-2xl bg-[#F8FAFF] border border-[#0F2346]/10 hover:border-[#168BFF]/40 transition-all">
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-white text-slate-700 border border-slate-200 inline-block mb-3">
+                    {loc.tag}
+                  </span>
+                  <h4 className="text-base font-extrabold text-[#111827]">{loc.region}</h4>
+                  <p className="text-xs font-bold mb-1" style={{ color: loc.color }}>{loc.city}</p>
+                  <p className="text-xs text-[#5B6475] font-normal leading-relaxed">{loc.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

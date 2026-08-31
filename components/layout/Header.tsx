@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Search, Menu, X } from "lucide-react";
@@ -42,27 +43,14 @@ export default function Header() {
       <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Left: Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="flex items-center">
-            <span
-              className={`font-extrabold text-xl sm:text-2xl tracking-tighter ${
-                isLightHeaderPage ? "text-[#111827]" : "text-white"
-              }`}
-            >
-              KBS
-            </span>
-            <span
-              className={`text-[10px] sm:text-xs tracking-widest font-semibold uppercase ml-1.5 pt-0.5 border-l pl-1.5 ${
-                isLightHeaderPage
-                  ? "text-[#5B6475] border-slate-300"
-                  : "text-slate-300 border-slate-600"
-              }`}
-            >
-              GROUP
-            </span>
-            <span className="text-xl sm:text-2xl font-black text-[#E52B2F] ml-1.5">
-              IT
-            </span>
-          </div>
+          <Image
+            src="/kbs-group-logo.png"
+            alt="KBS Group Logo"
+            width={160}
+            height={48}
+            className="h-9 sm:h-10 w-auto object-contain transition-transform group-hover:scale-105"
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -100,7 +88,7 @@ export default function Header() {
             href="/contact"
             className="hidden sm:inline-flex items-center justify-center px-5 sm:px-6 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] text-white text-xs sm:text-sm font-semibold tracking-wide hover:opacity-95 active:scale-95 transition-all shadow-md hover:shadow-lg"
           >
-            Let&apos;s Talk
+            Get Connected
           </Link>
 
           {/* Search Icon */}
@@ -180,17 +168,15 @@ export default function Header() {
       >
         <div className="p-6">
           <div className="flex items-center justify-between pb-6 border-b border-slate-800">
-            <div className="flex items-center">
-              <span className="font-extrabold text-xl tracking-tighter text-white">
-                KBS
-              </span>
-              <span className="text-[10px] tracking-widest font-semibold text-slate-400 uppercase ml-1.5 pt-0.5 border-l border-slate-700 pl-1.5">
-                GROUP
-              </span>
-              <span className="text-xl font-black text-[#E52B2F] ml-1.5">
-                IT
-              </span>
-            </div>
+            <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
+              <Image
+                src="/kbs-group-logo.png"
+                alt="KBS Group Logo"
+                width={140}
+                height={40}
+                className="h-8 w-auto object-contain"
+              />
+            </Link>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
               aria-label="Close menu"
@@ -220,7 +206,7 @@ export default function Header() {
             onClick={() => setIsMobileMenuOpen(false)}
             className="w-full inline-flex items-center justify-center px-6 py-3 rounded-full bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] text-white font-semibold hover:opacity-95 transition-all shadow-md text-center"
           >
-            Let&apos;s Talk
+            Get Connected
           </Link>
           <p className="text-xs text-center text-slate-400 mt-4">
             © 2026 KBS Information Technology

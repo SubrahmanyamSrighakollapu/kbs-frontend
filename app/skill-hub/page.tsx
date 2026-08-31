@@ -7,14 +7,13 @@ import WhatWeOfferSection from "@/components/skill-hub/WhatWeOfferSection";
 import SkillBenefits from "@/components/skill-hub/SkillBenefits";
 import PopularCourses from "@/components/skill-hub/PopularCourses";
 import LearningPaths from "@/components/skill-hub/LearningPaths";
-import UpcomingSessions from "@/components/skill-hub/UpcomingSessions";
 import SkillHubCTA from "@/components/skill-hub/SkillHubCTA";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "Skill Hub | KBS Information Technology",
+  title: "Skill Services & Training | KBS Group",
   description:
-    "KBS Skill Hub — Bridging the Gap Between Classrooms and Careers. Industry-expert led IT software and Civil engineering software training built for real employability.",
+    "Talent development and training programs that build the workforce of tomorrow, bridging the gap between industry needs and employable skills with practitioner-led IT & Civil software training.",
 };
 
 export default function SkillHubPage() {
@@ -42,10 +41,7 @@ export default function SkillHubPage() {
         {/* 7. Why KBS Skill Hub Pillars */}
         <SkillBenefits />
 
-        {/* 8. Upcoming Sessions Section */}
-        <UpcomingSessions />
-
-        {/* 9. Closing CTA Panel */}
+        {/* 8. Closing CTA Panel */}
         <SkillHubCTA />
       </main>
 

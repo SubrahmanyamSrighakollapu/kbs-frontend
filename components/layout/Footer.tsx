@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { footerLinks } from "@/data/home";
 import { MapPin, Phone, Mail } from "lucide-react";
@@ -14,15 +15,13 @@ export default function Footer() {
           {/* Column 1: KBS IT Brand */}
           <div className="lg:col-span-1 space-y-4">
             <Link href="/" className="inline-flex items-center">
-              <span className="font-extrabold text-2xl tracking-tighter text-white">
-                KBS
-              </span>
-              <span className="text-[10px] tracking-widest font-semibold text-slate-400 uppercase ml-1.5 pt-0.5 border-l border-slate-700 pl-1.5">
-                GROUP
-              </span>
-              <span className="text-2xl font-black text-[#E52B2F] ml-1.5">
-                IT
-              </span>
+              <Image
+                src="/kbs-group-logo.png"
+                alt="KBS Group Logo"
+                width={160}
+                height={48}
+                className="h-10 w-auto object-contain"
+              />
             </Link>
 
             <p className="text-xs font-bold uppercase tracking-wider text-[#168BFF]">
@@ -146,32 +145,60 @@ export default function Footer() {
             <h4 className="text-sm font-bold uppercase tracking-wider text-slate-200 mb-4">
               Contact
             </h4>
-            <ul className="space-y-3">
-              <li className="flex items-start space-x-3 text-xs sm:text-sm text-slate-400">
-                <MapPin className="w-4 h-4 text-[#168BFF] shrink-0 mt-0.5" />
-                <span className="whitespace-pre-line">
-                  {footerLinks.contact.address}
+            <ul className="space-y-3.5">
+              <li className="flex items-start gap-3 text-xs sm:text-sm text-slate-400">
+                <MapPin className="w-4 h-4 text-[#168BFF] shrink-0 mt-1" />
+                <span className="leading-relaxed font-normal">
+                  KBS PVT LTD, Manjeera Trinity Corporate,<br />
+                  KPHB Phase 3, Kukatpally,<br />
+                  Hyderabad, Telangana 500072
                 </span>
               </li>
-              <li className="flex items-center space-x-3 text-xs sm:text-sm text-slate-400">
+              <li className="flex items-center gap-3 text-xs sm:text-sm text-slate-400">
                 <Phone className="w-4 h-4 text-[#168BFF] shrink-0" />
                 <a
                   href={`tel:${footerLinks.contact.phone}`}
-                  className="hover:text-[#168BFF] transition-colors"
+                  className="hover:text-[#168BFF] transition-colors font-medium"
                 >
                   {footerLinks.contact.phone}
                 </a>
               </li>
-              <li className="flex items-center space-x-3 text-xs sm:text-sm text-slate-400">
+              <li className="flex items-center gap-3 text-xs sm:text-sm text-slate-400">
                 <Mail className="w-4 h-4 text-[#168BFF] shrink-0" />
                 <a
                   href={`mailto:${footerLinks.contact.email}`}
-                  className="hover:text-[#168BFF] transition-colors"
+                  className="hover:text-[#168BFF] transition-colors font-medium"
                 >
                   {footerLinks.contact.email}
                 </a>
               </li>
             </ul>
+          </div>
+        </div>
+
+        {/* Bottom Short Description Banner per Point 12 & 17 */}
+        <div className="pt-8 pb-4 border-t border-slate-800/80 text-center max-w-4xl mx-auto space-y-2">
+          <h4 className="text-sm font-extrabold uppercase tracking-widest bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] bg-clip-text text-transparent">
+            One Group. Every Solution.
+          </h4>
+          <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed">
+            KBS Group brings engineering, technology, finance, and talent together — building the infrastructure, platforms, and people that power tomorrow&apos;s businesses.
+          </p>
+          <div className="text-[11px] font-semibold text-[#168BFF] pt-1 flex flex-wrap items-center justify-center gap-2">
+            <span>Civil Engineering</span>
+            <span>|</span>
+            <span>Information Technology</span>
+            <span>|</span>
+            <span>Business Automation</span>
+            <span>|</span>
+            <span>Finance Services</span>
+            <span>|</span>
+            <span>Skill Development</span>
+          </div>
+          <div className="pt-2">
+            <Link href="/#what-we-do" className="inline-flex items-center text-xs font-bold text-[#A52BFF] hover:text-white transition-colors">
+              Explore Our Verticals &rarr;
+            </Link>
           </div>
         </div>
 

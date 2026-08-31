@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import HeroSection from "@/components/home/HeroSection";
 import StatsSection from "@/components/home/StatsSection";
@@ -8,6 +9,12 @@ import WhatWeDoSection from "@/components/home/WhatWeDoSection";
 import TrustedBrands from "@/components/home/TrustedBrands";
 import CTASection from "@/components/home/CTASection";
 import Footer from "@/components/layout/Footer";
+
+export const metadata: Metadata = {
+  title: "KBS Group | One Group. Every Solution.",
+  description:
+    "KBS Group brings engineering, technology, finance, and talent together — building the infrastructure, platforms, and people that power tomorrow's businesses.",
+};
 
 export default function HomePage() {
   return (

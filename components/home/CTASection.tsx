@@ -15,14 +15,24 @@ export default function CTASection() {
             background: "linear-gradient(135deg, #03142B 0%, #091D3A 50%, #3B1979 100%)"
           }}
         >
-          {/* Decorative Network Grid Overlay */}
-          <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
-            <Image
-              src="/hero-bg.png"
-              alt="CTA Pattern"
-              fill
-              className="object-cover object-center mix-blend-overlay"
-            />
+          {/* Background Grid of All 5 Verticals Images */}
+          <div className="absolute inset-0 z-0 pointer-events-none grid grid-cols-5 opacity-25 overflow-hidden">
+            <div className="relative h-full w-full">
+              <Image src="/It Services.png" alt="IT Services" fill className="object-cover" />
+            </div>
+            <div className="relative h-full w-full">
+              <Image src="/Automation Tools.png" alt="Automation Tools" fill className="object-cover" />
+            </div>
+            <div className="relative h-full w-full">
+              <Image src="/Civil Services.png" alt="Civil Services" fill className="object-cover" />
+            </div>
+            <div className="relative h-full w-full">
+              <Image src="/Financial services.png" alt="Financial Services" fill className="object-cover" />
+            </div>
+            <div className="relative h-full w-full">
+              <Image src="/Skill Hub.png" alt="Skill Hub" fill className="object-cover" />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#03142B] via-[#03142B]/80 to-[#3B1979]/90" />
           </div>
 
           <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 lg:gap-12">

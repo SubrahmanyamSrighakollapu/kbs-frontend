@@ -26,7 +26,7 @@ import {
 export const metadata: Metadata = {
   title: "Civil Engineering Services | KBS Group",
   description:
-    "Engineering solutions built for real projects. Practical civil and structural engineering, AI drawing analysis, documentation, and coordination.",
+    "Specialized structural solutions including Tilt-Up construction, Light Gauge Steel Framing (LGSF), Precast, Pre-Engineered Buildings (PEMB), Structural Steel, and BIM services — engineered for speed, strength, and scale.",
 };
 
 export default function CivilPage() {

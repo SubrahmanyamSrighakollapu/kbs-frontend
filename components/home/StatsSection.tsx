@@ -40,17 +40,17 @@ export default function StatsSection() {
 
             setCounts({
               founded: Math.floor(2021 * progress),
-              products: Math.floor(50 * progress),
-              clients: Math.floor(100 * progress),
-              industries: Math.floor(6 * progress),
+              products: Math.floor(20000 * progress),
+              clients: Math.floor(175 * progress),
+              industries: Math.floor(5 * progress),
             });
 
             if (currentStep >= steps) {
               setCounts({
                 founded: 2021,
-                products: 50,
-                clients: 100,
-                industries: 6,
+                products: 20000,
+                clients: 175,
+                industries: 5,
               });
               clearInterval(timer);
             }

@@ -24,7 +24,7 @@ import {
 export const metadata: Metadata = {
   title: "Information Technology | KBS Group",
   description:
-    "We Build Technology That Helps Businesses Grow. Websites, mobile apps, AI-powered platforms, and enterprise software engineering.",
+    "Since 2021, KBS Information Technology has been building digital products and platforms that solve real business problems — custom software, scalable web & mobile apps, and cloud ecosystems.",
 };
 
 export default function ITPage() {
