@@ -282,9 +282,9 @@ export const partnerBrands: PartnerBrand[] = [
   { id: "desisafai", name: "Desi Safai", tagline: "On-Demand Services", logo: "/desi-safai-org.png" },
   { id: "landvestinfra", name: "Landvest Infra", tagline: "Infrastructure & Living", logo: "/landvestintra-org.png" },
   { id: "brightspark", name: "Bright Spark", tagline: "Creative Media", logo: "/bright-spark-org.png" },
-  { id: "spoorthi", name: "Spoorthi", tagline: "Media & Broadcast", logo: "/bright-spark-org.png" },
+  { id: "spoorthi", name: "Spoorthi", tagline: "Media & Broadcast", logo: "/spoorthi-news-logo.png" },
   { id: "tutershub", name: "Tuters Hub", tagline: "EdTech Platform", logo: "/tutershub-org.png" },
-  { id: "sudharshan", name: "Sudarshan News Channel", tagline: "News Network", logo: "/tutershub-org.png" },
+  { id: "sudharshan", name: "Sudarshan News Channel", tagline: "News Network", logo: "/sudarshan-news-logo.png" },
 ];
 
 export const footerLinks = {
