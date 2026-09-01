@@ -12,7 +12,7 @@ export default function WhatWeDoSection() {
     {
       id: "civil",
       label: "Civil Engineering",
-      title: "🏗️ Civil Engineering Services",
+      title: "Civil Engineering Services",
       subtitle: "KBS Infrastructure & Engineering",
       description:
         "Specialized structural solutions including Tilt-Up construction, Light Gauge Steel Framing, Precast, Pre-Engineered Buildings (PEMB), Structural Steel, and BIM services — engineered for speed, strength, and scale.",
@@ -30,7 +30,7 @@ export default function WhatWeDoSection() {
     {
       id: "it",
       label: "Information Technology",
-      title: "💻 Information Technology",
+      title: "Information Technology",
       subtitle: "KBS Information Technology",
       description:
         "Since 2021, we've been building digital products and platforms that solve real business problems, from custom software to scalable digital ecosystems.",
@@ -48,7 +48,7 @@ export default function WhatWeDoSection() {
     {
       id: "automation",
       label: "Business Automation",
-      title: "⚙️ Business Automation Tools",
+      title: "Business Automation Tools",
       subtitle: "KBS Business Automation & SaaS",
       description:
         "Smart, streamlined systems that help businesses eliminate manual bottlenecks and operate at their full potential.",
@@ -66,7 +66,7 @@ export default function WhatWeDoSection() {
     {
       id: "financial",
       label: "Finance Services",
-      title: "💰 Finance Services",
+      title: "Finance Services",
       subtitle: "KBS Financial Services",
       description:
         "Payment gateways, payouts, BNPL, and business lending solutions designed to make capital and transactions frictionless for businesses of every size.",
@@ -84,7 +84,7 @@ export default function WhatWeDoSection() {
     {
       id: "skill-hub",
       label: "Skill Services",
-      title: "🎓 Skill Services",
+      title: "Skill Services",
       subtitle: "KBS Skill Hub",
       description:
         "Talent development and training programs that build the workforce of tomorrow, bridging the gap between industry needs and employable skills.",
@@ -130,11 +130,10 @@ export default function WhatWeDoSection() {
               <button
                 key={cap.id}
                 onClick={() => setActiveTab(idx)}
-                className={`inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-extrabold transition-all duration-300 border ${
-                  isActive
+                className={`inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-extrabold transition-all duration-300 border ${isActive
                     ? "bg-[#03142B] text-white border-[#03142B] shadow-lg scale-105"
                     : "bg-white text-slate-600 border-slate-200 hover:bg-slate-100 hover:border-slate-300"
-                }`}
+                  }`}
               >
                 <TabIcon
                   className="w-4 h-4"
