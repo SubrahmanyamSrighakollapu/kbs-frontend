@@ -40,6 +40,7 @@ export interface PartnerBrand {
   tagline?: string;
   logo: string;
   iconType?: string;
+  logoClass?: string;
 }
 
 export interface NavItem {
@@ -279,12 +280,12 @@ export const industries: IndustryItem[] = [
 export const partnerBrands: PartnerBrand[] = [
   { id: "desidukan", name: "Desi Dukan", tagline: "Hyperlocal Commerce", logo: "/desi-dukan-org.jpeg" },
   { id: "helyi", name: "Helyi", tagline: "Hyperlocal Marketplace", logo: "/desi-dukan-org.jpeg" },
-  { id: "desisafai", name: "Desi Safai", tagline: "On-Demand Services", logo: "/desi-safai-org.png" },
+  { id: "desisafai", name: "Desi Safai", tagline: "On-Demand Services", logo: "/desi-safai-org.png", logoClass: "h-10 sm:h-11 scale-115" },
   { id: "landvestinfra", name: "Landvest Infra", tagline: "Infrastructure & Living", logo: "/landvestintra-org.png" },
-  { id: "brightspark", name: "Bright Spark", tagline: "Creative Media", logo: "/bright-spark-org.png" },
+  { id: "brightspark", name: "Bright Spark", tagline: "Creative Media", logo: "/bright-spark-org.png", logoClass: "h-10 sm:h-11 scale-115" },
   { id: "spoorthi", name: "Spoorthi", tagline: "Media & Broadcast", logo: "/spoorthi-news-logo.png" },
   { id: "tutershub", name: "Tuters Hub", tagline: "EdTech Platform", logo: "/tutershub-org.png" },
-  { id: "sudharshan", name: "Sudarshan News Channel", tagline: "News Network", logo: "/sudarshan-news-logo.png" },
+  { id: "sudharshan", name: "Sudarshan News Channel", tagline: "News Network", logo: "/sudarshan-news-logo.png", logoClass: "h-14 sm:h-16 scale-150 sm:scale-175 origin-center min-w-[60px] max-w-[220px]" },
 ];
 
 export const footerLinks = {

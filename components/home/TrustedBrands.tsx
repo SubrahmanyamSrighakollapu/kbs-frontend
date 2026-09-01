@@ -32,13 +32,17 @@ export default function TrustedBrands() {
                 key={`${brand.id}-${idx}`}
                 className="group flex items-center space-x-3.5 px-5 py-3 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-[#168BFF]/40 shadow-xs hover:shadow-md transition-all duration-300 cursor-pointer shrink-0"
               >
-                <div className="relative h-9 sm:h-10 w-auto min-w-[36px] flex items-center justify-center overflow-hidden">
+                <div className="relative h-12 sm:h-14 w-auto min-w-[50px] flex items-center justify-center">
                   <Image
                     src={brand.logo}
                     alt={brand.name}
-                    width={140}
-                    height={48}
-                    className="h-8 sm:h-9 w-auto max-w-[140px] object-contain transition-transform duration-300 group-hover:scale-105"
+                    width={220}
+                    height={80}
+                    className={
+                      brand.logoClass
+                        ? `w-auto max-w-[220px] object-contain transition-transform duration-300 group-hover:scale-105 ${brand.logoClass}`
+                        : "h-8 sm:h-9 w-auto max-w-[140px] object-contain transition-transform duration-300 group-hover:scale-105"
+                    }
                   />
                 </div>
                 <div className="flex flex-col">
