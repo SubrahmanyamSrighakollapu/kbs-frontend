@@ -100,7 +100,7 @@ export interface NavItem {
 export const navItems: NavItem[] = [
   { label: "Who We Are", href: "/#who-we-are" },
   { label: "What We Do", href: "/#what-we-do" },
-  { label: "Insights & Updates", href: "/#insights" },
+  { label: "Insights & Updates", href: "/insights" },
   { label: "Careers", href: "/careers" },
   { label: "Contact Us", href: "/contact" },
 ];
@@ -279,7 +279,10 @@ export const industries: IndustryItem[] = [
 
 export const partnerBrands: PartnerBrand[] = [
   { id: "desidukan", name: "Desi Dukan", tagline: "Hyperlocal Commerce", logo: "/desi-dukan-org.jpeg" },
-  { id: "helyi", name: "Helyi", tagline: "Hyperlocal Marketplace", logo: "/desi-dukan-org.jpeg" },
+  { id: "helyi", name: "Helyi", tagline: "Hyperlocal Marketplace", logo: "/helyi-logo.png", logoClass: "h-11 sm:h-12 scale-125 origin-center" },
+  { id: "tinytreasure", name: "Tiny Treasure", tagline: "E-Commerce & Retail", logo: "/tiny-treasure-logo.jpeg", logoClass: "h-11 sm:h-12 scale-125 origin-center" },
+  { id: "digimart", name: "DigiMart", tagline: "Digital Commerce", logo: "/digimart-logo.png", logoClass: "h-11 sm:h-12 scale-125 origin-center" },
+  { id: "mahatvaa", name: "Mahatvaa", tagline: "Enterprise Solutions", logo: "/mahatvaa-logo.png", logoClass: "h-10 sm:h-11 scale-110 object-contain" },
   { id: "desisafai", name: "Desi Safai", tagline: "On-Demand Services", logo: "/desi-safai-org.png", logoClass: "h-10 sm:h-11 scale-115" },
   { id: "landvestinfra", name: "Landvest Infra", tagline: "Infrastructure & Living", logo: "/landvestintra-org.png" },
   { id: "brightspark", name: "Bright Spark", tagline: "Creative Media", logo: "/bright-spark-org.png", logoClass: "h-10 sm:h-11 scale-115" },
@@ -311,7 +314,7 @@ export const footerLinks = {
   contact: {
     address: "KBS PVT LTD, Manjeera Trinity Corporate, KPHB Phase 3, Kukatpally, Hyderabad, Telangana 500072",
     phone: "+91 8750749299",
-    email: "hr@kbs.group",
+    email: "info@kbs.group",
   },
 };
 

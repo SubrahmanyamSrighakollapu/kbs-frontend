@@ -13,6 +13,18 @@ interface DetailPageProps {
   }>;
 }
 
+
+export function generateStaticParams() {
+  return [
+    { slug: "financial-services" },
+    { slug: "business-automation-saas" },
+    { slug: "product-engineering" },
+    { slug: "ai-automation" },
+    { slug: "cloud-devops" },
+    { slug: "end-to-end-support" },
+  ];
+}
+
 export async function generateMetadata({ params }: DetailPageProps): Promise<Metadata> {
   const { slug } = await params;
   if (slug === "financial-services") {

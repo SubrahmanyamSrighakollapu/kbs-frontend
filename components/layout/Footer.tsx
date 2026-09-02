@@ -146,10 +146,11 @@ export default function Footer() {
               Contact
             </h4>
             <ul className="space-y-3.5">
-              <li className="flex items-start gap-3 text-xs sm:text-sm text-slate-400">
-                <MapPin className="w-4 h-4 text-[#168BFF] shrink-0 mt-1" />
+              <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-400">
+                <MapPin className="w-4 h-4 text-[#168BFF] shrink-0 mt-0.5" />
                 <span className="leading-relaxed font-normal">
-                  KBS PVT LTD, Manjeera Trinity Corporate,<br />
+                  KBS PVT LTD,<br />
+                  Manjeera Trinity Corporate,<br />
                   KPHB Phase 3, Kukatpally,<br />
                   Hyderabad, Telangana 500072
                 </span>
@@ -205,7 +206,7 @@ export default function Footer() {
         {/* Bottom Footer Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
           <p>© 2026 KBS Information Technology. All rights reserved.</p>
-          <div className="flex items-center space-x-6">
+          {/* <div className="flex items-center space-x-6">
             <Link
               href="/privacy-policy"
               className="hover:text-slate-200 transition-colors"
@@ -224,7 +225,7 @@ export default function Footer() {
             >
               Cookie Policy
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

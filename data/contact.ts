@@ -27,8 +27,8 @@ export const contactInfoList: ContactInfoItem[] = [
   {
     id: "email",
     title: "Email",
-    lines: ["kbsgroup@gmail.com"],
-    link: "mailto:kbsgroup@gmail.com",
+    lines: ["info@kbs.group"],
+    link: "mailto:info@kbs.group",
     iconName: "Mail",
     accentColor: "#168BFF",
   },
@@ -60,7 +60,7 @@ export const faqList: FAQItem[] = [
     id: "faq-2",
     question: "How can I start a project with KBS IT?",
     answer:
-      "You can get started by filling out our contact form, scheduling a consultation, or emailing us directly at kbsgroup@gmail.com. Our team will review your requirements and respond within 24 hours.",
+      "You can get started by filling out our contact form, scheduling a consultation, or emailing us directly at info@kbs.group. Our team will review your requirements and respond within 24 hours.",
   },
   {
     id: "faq-3",
