@@ -140,7 +140,7 @@ export const industriesServed: IndustryServed[] = [
   {
     id: "construction",
     title: "Construction & Engineering",
-    description: "AI-driven drawing analysis and automated architectural RFI generation tools.",
+    description: "Structural detailing, precast, tilt-up, self-storage, and PEMB digital construction solutions.",
     iconName: "Building2",
     accentColor: "#FF9F1C",
   },
@@ -207,10 +207,10 @@ export const whatWeHaveBuilt: BuiltProductCategory[] = [
   {
     id: "construction-tech",
     category: "Construction Tech",
-    tagline: "AI-Driven Document Automation",
+    tagline: "Structural Detailing & BIM Engineering",
     description:
-      "An AI-driven platform that reads and cross-compares architectural and structural drawings, auto-generating RFIs to cut down manual review time.",
-    products: ["AI Drawing RFI Analyzer"],
+      "Comprehensive structural detailing, BIM modeling, tilt-up, precast, and PEMB engineering documentation for efficient construction execution.",
+    products: ["Precast & Tilt-Up Detailing", "PEMB & Storage Engineering", "BIM & Clash Coordination"],
     iconName: "HardHat",
     accentColor: "#FF9F1C",
   },

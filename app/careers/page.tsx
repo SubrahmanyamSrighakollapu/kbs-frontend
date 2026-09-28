@@ -183,10 +183,10 @@ export default function CareersPage() {
                 We are always looking for exceptional talent across technology, engineering, finance, and training.
               </p>
               <a
-                href="mailto:info@kbs.group"
+                href="mailto:hr@kbs.group"
                 className="inline-flex items-center justify-center px-7 py-3 rounded-full bg-gradient-to-r from-[#168BFF] via-[#6657FF] to-[#A52BFF] text-white font-bold text-sm sm:text-base hover:opacity-95 transition-all shadow-md"
               >
-                Send Resume to info@kbs.group
+                Send Resume to hr@kbs.group
               </a>
             </div>
           </div>

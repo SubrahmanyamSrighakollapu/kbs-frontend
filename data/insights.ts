@@ -121,35 +121,35 @@ export const insightPosts: InsightPost[] = [
     },
   },
   {
-    id: "smart-scada-structural-ai-civil",
-    slug: "smart-scada-structural-ai-civil-engineering",
-    title: "Transforming Infrastructure with SCADA Central Monitoring & Structural AI",
-    excerpt: "Next-gen infrastructure engineering leverages AI-driven drawing analysis and real-time SCADA IoT monitoring for safer structural design.",
+    id: "structural-detailing-bim-civil",
+    slug: "structural-detailing-bim-civil-engineering",
+    title: "Precision Structural Detailing & Digital Construction: Bridging Design to Execution",
+    excerpt: "Modern construction relies on coordinated structural detailing, precast concrete, tilt-up drawings, PEMB modeling, and BIM coordination for seamless project execution.",
     category: "Civil Engineering",
     author: {
       name: "Civil Engineering Division",
-      role: "Infrastructure Lead",
+      role: "Structural Detailing Lead",
       avatar: "/kbs-group-logo.png",
     },
     date: "Aug 15, 2026",
     readTime: "6 min read",
     featuredImage: "/Civil Services.png",
-    tags: ["Civil Engineering", "SCADA Monitoring", "Structural AI", "Smart Cities"],
+    tags: ["Civil Engineering", "Structural Detailing", "Precast", "Tilt-Up", "PEMB", "BIM"],
     isFeatured: false,
     content: {
       takeaways: [
-        "AI drawing analysis reduces architectural blueprint audit time by over 70%.",
-        "SCADA IoT integration enables 24/7 structural stress and environmental monitoring.",
-        "Predictive maintenance models prevent catastrophic structural failures in public infrastructure.",
+        "Accurate precast and tilt-up detailing minimizes site errors and speeds up panel erection.",
+        "Coordinated BIM modeling identifies structural clashes long before fabrication begins.",
+        "Construction-ready deliverables bridge design intent with practical shop and field execution.",
       ],
       sections: [
         {
-          heading: "The Convergence of Civil Design and Artificial Intelligence",
-          body: "Modern civil infrastructure requires unprecedented precision. KBS Civil Engineering integrates advanced CAD/BIM drawing analysis tools with real-time SCADA telemetry, giving engineers instant insight into material stress, load distribution, and environmental impacts.",
+          heading: "The Crucial Role of Precision Structural Detailing",
+          body: "Successful construction projects depend on accurate shop drawings, panel elevations, and connection detailing. KBS Civil Engineering Services delivers technology-driven structural detailing for precast concrete, tilt-up panels, mini & self-storage, and pre-engineered metal buildings (PEMB) to ensure fabrication accuracy and smooth on-site installation.",
         },
         {
-          heading: "Centralized SCADA Monitoring Systems",
-          body: "By placing IoT sensors across critical structural points, municipal projects and private developments gain real-time telemetry dashboards. Predictive algorithms flag micro-vibrations and thermal changes long before physical cracks develop.",
+          heading: "BIM Coordination & Digital Construction",
+          body: "By developing coordinated 3D BIM models, project teams gain complete visibility into complex building systems. Discrepancies between architectural intent and structural engineering are resolved early, reducing expensive rework and field RFIs.",
         },
       ],
     },
@@ -213,7 +213,7 @@ export const insightPosts: InsightPost[] = [
       sections: [
         {
           heading: "Real-World Workplace Readiness",
-          body: "Theoretical knowledge is only half the equation. KBS Skill Hub delivers intensive hands-on bootcamps in modern software stack engineering, full-stack web development, CAD structural drafting, and SCADA basics led by active industry professionals.",
+          body: "Theoretical knowledge is only half the equation. KBS Skill Hub delivers intensive hands-on bootcamps in modern software stack engineering, full-stack web development, CAD structural drafting, Precast/Tilt-Up detailing, and BIM workflows led by active industry professionals.",
         },
         {
           heading: "Building Tomorrow's Workforce",
@@ -251,7 +251,7 @@ export const insightPosts: InsightPost[] = [
         },
         {
           heading: "Scaling Together into the Future",
-          body: "Whether it is deploying SCADA monitoring for civil projects, launching fintech payment rails with Finjo, building automation tools like WinWala, or training the next generation of engineers at Skill Hub, KBS Group provides complete ecosystem strength.",
+          body: "Whether it is delivering structural detailing & BIM solutions for civil projects, launching fintech payment rails with Finjo, building automation tools like WinWala, or training the next generation of engineers at Skill Hub, KBS Group provides complete ecosystem strength.",
         },
       ],
     },

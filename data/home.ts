@@ -161,7 +161,7 @@ export const verticals: VerticalCard[] = [
     id: "civil-engineering",
     title: "Civil Engineering Services",
     subtitle: "KBS Infrastructure & Engineering",
-    description: "Smart infrastructure, structural engineering, SCADA monitoring & AI drawing analysis.",
+    description: "Precision-driven structural detailing, BIM, precast, tilt-up, PEMB & self-storage engineering solutions.",
     image: "/Civil Services.png",
     link: "/verticals/civil",
     accentColor: "#FF6B35",
@@ -254,8 +254,8 @@ export const industries: IndustryItem[] = [
   {
     id: "civil-vertical",
     category: "Civil Engineering",
-    title: "Infrastructure, Structural & Drawing AI",
-    description: "AI-driven drawing analysis, SCADA central monitoring, structural design, and smart infrastructure engineering.",
+    title: "Structural Detailing & BIM Solutions",
+    description: "Precast concrete detailing, tilt-up construction drawings, mini & self-storage detailing, and PEMB engineering systems.",
     image: "/Civil Services.png",
     link: "/verticals/civil",
   },
@@ -309,7 +309,7 @@ export const footerLinks = {
     { label: "WinWala Platform", href: "/verticals/automation#winwala" },
     { label: "Creavo Creative Studio", href: "/verticals/automation#creavo" },
     { label: "Finjo Fintech", href: "/verticals/financial#finjo" },
-    { label: "AI Drawing Analysis", href: "/verticals/civil#ai-drawing" },
+    { label: "Structural Detailing & BIM", href: "/verticals/civil#services" },
   ],
   contact: {
     address: "KBS PVT LTD, Manjeera Trinity Corporate, KPHB Phase 3, Kukatpally, Hyderabad, Telangana 500072",

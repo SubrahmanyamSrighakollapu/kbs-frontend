@@ -8,7 +8,6 @@ import {
   ArrowRight,
   Building2,
   HardHat,
-  FileSearch,
   CheckCircle2,
   Layers,
   Ruler,
@@ -21,93 +20,223 @@ import {
   ShieldCheck,
   Zap,
   Target,
+  Warehouse,
+  Building,
+  Wrench,
+  Truck,
+  Factory,
 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Civil Engineering Services | KBS Group",
   description:
-    "Specialized structural solutions including Tilt-Up construction, Light Gauge Steel Framing (LGSF), Precast, Pre-Engineered Buildings (PEMB), Structural Steel, and BIM services — engineered for speed, strength, and scale.",
+    "Precision-driven structural detailing, BIM, and engineering support for commercial, industrial, infrastructure, residential, and storage projects.",
 };
 
 export default function CivilPage() {
-  const services = [
+  const coreServices = [
     {
-      id: "structural",
-      title: "Structural Engineering",
-      tagline: "Strong Designs. Reliable Structures.",
+      id: "precast",
+      title: "Precast Concrete Detailing",
+      tagline: "Precision Detailing for Efficient Manufacturing & Installation",
       description:
-        "We provide structural engineering solutions focused on safety, stability, functionality, and efficient use of materials. Our services support different stages of structural design, from initial concepts to detailed engineering.",
-      cta: "Explore Structural Services",
-      icon: Ruler,
+        "We provide comprehensive Precast Concrete Detailing Services for commercial, residential, industrial, infrastructure, and institutional projects. Our detailing solutions focus on accurate structural coordination, efficient manufacturing, and smooth on-site installation.",
+      capabilities: [
+        "Precast shop drawings",
+        "General arrangement drawings",
+        "Panel and element detailing",
+        "Reinforcement detailing",
+        "Connection detailing",
+        "Embed and insert coordination",
+        "Erection drawings",
+        "Production-ready documentation",
+        "BIM-based coordination",
+        "Drawing revisions and project support",
+      ],
+      footerNote:
+        "Every deliverable is developed with a strong focus on dimensional accuracy, constructability, coordination, and fabrication requirements.",
+      cta: "Explore Precast Services",
+      icon: Building2,
       accent: "#FF6B35",
     },
     {
-      id: "drawing-analysis",
-      title: "Architectural & Structural Drawing Analysis",
-      tagline: "Understand Drawings. Identify Issues Earlier.",
+      id: "tilt-up",
+      title: "Tilt-Up Detailing Services",
+      tagline: "Construction-Ready Drawings for Efficient Tilt-Up Projects",
       description:
-        "We review and compare architectural and structural drawings to identify differences, inconsistencies, and potential coordination issues. Our approach combines engineering expertise with technology to make drawing review faster and more efficient.",
-      cta: "Learn More",
-      icon: FileSearch,
+        "We provide precise Tilt-Up Shop Drawings and Embed Panel Detailing Services designed to support efficient fabrication, panel construction, and site erection. Our team develops detailed and coordinated documentation based on structural and architectural requirements.",
+      capabilities: [
+        "Panel shop drawings",
+        "Panel elevations",
+        "Embed detailing",
+        "Reinforcement detailing",
+        "Opening and penetration coordination",
+        "Connection detailing",
+        "Lifting and erection information",
+        "Architectural and structural drawing coordination",
+        "Construction-ready drawing packages",
+      ],
+      footerNote:
+        "Our objective is to identify coordination requirements early and provide clear drawings that help project teams execute with confidence.",
+      cta: "Explore Tilt-Up Services",
+      icon: Layers,
       accent: "#A52BFF",
     },
     {
-      id: "quantity-support",
-      title: "Quantity & Engineering Support",
-      tagline: "Better Information for Better Decisions.",
+      id: "self-storage",
+      title: "Mini & Self-Storage Detailing",
+      tagline: "Structural Solutions Designed Around Space, Efficiency & Scalability",
       description:
-        "We support project teams with engineering information, measurements, documentation, and technical inputs needed for effective project planning and execution.",
-      cta: "Explore Engineering Support",
+        "We provide specialized detailing and engineering support for mini-storage and self-storage developments. Our solutions are designed to support efficient space utilization, structural accuracy, fabrication, installation, and future scalability.",
+      capabilities: [
+        "Structural shop drawings",
+        "Fabrication drawings",
+        "Framing layouts",
+        "Wall and roof framing details",
+        "Connection details",
+        "Coordinated CAD drawings",
+        "BIM models",
+        "Material and component coordination",
+        "Multi-building storage development support",
+      ],
+      footerNote:
+        "From compact storage facilities to large multi-building developments, our team delivers organized and coordinated documentation for efficient construction.",
+      cta: "Explore Self-Storage Services",
       icon: Compass,
       accent: "#168BFF",
     },
     {
-      id: "documentation",
-      title: "Project Documentation",
-      tagline: "Clear Documentation. Better Coordination.",
+      id: "pemb",
+      title: "PEMB – Pre-Engineered Metal Buildings",
+      tagline: "Efficient Building Systems Engineered for Performance",
       description:
-        "Accurate documentation helps teams stay aligned throughout a project. We support the preparation and review of technical documents, drawings, reports, and engineering information.",
-      cta: "Explore Documentation Services",
-      icon: FileText,
-      accent: "#00A8FF",
-    },
-    {
-      id: "coordination",
-      title: "Drawing Coordination",
-      tagline: "Connect Design With Execution.",
-      description:
-        "We help identify coordination issues between different drawings and disciplines before they become costly problems on site. Our goal is simple: Identify. Coordinate. Resolve.",
-      cta: "Talk to Our Team",
-      icon: Layers,
+        "We provide design and detailing support for Pre-Engineered Metal Building systems used across industrial, commercial, logistics, manufacturing, warehouse, and specialized facilities. Our PEMB solutions focus on structural efficiency, flexibility, constructability, and optimized use of materials.",
+      capabilities: [
+        "Structural modeling",
+        "Primary framing systems",
+        "Secondary framing systems",
+        "Roof and wall framing",
+        "Connection detailing",
+        "Anchor bolt layouts",
+        "Erection drawings",
+        "Fabrication drawings",
+        "Building component coordination",
+        "BIM and CAD documentation",
+      ],
+      footerNote:
+        "PEMB systems can help reduce construction complexity while providing adaptable structural solutions for a wide range of building requirements.",
+      cta: "Explore PEMB Services",
+      icon: HardHat,
       accent: "#FF9F1C",
     },
   ];
 
-  const whyUs = [
+  const digitalConstruction = [
     {
-      title: "Engineering Expertise",
-      desc: "Solutions are developed with practical engineering knowledge and project understanding.",
+      title: "BIM Modeling",
+      description:
+        "Develop coordinated structural models that provide better visibility into complex building systems before fabrication and construction.",
+      icon: Cpu,
+      accent: "#FF6B35",
+    },
+    {
+      title: "Clash & Coordination Review",
+      description:
+        "Identify potential conflicts between structural, architectural, and related project information before they become expensive site issues.",
+      icon: ShieldCheck,
+      accent: "#A52BFF",
+    },
+    {
+      title: "CAD & Shop Drawing Development",
+      description:
+        "Produce detailed, organized, and construction-ready drawings for fabrication, manufacturing, erection, and site execution.",
+      icon: FileText,
+      accent: "#168BFF",
+    },
+    {
+      title: "Constructability Coordination",
+      description:
+        "Review project information from a practical construction perspective to improve detailing and reduce avoidable complications during execution.",
+      icon: Zap,
+      accent: "#FF9F1C",
+    },
+  ];
+
+  const expertiseProjects = [
+    {
+      title: "Industrial Facilities",
+      description:
+        "Structural detailing and engineering support for manufacturing, processing, warehouse, and industrial developments.",
+      icon: Factory,
+      accent: "#FF6B35",
+    },
+    {
+      title: "Logistics & Distribution Centers",
+      description:
+        "Detailed structural solutions for large-scale warehouses, distribution facilities, and logistics infrastructure.",
+      icon: Truck,
+      accent: "#168BFF",
+    },
+    {
+      title: "Commercial Buildings",
+      description:
+        "Coordinated structural documentation for commercial developments requiring accuracy, speed, and efficient execution.",
+      icon: Building,
+      accent: "#A52BFF",
+    },
+    {
+      title: "Self-Storage Facilities",
+      description:
+        "Specialized detailing solutions for single-building and multi-building storage developments.",
+      icon: Warehouse,
+      accent: "#FF9F1C",
+    },
+    {
+      title: "Infrastructure Projects",
+      description:
+        "Structural detailing and engineering support for infrastructure components requiring accurate coordination and documentation.",
+      icon: Wrench,
+      accent: "#00A8FF",
+    },
+    {
+      title: "Institutional Projects",
+      description:
+        "Engineering and detailing support for facilities where structural performance, coordination, and documentation quality are critical.",
+      icon: Building2,
+      accent: "#6657FF",
+    },
+  ];
+
+  const advantagePillars = [
+    {
+      title: "Specialized Structural Expertise",
+      desc: "Our services are focused around structural engineering, detailing, BIM, and construction documentation for real-world building systems.",
       icon: HardHat,
     },
     {
-      title: "Accuracy Focused",
-      desc: "We pay close attention to drawings, documentation, coordination, and technical details.",
+      title: "Precision-Driven Delivery",
+      desc: "Every drawing, model, and detail is developed with close attention to dimensions, connections, coordination, and project specifications.",
       icon: Target,
     },
     {
-      title: "Technology Enabled",
-      desc: "We use modern tools, AI, and automation where they can improve engineering workflows.",
+      title: "Construction-Ready Documentation",
+      desc: "Our deliverables are developed to support practical fabrication, manufacturing, erection, and on-site construction requirements.",
+      icon: FileText,
+    },
+    {
+      title: "Technology-Enabled Workflows",
+      desc: "We use modern CAD, BIM, modeling, and digital coordination tools to improve accuracy and project visibility.",
       icon: Cpu,
     },
     {
-      title: "Project Focused",
-      desc: "Our work is designed around real project requirements, timelines, and challenges.",
-      icon: Briefcase,
+      title: "Multi-Discipline Coordination",
+      desc: "We review structural and architectural information together to identify discrepancies and coordination requirements earlier.",
+      icon: ShieldCheck,
     },
     {
-      title: "Better Coordination",
-      desc: "We help teams identify issues earlier and improve communication between disciplines.",
-      icon: ShieldCheck,
+      title: "Scalable Project Support",
+      desc: "Whether supporting an individual project or working as an extension of an engineering team, our services can scale according to project requirements.",
+      icon: Briefcase,
     },
     {
       title: "KBS Group Backed",
@@ -116,45 +245,99 @@ export default function CivilPage() {
     },
   ];
 
-  const steps = [
-    { num: "01", title: "Understand", desc: "We understand your project, requirements, drawings, and engineering challenges." },
-    { num: "02", title: "Analyze", desc: "Our team reviews the available information and identifies key technical requirements." },
-    { num: "03", title: "Design & Develop", desc: "We create engineering solutions, drawings, documentation, or analysis based on the project." },
-    { num: "04", title: "Review", desc: "We carefully check the work for accuracy, coordination, and project requirements." },
-    { num: "05", title: "Deliver", desc: "We provide clear, organized engineering deliverables that your team can use." },
-    { num: "06", title: "Support", desc: "We remain available to support changes, coordination, and evolving project requirements." },
+  const deliveryProcess = [
+    {
+      num: "01",
+      title: "Understand",
+      desc: "We review the project scope, structural requirements, architectural information, engineering drawings, specifications, and expected deliverables.",
+    },
+    {
+      num: "02",
+      title: "Analyze",
+      desc: "Our engineers and detailing specialists study the available information and identify structural, detailing, and coordination requirements.",
+    },
+    {
+      num: "03",
+      title: "Model & Detail",
+      desc: "We develop structural models, shop drawings, fabrication drawings, layouts, connections, and other required project documentation.",
+    },
+    {
+      num: "04",
+      title: "Coordinate",
+      desc: "Structural information is coordinated with architectural drawings and relevant project requirements to identify discrepancies and potential conflicts.",
+    },
+    {
+      num: "05",
+      title: "Quality Review",
+      desc: "Deliverables undergo detailed internal review for dimensional accuracy, consistency, constructability, and compliance with project information.",
+    },
+    {
+      num: "06",
+      title: "Deliver & Support",
+      desc: "We provide organized, construction-ready deliverables and continue supporting revisions, coordination requirements, and project updates as needed.",
+    },
   ];
 
-  const whoWeSupport = [
+  const whoWeWorkWith = [
     {
-      title: "Contractors",
-      desc: "Engineering support that helps projects move smoothly from design to execution.",
-      icon: HardHat,
+      title: "Structural Engineers",
+      desc: "Detailed modeling, documentation, and drawing support that helps engineering teams convert designs into coordinated project deliverables.",
+      icon: Compass,
       accent: "#FF6B35",
     },
     {
-      title: "Developers",
-      desc: "Reliable engineering inputs for residential, commercial, and infrastructure projects.",
-      icon: Building2,
+      title: "General Contractors",
+      desc: "Construction-ready structural information that improves coordination between design, fabrication, and field execution.",
+      icon: HardHat,
       accent: "#168BFF",
     },
     {
-      title: "Engineering Consultants",
-      desc: "Additional technical support for drawings, analysis, documentation, and coordination.",
-      icon: Compass,
+      title: "Precast Manufacturers",
+      desc: "Detailed precast drawings and production information developed to support manufacturing and erection.",
+      icon: Building2,
       accent: "#A52BFF",
     },
     {
-      title: "Architects",
-      desc: "Structural and technical coordination to connect architectural vision with engineering requirements.",
-      icon: Layers,
+      title: "Steel Fabricators",
+      desc: "Accurate fabrication and erection documentation designed around practical production requirements.",
+      icon: Wrench,
       accent: "#FF9F1C",
     },
     {
-      title: "Project Teams",
-      desc: "Practical engineering support for complex and evolving project needs.",
-      icon: Users,
+      title: "Developers",
+      desc: "Scalable engineering and detailing support for commercial, industrial, storage, and infrastructure developments.",
+      icon: Building,
       accent: "#00A8FF",
+    },
+    {
+      title: "Architects",
+      desc: "Structural coordination that helps align architectural intent with engineering and construction requirements.",
+      icon: Layers,
+      accent: "#6657FF",
+    },
+    {
+      title: "Construction & Project Teams",
+      desc: "Reliable technical documentation and coordination support throughout the project lifecycle.",
+      icon: Users,
+      accent: "#FF4757",
+    },
+  ];
+
+  const approachPriorities = [
+    {
+      title: "Precision",
+      desc: "Accurate drawings, models, dimensions, connections, and structural information.",
+      accent: "#FF6B35",
+    },
+    {
+      title: "Coordination",
+      desc: "Better alignment between engineering, architecture, fabrication, and construction teams.",
+      accent: "#168BFF",
+    },
+    {
+      title: "Delivery",
+      desc: "Clear, organized, practical deliverables developed around real project requirements and timelines.",
+      accent: "#A52BFF",
     },
   ];
 
@@ -192,14 +375,17 @@ export default function CivilPage() {
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
-                Engineering Solutions <br />
+                Structural Detailing & Engineering Solutions <br />
                 <span className="bg-gradient-to-r from-[#FF6B35] via-[#FF9F1C] to-[#A52BFF] bg-clip-text text-transparent inline-block">
-                  Built for Real Projects
+                  Built for Construction
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg lg:text-xl text-slate-200 font-normal leading-relaxed max-w-2xl mb-8">
-                We provide practical Civil and Structural Engineering services that help projects move from drawings to execution with greater accuracy, clarity, and efficiency.
+              <p className="text-base sm:text-lg lg:text-xl text-slate-200 font-normal leading-relaxed max-w-2xl mb-4">
+                Precision-driven structural detailing, BIM, and engineering support for commercial, industrial, infrastructure, residential, and storage projects.
+              </p>
+              <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed max-w-2xl mb-8">
+                From complex precast structures and tilt-up buildings to pre-engineered metal buildings and self-storage facilities, we deliver accurate, coordinated, and construction-ready engineering solutions that support efficient fabrication and execution.
               </p>
 
               <div className="flex flex-wrap items-center gap-4">
@@ -240,65 +426,98 @@ export default function CivilPage() {
           </div>
         </section>
 
-        {/* 2. SECTION: ENGINEERING THAT SUPPORTS EVERY STAGE */}
+        {/* 2. SECTION: ENGINEERING & DETAILING EXPERTISE */}
         <section className="py-20 sm:py-28 bg-slate-50 border-b border-slate-200">
           <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center">
               <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#FF6B35] block mb-3">
-                END-TO-END PROJECT SUPPORT
+                ENGINEERING & DETAILING EXPERTISE
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111827] tracking-tight mb-6">
-                Engineering That Supports Every Stage of Your Project
+                Precision From Design to Construction
               </h2>
-              <p className="text-base sm:text-lg text-[#5B6475] leading-relaxed mb-6 font-normal">
-                Successful projects need more than good construction. They need accurate drawings, reliable engineering, clear documentation, and the right decisions at every stage.
+              <p className="text-base sm:text-lg text-[#5B6475] leading-relaxed mb-4 font-normal">
+                Successful structural projects depend on more than drawings. They require accurate detailing, effective coordination, constructability, and reliable engineering information throughout the project lifecycle.
               </p>
-              <p className="text-base sm:text-lg text-[#111827] font-semibold leading-relaxed mb-8">
-                KBS Civil Engineering Services supports project teams with practical engineering solutions designed to improve accuracy, coordination, and project efficiency.
+              <p className="text-base sm:text-lg text-[#5B6475] leading-relaxed mb-4 font-normal">
+                KBS Civil Engineering Services provides technology-driven structural detailing and digital construction solutions designed to bridge the gap between engineering design, fabrication, and on-site execution.
+              </p>
+              <p className="text-base sm:text-lg text-[#111827] font-normal leading-relaxed mb-8">
+                Our engineers and detailing specialists work closely with project teams to produce coordinated, fabrication-ready and construction-ready deliverables that improve accuracy, minimize conflicts, and support efficient project delivery.
               </p>
 
               <div className="inline-block px-6 py-3 rounded-full bg-[#03142B] text-white text-sm sm:text-base font-extrabold tracking-wide shadow-md">
-                Plan Better. Design Smarter. Build with Confidence.
+                Precision in Every Detail. Coordination at Every Stage.
               </div>
             </div>
           </div>
         </section>
 
-        {/* 3. SECTION: OUR SERVICES */}
+        {/* 3. SECTION: OUR CORE SERVICES */}
         <section id="services" className="py-20 sm:py-28 bg-white">
           <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="text-center max-w-3xl mx-auto mb-16">
               <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#FF6B35] block mb-2">
-                WHAT WE PROVIDE
+                OUR CORE SERVICES
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111827] tracking-tight">
-                Our Engineering Services
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111827] tracking-tight mb-4">
+                Engineering Precision at Every Scale
               </h2>
+              <p className="text-base sm:text-lg text-[#5B6475]">
+                Comprehensive structural detailing, BIM, and engineering solutions tailored to modern construction requirements.
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((s) => {
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {coreServices.map((s) => {
                 const Icon = s.icon;
                 return (
                   <div
                     key={s.id}
-                    className="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-[#FF6B35]/40 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+                    className="p-8 sm:p-10 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-[#FF6B35]/40 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
                   >
                     <div>
-                      <div
-                        className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-xs"
-                        style={{ backgroundColor: `${s.accent}15`, color: s.accent }}
-                      >
-                        <Icon className="w-7 h-7" />
+                      <div className="flex items-center gap-4 mb-6">
+                        <div
+                          className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-xs"
+                          style={{ backgroundColor: `${s.accent}15`, color: s.accent }}
+                        >
+                          <Icon className="w-7 h-7" />
+                        </div>
+                        <div>
+                          <h3 className="text-2xl sm:text-3xl font-extrabold text-[#111827]">
+                            {s.title}
+                          </h3>
+                          <h4 className="text-xs sm:text-sm font-bold mt-1" style={{ color: s.accent }}>
+                            {s.tagline}
+                          </h4>
+                        </div>
                       </div>
 
-                      <h3 className="text-2xl font-extrabold text-[#111827] mb-2">{s.title}</h3>
-                      <h4 className="text-sm font-bold mb-4" style={{ color: s.accent }}>
-                        {s.tagline}
-                      </h4>
-                      <p className="text-sm sm:text-base text-[#5B6475] leading-relaxed mb-8 font-normal">
+                      <p className="text-sm sm:text-base text-[#5B6475] leading-relaxed mb-6 font-normal">
                         {s.description}
                       </p>
+
+                      <div className="mb-6">
+                        <h5 className="text-xs font-extrabold uppercase tracking-wider text-slate-400 mb-3">
+                          Key Capabilities & Deliverables
+                        </h5>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                          {s.capabilities.map((cap, idx) => (
+                            <div key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#374151]">
+                              <CheckCircle2
+                                className="w-4 h-4 shrink-0 mt-0.5"
+                                style={{ color: s.accent }}
+                              />
+                              <span>{cap}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="p-4 rounded-2xl bg-white border border-slate-200/60 text-xs sm:text-sm text-[#4B5563] italic mb-8">
+                        {s.footerNote}
+                      </div>
                     </div>
 
                     <Link
@@ -316,82 +535,91 @@ export default function CivilPage() {
           </div>
         </section>
 
-        {/* 4. SECTION: AI-POWERED ENGINEERING SOLUTIONS */}
+        {/* 4. SECTION: DIGITAL CONSTRUCTION */}
         <section className="py-20 sm:py-28 bg-[#03142B] text-white relative overflow-hidden">
           <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              <div className="lg:col-span-7">
-                <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FF6B35]/15 text-[#FF6B35] border border-[#FF6B35]/25 text-xs font-extrabold uppercase tracking-widest mb-4">
-                  <Sparkles className="w-4 h-4" />
-                  AI-POWERED ENGINEERING SOLUTIONS
-                </span>
+            <div className="max-w-3xl mx-auto text-center mb-16">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FF6B35]/15 text-[#FF6B35] border border-[#FF6B35]/25 text-xs font-extrabold uppercase tracking-widest mb-4">
+                <Sparkles className="w-4 h-4" />
+                DIGITAL CONSTRUCTION
+              </span>
 
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
-                  Bringing Technology Into Engineering
-                </h2>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
+                Engineering Powered by BIM & Technology
+              </h2>
 
-                <p className="text-base sm:text-lg text-slate-300 leading-relaxed mb-6 font-normal">
-                  We combine engineering knowledge with AI and automation to simplify time-consuming tasks.
-                </p>
+              <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+                Modern construction requires engineering information that can move seamlessly between designers, fabricators, contractors, and site teams. KBS combines engineering expertise with BIM, CAD, digital coordination, and modern detailing workflows to improve the quality and usability of project information.
+              </p>
+            </div>
 
-                <p className="text-base sm:text-lg text-slate-200 leading-relaxed mb-8 font-semibold">
-                  Our technology initiatives include AI-powered drawing analysis that can compare architectural and structural drawings and assist in generating Requests for Information (RFIs). This helps project teams reduce manual review time and focus on critical engineering decisions.
-                </p>
-
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-gradient-to-r from-[#FF6B35] via-[#FF9F1C] to-[#A52BFF] text-white font-semibold text-sm sm:text-base hover:opacity-95 transition-all shadow-lg group"
-                >
-                  Explore Engineering Technology
-                  <ArrowRight className="w-4 h-4 ml-2.5 group-hover:translate-x-1.5 transition-transform" />
-                </Link>
-              </div>
-
-              <div className="lg:col-span-5">
-                <div className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-[#FF6B35]/20 text-[#FF6B35] flex items-center justify-center shrink-0">
-                      <Cpu className="w-6 h-6" />
-                    </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {digitalConstruction.map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={idx}
+                    className="p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-[#FF6B35]/40 backdrop-blur-xl transition-all duration-300 flex flex-col justify-between"
+                  >
                     <div>
-                      <h4 className="text-lg font-bold text-white mb-1">AI Drawing Comparison</h4>
-                      <p className="text-xs sm:text-sm text-slate-300">
-                        Automatically spot discrepancies between architectural and structural blueprints.
+                      <div
+                        className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5 shrink-0"
+                        style={{ backgroundColor: `${item.accent}25`, color: item.accent }}
+                      >
+                        <Icon className="w-6 h-6" />
+                      </div>
+                      <h3 className="text-xl font-extrabold text-white mb-3">{item.title}</h3>
+                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                        {item.description}
                       </p>
                     </div>
                   </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-[#A52BFF]/20 text-[#A52BFF] flex items-center justify-center shrink-0">
-                      <FileText className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-bold text-white mb-1">Automated RFI Assistance</h4>
-                      <p className="text-xs sm:text-sm text-slate-300">
-                        Assist in generating formal Requests for Information to resolve site questions faster.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-[#168BFF]/20 text-[#168BFF] flex items-center justify-center shrink-0">
-                      <Zap className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-bold text-white mb-1">Reduced Manual Review Time</h4>
-                      <p className="text-xs sm:text-sm text-slate-300">
-                        Free up senior engineers from tedious manual checks so they focus on high-impact decisions.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
         </section>
 
-        {/* 5. SECTION: WHY KBS CIVIL ENGINEERING SERVICES? */}
+        {/* 5. SECTION: OUR EXPERTISE */}
         <section className="py-20 sm:py-28 bg-white">
+          <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#FF6B35] block mb-2">
+                OUR EXPERTISE
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111827] tracking-tight mb-4">
+                Built Around Complex Structural Projects
+              </h2>
+              <p className="text-base sm:text-lg text-[#5B6475]">
+                Our engineering and detailing capabilities support a wide variety of projects and building systems.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {expertiseProjects.map((exp, idx) => {
+                const Icon = exp.icon;
+                return (
+                  <div
+                    key={idx}
+                    className="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-[#FF6B35]/30 shadow-xs hover:shadow-lg transition-all"
+                  >
+                    <div
+                      className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6"
+                      style={{ backgroundColor: `${exp.accent}15`, color: exp.accent }}
+                    >
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-xl font-extrabold text-[#111827] mb-3">{exp.title}</h3>
+                    <p className="text-sm text-[#5B6475] leading-relaxed font-normal">{exp.description}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* 6. SECTION: THE KBS ADVANTAGE */}
+        <section className="py-20 sm:py-28 bg-slate-50 border-t border-b border-slate-200">
           <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#FF6B35] block mb-2">
@@ -403,12 +631,12 @@ export default function CivilPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {whyUs.map((w, idx) => {
+              {advantagePillars.map((w, idx) => {
                 const Icon = w.icon;
                 return (
                   <div
                     key={idx}
-                    className="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-[#FF6B35]/30 shadow-xs hover:shadow-lg transition-all"
+                    className="p-8 rounded-3xl bg-white border border-slate-200/80 hover:border-[#FF6B35]/30 shadow-xs hover:shadow-lg transition-all"
                   >
                     <div className="w-12 h-12 rounded-2xl bg-[#FF6B35]/10 text-[#FF6B35] flex items-center justify-center mb-6">
                       <Icon className="w-6 h-6" />
@@ -422,20 +650,20 @@ export default function CivilPage() {
           </div>
         </section>
 
-        {/* 6. SECTION: HOW WE WORK (6 STEPS) */}
+        {/* 7. SECTION: OUR DELIVERY PROCESS */}
         <section className="py-20 sm:py-28 bg-slate-900 text-white">
           <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#FF6B35] block mb-2">
-                OUR METHODOLOGY
+                OUR DELIVERY PROCESS
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-                How We Work
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+                From Project Information to Construction-Ready Deliverables
               </h2>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {steps.map((step) => (
+              {deliveryProcess.map((step) => (
                 <div
                   key={step.num}
                   className="p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-[#FF6B35]/50 transition-all flex flex-col justify-between"
@@ -455,20 +683,20 @@ export default function CivilPage() {
           </div>
         </section>
 
-        {/* 7. SECTION: WHO WE SUPPORT */}
+        {/* 8. SECTION: WHO WE WORK WITH */}
         <section className="py-20 sm:py-28 bg-slate-50">
           <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#FF6B35] block mb-2">
-                TAILORED SOLUTIONS
+                WHO WE WORK WITH
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111827] tracking-tight">
-                Who We Support
+                Engineering Support Across the Construction Ecosystem
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {whoWeSupport.map((w, idx) => {
+              {whoWeWorkWith.map((w, idx) => {
                 const Icon = w.icon;
                 return (
                   <div
@@ -492,34 +720,79 @@ export default function CivilPage() {
           </div>
         </section>
 
-        {/* 8. SECTION: ENGINEERING MEETS TECHNOLOGY */}
+        {/* 9. SECTION: OUR APPROACH */}
         <section className="py-20 sm:py-24 bg-white border-t border-slate-200">
-          <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111827] mb-6">
-              Engineering Meets Technology
-            </h2>
-            <p className="text-base sm:text-lg text-[#5B6475] leading-relaxed mb-8 font-normal">
-              The future of engineering isn&apos;t just about better designs. It&apos;s about better ways of working. By combining engineering expertise with AI, automation, and digital workflows, we aim to reduce repetitive work, improve coordination, and help engineering teams make better decisions faster.
-            </p>
+          <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#FF6B35] block mb-2">
+                OUR APPROACH
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111827] mb-6">
+                Precision. Coordination. Dependable Delivery.
+              </h2>
+              <p className="text-base sm:text-lg text-[#5B6475] font-normal leading-relaxed">
+                Every successful structure begins with reliable engineering information. Our approach is built around three priorities:
+              </p>
+            </div>
 
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[#03142B] text-white font-semibold text-base hover:bg-[#168BFF] transition-colors shadow-xl"
-            >
-              Explore Our Technology
-              <ArrowRight className="w-5 h-5 ml-2.5" />
-            </Link>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              {approachPriorities.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 text-center"
+                >
+                  <h3 className="text-2xl font-extrabold mb-3" style={{ color: item.accent }}>
+                    {item.title}
+                  </h3>
+                  <p className="text-sm sm:text-base text-[#5B6475] leading-relaxed font-normal">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-base sm:text-lg text-[#111827] font-semibold text-center max-w-3xl mx-auto">
+              We aim to operate as more than a service provider. We work as an extension of project teams, supporting them with dependable engineering resources and scalable technical expertise.
+            </p>
           </div>
         </section>
 
-        {/* 9. CLOSING CTA BANNER */}
+        {/* 10. SECTION: ENGINEERING FOR MODERN CONSTRUCTION */}
+        <section className="py-20 sm:py-24 bg-slate-50 border-t border-b border-slate-200">
+          <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#FF6B35] block mb-2">
+              ENGINEERING FOR MODERN CONSTRUCTION
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111827] mb-6">
+              From Structural Design Information to Fabrication & Execution
+            </h2>
+            <p className="text-base sm:text-lg text-[#5B6475] leading-relaxed mb-6 font-normal">
+              The construction industry is increasingly driven by digital workflows, BIM coordination, prefabrication, and accurate project information.
+            </p>
+            <p className="text-base sm:text-lg text-[#5B6475] leading-relaxed mb-6 font-normal">
+              KBS Civil Engineering Services brings these capabilities together to help project teams move efficiently from engineering information to fabrication and construction.
+            </p>
+            <p className="text-sm sm:text-base text-[#111827] font-medium leading-relaxed mb-8">
+              Whether the project involves <strong className="font-extrabold">Precast Concrete, Tilt-Up Construction, Mini/Self-Storage, PEMB, BIM, shop drawings, or structural coordination</strong>, our focus remains the same:
+            </p>
+
+            <div className="inline-block px-8 py-4 rounded-full bg-[#03142B] text-white text-base sm:text-lg font-extrabold tracking-wide shadow-xl">
+              Deliver accurate information that helps teams build better.
+            </div>
+          </div>
+        </section>
+
+        {/* 11. CLOSING CTA BANNER */}
         <section className="py-20 sm:py-28 bg-[#03142B] text-white relative overflow-hidden">
           <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#FF6B35] block mb-2">
+              READY TO DISCUSS YOUR PROJECT?
+            </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6">
-              Built for Better Projects
+              Turn Your Structural Requirements Into Construction-Ready Solutions
             </h2>
-            <p className="text-slate-300 max-w-2xl mx-auto text-base sm:text-lg mb-8 font-normal">
-              Whether you need structural engineering, drawing analysis, project support, documentation, or engineering automation, KBS Civil Engineering Services is ready to help.
+            <p className="text-slate-300 max-w-3xl mx-auto text-base sm:text-lg mb-8 font-normal">
+              Whether you need a complete detailing package, additional engineering resources, BIM support, fabrication drawings, or specialized structural coordination, KBS Civil Engineering Services is ready to support your project.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
@@ -540,13 +813,13 @@ export default function CivilPage() {
             {/* Bottom Final Callout Box */}
             <div className="p-8 sm:p-12 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md max-w-3xl mx-auto text-center">
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
-                Let&apos;s Build Better
+                Let&apos;s Build With Precision
               </h3>
               <p className="text-slate-300 text-sm sm:text-base mb-4 font-normal">
-                Have a project, drawing, or engineering challenge? Let&apos;s discuss how our team can support you.
+                Have structural drawings, project specifications, or an upcoming construction project? Share your project requirements with our engineering team and discover how KBS can support your project from detailing through delivery.
               </p>
               <p className="text-base sm:text-lg font-extrabold text-[#FF6B35] mb-6">
-                Better Engineering. Better Coordination. Better Projects.
+                Precision Engineering. Better Coordination. Smarter Construction.
               </p>
               <Link
                 href="/contact"
@@ -557,7 +830,7 @@ export default function CivilPage() {
             </div>
 
             <p className="text-xs sm:text-sm text-slate-400 font-semibold tracking-wide uppercase mt-10">
-              KBS Civil Engineering Services — Engineering expertise powered by technology.
+              KBS Civil Engineering Services — Structural detailing and engineering solutions powered by precision and technology.
             </p>
           </div>
         </section>

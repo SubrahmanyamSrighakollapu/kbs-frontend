@@ -15,12 +15,12 @@ export default function WhatWeDoSection() {
       title: "Civil Engineering Services",
       subtitle: "KBS Infrastructure & Engineering",
       description:
-        "Specialized structural solutions including Tilt-Up construction, Light Gauge Steel Framing, Precast, Pre-Engineered Buildings (PEMB), Structural Steel, and BIM services — engineered for speed, strength, and scale.",
+        "Precision-driven structural detailing, BIM, and engineering support for commercial, industrial, infrastructure, residential, and storage projects.",
       bullets: [
-        "Tilt-Up & Precast Construction",
-        "Light Gauge Steel Framing (LGSF)",
-        "Pre-Engineered Buildings (PEMB)",
-        "Structural Steel & BIM Services",
+        "Precast Concrete Detailing",
+        "Tilt-Up Detailing Services",
+        "Mini & Self-Storage Detailing",
+        "PEMB Design & Detailing",
       ],
       image: "/Civil Services.png",
       link: "/verticals/civil",
