@@ -1,5 +1,5 @@
 import React from "react";
-import type { Metadata } from "next";
+import { constructMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/layout/Header";
@@ -27,11 +27,13 @@ import {
   Factory,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Civil Engineering Services | KBS Group",
-  description:
-    "Precision-driven structural detailing, BIM, and engineering support for commercial, industrial, infrastructure, residential, and storage projects.",
-};
+export const metadata = constructMetadata({
+  title: "KBS Civil Engineering Services | Structural Detailing",
+  description: "KBS Civil Engineering and Build Right Tec provide precast, tilt-up, PEMB, BIM, self-storage detailing, shop drawings, and engineering support.",
+  path: "/verticals/civil",
+  keywords: ["KBS Civil Engineering", "Build Right Tec", "Build Right Tech", "precast concrete detailing", "tilt-up detailing", "PEMB detailing", "self-storage shop drawings", "BIM services"],
+  image: "/Civil Services.png",
+});
 
 export default function CivilPage() {
   const coreServices = [

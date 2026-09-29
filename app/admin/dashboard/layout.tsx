@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "KBS Group Admin Dashboard | CMS",
   description: "KBS Group CMS Admin Dashboard",
+  robots: { index: false, follow: false, noarchive: true },
 };
 
 export const dynamic = "force-dynamic";

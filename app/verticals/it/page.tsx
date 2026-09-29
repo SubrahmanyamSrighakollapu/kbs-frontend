@@ -1,5 +1,5 @@
 import React from "react";
-import type { Metadata } from "next";
+import { constructMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/layout/Header";
@@ -21,11 +21,13 @@ import {
   Shield,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Information Technology | KBS Group",
-  description:
-    "Since 2021, KBS Information Technology has been building digital products and platforms that solve real business problems — custom software, scalable web & mobile apps, and cloud ecosystems.",
-};
+export const metadata = constructMetadata({
+  title: "KBS Information Technology | Software Development",
+  description: "KBS Information Technology builds custom software, web and mobile apps, AI, cloud systems, and digital platforms including Vividuss, Helyi, Desi Dukan, and Naya Leader.",
+  path: "/verticals/it",
+  keywords: ["KBS Information Technology", "software development Hyderabad", "custom software company", "Vividuss platform", "Helyi marketplace", "Desi Dukan", "Naya Leader"],
+  image: "/It Services.png",
+});
 
 export default function ITPage() {
   const capabilities = [

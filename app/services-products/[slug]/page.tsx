@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import { constructMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -27,23 +28,18 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: DetailPageProps): Promise<Metadata> {
   const { slug } = await params;
-  if (slug === "financial-services") {
-    return {
-      title: "Financial Services (Finjo) | KBS Information Technology",
-      description: financialServicesData.heroDescription,
-    };
-  } else if (slug === "business-automation-saas") {
-    return {
-      title: "Business Automation & SaaS Products | KBS Information Technology",
-      description: automationSaaSData.heroDescription,
-    };
-  }
-  return {
-    title: `${slug.replace(/-/g, " ").toUpperCase()} | KBS Information Technology`,
-    description: "Engineering scalable digital products and enterprise software.",
+  const details: Record<string, { title: string; description: string; keywords: string[] }> = {
+    "financial-services": { title: "Financial Services & Fintech Solutions", description: financialServicesData.heroDescription, keywords: ["Finjo", "Finjo fintech", "payment gateway", "business payouts", "retail BNPL", "payment and lending platform"] },
+    "business-automation-saas": { title: "Business Automation & SaaS Products", description: automationSaaSData.heroDescription, keywords: ["WinWala", "Creavo", "retail loyalty SaaS", "creative automation", "business automation", "workflow automation"] },
+    "product-engineering": { title: "Product Engineering Services", description: "Design, build, launch, and scale reliable digital products such as Vividuss, Helyi, Desi Dukan, and Naya Leader with KBS Information Technology.", keywords: ["Vividuss", "Helyi", "Desi Dukan", "Naya Leader", "product engineering", "software product development", "KBS IT"] },
+    "ai-automation": { title: "AI & Automation Services", description: "Apply AI and intelligent automation to reduce manual work, improve decisions, and streamline business operations.", keywords: ["AI automation services", "business process automation", "KBS IT"] },
+    "cloud-devops": { title: "Cloud & DevOps Services", description: "Build secure, scalable cloud infrastructure and reliable delivery pipelines with KBS Information Technology.", keywords: ["cloud services", "DevOps services", "cloud infrastructure Hyderabad"] },
+    "end-to-end-support": { title: "End-to-End IT Support", description: "Get complete technology support across product strategy, engineering, deployment, maintenance, and improvement.", keywords: ["managed IT support", "software maintenance", "technology partner"] },
   };
+  const detail = details[slug];
+  if (!detail) return constructMetadata({ title: "Service Not Found", description: "The requested KBS Group service could not be found.", path: `/services-products/${slug}`, noIndex: true });
+  return constructMetadata({ ...detail, path: `/services-products/${slug}` });
 }
-
 export default async function ServiceDetailPage({ params }: DetailPageProps) {
   const { slug } = await params;
 

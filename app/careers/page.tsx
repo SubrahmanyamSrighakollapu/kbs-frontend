@@ -1,16 +1,18 @@
 import React from "react";
-import type { Metadata } from "next";
+import { constructMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { ArrowRight, Briefcase, Users, Zap, ShieldCheck, Heart, Sparkles } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Careers | KBS Group",
-  description:
-    "Join KBS Group. Explore career opportunities across Information Technology, Civil Engineering, Business Automation, Finance Services, and Skill Development. Send your resume to info@kbs.group.",
-};
+export const metadata = constructMetadata({
+  title: "Careers at KBS Group Hyderabad",
+  description: "Explore KBS Group careers across IT, SaaS automation, fintech, civil engineering, and skill training in Hyderabad and remote roles.",
+  path: "/careers",
+  keywords: ["KBS Group careers", "IT jobs Hyderabad", "civil engineering jobs Hyderabad"],
+  image: "/about-us-bg.png",
+});
 
 export default function CareersPage() {
   const perks = [

@@ -1,5 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
+import { constructMetadata, getBreadcrumbSchema, getCourseSchema } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Header from "@/components/layout/Header";
@@ -23,19 +25,15 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: CourseDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
   const course = popularCoursesList.find((c) => c.slug === slug);
-
-  if (!course) {
-    return {
-      title: "Course Not Found | KBS Skill Hub",
-    };
-  }
-
-  return {
+  if (!course) return constructMetadata({ title: "Course Not Found", description: "The requested KBS Skill Hub course could not be found.", path: `/skill-hub/courses/${slug}`, noIndex: true });
+  return constructMetadata({
     title: `${course.title} | KBS Skill Hub`,
     description: course.description,
-  };
+    path: `/skill-hub/courses/${course.slug}`,
+    keywords: [course.title, course.category, `${course.title} course`, "KBS Skill Hub"],
+    image: course.image,
+  });
 }
-
 export default async function CourseDetailPage({ params }: CourseDetailPageProps) {
   const { slug } = await params;
   const course = popularCoursesList.find((c) => c.slug === slug);
@@ -46,6 +44,10 @@ export default async function CourseDetailPage({ params }: CourseDetailPageProps
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-[#111827] selection:bg-[#168BFF] selection:text-white">
+      <JsonLd data={[
+        getCourseSchema({ name: course.title, description: course.description, path: `/skill-hub/courses/${course.slug}`, image: course.image }),
+        getBreadcrumbSchema([{ name: "Home", item: "/" }, { name: "Skill Hub", item: "/skill-hub" }, { name: course.title, item: `/skill-hub/courses/${course.slug}` }]),
+      ]} />
       <Header />
 
       <main className="flex-grow pt-28 sm:pt-32 pb-16">

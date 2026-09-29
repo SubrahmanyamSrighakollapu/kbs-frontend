@@ -1,5 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
+import { constructMetadata, getArticleSchema, getBreadcrumbSchema } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -23,19 +25,16 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: InsightDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = insightPosts.find((p) => p.slug === slug);
-
-  if (!post) {
-    return {
-      title: "Article Not Found | KBS Group Insights",
-    };
-  }
-
-  return {
+  if (!post) return constructMetadata({ title: "Article Not Found", description: "The requested KBS Group insight could not be found.", path: `/insights/${slug}`, noIndex: true });
+  return constructMetadata({
     title: `${post.title} | KBS Group Insights`,
     description: post.excerpt,
-  };
+    path: `/insights/${post.slug}`,
+    keywords: [...post.tags, post.category, "KBS Group insights"],
+    image: post.featuredImage,
+    type: "article",
+  });
 }
-
 export default async function InsightDetailPage({ params }: InsightDetailPageProps) {
   const { slug } = await params;
   const post = insightPosts.find((p) => p.slug === slug);
@@ -50,6 +49,10 @@ export default async function InsightDetailPage({ params }: InsightDetailPagePro
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-950 text-white selection:bg-[#168BFF] selection:text-white">
+      <JsonLd data={[
+        getArticleSchema({ title: post.title, description: post.excerpt, slug: post.slug, datePublished: new Date(post.date).toISOString(), authorName: post.author.name, image: post.featuredImage }),
+        getBreadcrumbSchema([{ name: "Home", item: "/" }, { name: "Insights", item: "/insights" }, { name: post.title, item: `/insights/${post.slug}` }]),
+      ]} />
       {/* Header Navigation */}
       <Header />
 

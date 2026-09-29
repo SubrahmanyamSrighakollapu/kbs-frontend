@@ -1,5 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
+import { constructMetadata, getBreadcrumbSchema, getCourseSchema } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Header from "@/components/layout/Header";
@@ -23,19 +25,15 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PathDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
   const path = learningPathsList.find((p) => p.slug === slug);
-
-  if (!path) {
-    return {
-      title: "Learning Path Not Found | KBS Skill Hub",
-    };
-  }
-
-  return {
-    title: `${path.title} | KBS Skill Hub`,
+  if (!path) return constructMetadata({ title: "Learning Path Not Found", description: "The requested KBS Skill Hub learning path could not be found.", path: `/skill-hub/paths/${slug}`, noIndex: true });
+  return constructMetadata({
+    title: `${path.title} Learning Path | KBS Skill Hub`,
     description: path.description,
-  };
+    path: `/skill-hub/paths/${path.slug}`,
+    keywords: [path.title, `${path.title} training`, "career learning path", "KBS Skill Hub"],
+    image: path.image,
+  });
 }
-
 export default async function PathDetailPage({ params }: PathDetailPageProps) {
   const { slug } = await params;
   const path = learningPathsList.find((p) => p.slug === slug);
@@ -46,6 +44,10 @@ export default async function PathDetailPage({ params }: PathDetailPageProps) {
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-[#111827] selection:bg-[#168BFF] selection:text-white">
+      <JsonLd data={[
+        getCourseSchema({ name: path.title, description: path.description, path: `/skill-hub/paths/${path.slug}`, image: path.image }),
+        getBreadcrumbSchema([{ name: "Home", item: "/" }, { name: "Skill Hub", item: "/skill-hub" }, { name: path.title, item: `/skill-hub/paths/${path.slug}` }]),
+      ]} />
       <Header />
 
       <main className="flex-grow pt-28 sm:pt-32 pb-16">

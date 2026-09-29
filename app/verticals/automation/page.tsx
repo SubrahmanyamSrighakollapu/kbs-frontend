@@ -1,5 +1,5 @@
 import React from "react";
-import type { Metadata } from "next";
+import { constructMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/layout/Header";
@@ -24,11 +24,13 @@ import {
   FileSearch,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Business Automation Tools | KBS Group",
-  description:
-    "Systems that work while you unwind. Smart, streamlined business automation tools and SaaS products that help businesses eliminate manual bottlenecks and operate at their full potential.",
-};
+export const metadata = constructMetadata({
+  title: "KBS Business Automation & SaaS Products",
+  description: "KBS Automation builds SaaS products including WinWala retail loyalty and Creavo creative studio, plus website, operations, project, and drawing automation.",
+  path: "/verticals/automation",
+  keywords: ["KBS business automation", "SaaS products India", "WinWala", "WinWala loyalty platform", "Creavo", "Creavo Studio", "creative automation", "retail automation"],
+  image: "/Automation Tools.png",
+});
 
 export default function AutomationPage() {
   const products = [

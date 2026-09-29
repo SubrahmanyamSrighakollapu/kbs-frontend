@@ -1,5 +1,5 @@
 import React from "react";
-import type { Metadata } from "next";
+import { constructMetadata } from "@/lib/seo";
 import Header from "@/components/layout/Header";
 import HeroSection from "@/components/home/HeroSection";
 import StatsSection from "@/components/home/StatsSection";
@@ -10,11 +10,13 @@ import TrustedBrands from "@/components/home/TrustedBrands";
 import CTASection from "@/components/home/CTASection";
 import Footer from "@/components/layout/Footer";
 
-export const metadata: Metadata = {
+export const metadata = constructMetadata({
   title: "KBS Group | One Group. Every Solution.",
-  description:
-    "KBS Group brings engineering, technology, finance, and talent together — building the infrastructure, platforms, and people that power tomorrow's businesses.",
-};
+  description: "KBS Group connects IT, civil engineering, automation, finance, and skills through products including Vividuss, Build Right Tec, Helyi, Creavo, Finjo, and WinWala.",
+  path: "/",
+  keywords: ["KBS Group Hyderabad", "KBS Group 360", "engineering and technology company", "KBS Group products", "Vividuss", "Build Right Tec", "Helyi", "Creavo", "Finjo", "WinWala"],
+  image: "/hero-images.png",
+});
 
 export default function HomePage() {
   return (

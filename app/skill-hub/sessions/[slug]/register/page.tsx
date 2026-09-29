@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import { constructMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Header from "@/components/layout/Header";
@@ -22,19 +23,15 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: RegisterPageProps): Promise<Metadata> {
   const { slug } = await params;
   const session = upcomingSessionsList.find((s) => s.slug === slug);
-
-  if (!session) {
-    return {
-      title: "Session Not Found | KBS Skill Hub",
-    };
-  }
-
-  return {
+  if (!session) return constructMetadata({ title: "Session Not Found", description: "The requested KBS Skill Hub session could not be found.", path: `/skill-hub/sessions/${slug}/register`, noIndex: true });
+  return constructMetadata({
     title: `Register: ${session.title} | KBS Skill Hub`,
-    description: `Register for ${session.title} live workshop on ${session.day} ${session.month}.`,
-  };
+    description: `Register for the ${session.title} live KBS Skill Hub workshop on ${session.day} ${session.month}.`,
+    path: `/skill-hub/sessions/${session.slug}/register`,
+    keywords: [session.title, "live workshop", "KBS Skill Hub registration"],
+    noIndex: true,
+  });
 }
-
 export default async function RegisterPage({ params }: RegisterPageProps) {
   const { slug } = await params;
   const session = upcomingSessionsList.find((s) => s.slug === slug);

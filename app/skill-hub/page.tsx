@@ -1,5 +1,5 @@
 import React from "react";
-import type { Metadata } from "next";
+import { constructMetadata } from "@/lib/seo";
 import Header from "@/components/layout/Header";
 import SkillHubHero from "@/components/skill-hub/SkillHubHero";
 import GapAddressSection from "@/components/skill-hub/GapAddressSection";
@@ -10,11 +10,13 @@ import LearningPaths from "@/components/skill-hub/LearningPaths";
 import SkillHubCTA from "@/components/skill-hub/SkillHubCTA";
 import Footer from "@/components/layout/Footer";
 
-export const metadata: Metadata = {
-  title: "Skill Services & Training | KBS Group",
-  description:
-    "Talent development and training programs that build the workforce of tomorrow, bridging the gap between industry needs and employable skills with practitioner-led IT & Civil software training.",
-};
+export const metadata = constructMetadata({
+  title: "KBS Skill Hub | IT & Civil Software Training",
+  description: "Build job-ready skills with practitioner-led IT and civil engineering software training from KBS Skill Hub in Hyderabad.",
+  path: "/skill-hub",
+  keywords: ["KBS Skill Hub", "IT training Hyderabad", "civil software training Hyderabad"],
+  image: "/skills-hub-ui-design.png",
+});
 
 export default function SkillHubPage() {
   return (

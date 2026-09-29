@@ -1,5 +1,5 @@
 import React from "react";
-import type { Metadata } from "next";
+import { constructMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/layout/Header";
@@ -21,11 +21,13 @@ import {
   Layers,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Finance Services | KBS Group",
-  description:
-    "Payment gateways, payouts, Buy Now Pay Later (BNPL), and business lending solutions designed to make capital and transactions frictionless for businesses of every size.",
-};
+export const metadata = constructMetadata({
+  title: "KBS Financial Services | Payments, Payouts & Finance",
+  description: "KBS Financial Services and Finjo provide payment gateways, payouts, Buy Now Pay Later, and business finance solutions for growing businesses.",
+  path: "/verticals/financial",
+  keywords: ["KBS Financial Services", "Finjo", "Finjo fintech", "payment gateway India", "business payouts", "business finance", "retail BNPL solutions"],
+  image: "/Financial services.png",
+});
 
 export default function FinancialPage() {
   const services = [

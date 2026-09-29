@@ -1,5 +1,7 @@
 import React from "react";
-import type { Metadata } from "next";
+import { constructMetadata, getFAQSchema } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
+import { faqList } from "@/data/contact";
 import Header from "@/components/layout/Header";
 import ContactHero from "@/components/contact/ContactHero";
 import ContactInfoPanel from "@/components/contact/ContactInfoPanel";
@@ -8,15 +10,18 @@ import ContactFAQ from "@/components/contact/ContactFAQ";
 import NewsletterCTA from "@/components/contact/NewsletterCTA";
 import Footer from "@/components/layout/Footer";
 
-export const metadata: Metadata = {
-  title: "Contact Us | KBS Group",
-  description:
-    "Get connected with KBS Group headquarters in Hyderabad or reach out to our global team for consultations, project inquiries, and enterprise solutions.",
-};
+export const metadata = constructMetadata({
+  title: "Contact KBS Group Hyderabad",
+  description: "Contact KBS Group in Hyderabad for IT, civil engineering, business automation, financial services, training, partnerships, and project consultations.",
+  path: "/contact",
+  keywords: ["contact KBS Group", "KBS Group Hyderabad address", "KBS Group phone"],
+  image: "/contact-us-hero.png",
+});
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen flex flex-col bg-white text-[#111827] selection:bg-[#168BFF] selection:text-white">
+      <JsonLd data={getFAQSchema(faqList)} />
       {/* 1. Header Navigation */}
       <Header />
 

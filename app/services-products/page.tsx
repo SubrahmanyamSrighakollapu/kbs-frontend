@@ -1,5 +1,5 @@
 import React from "react";
-import type { Metadata } from "next";
+import { constructMetadata } from "@/lib/seo";
 import Header from "@/components/layout/Header";
 import ServicesHero from "@/components/services/ServicesHero";
 import VisionMissionStrip from "@/components/services/VisionMissionStrip";
@@ -13,11 +13,13 @@ import CaseStudySnapshot from "@/components/services/CaseStudySnapshot";
 import ServicesCTA from "@/components/services/ServicesCTA";
 import Footer from "@/components/layout/Footer";
 
-export const metadata: Metadata = {
+export const metadata = constructMetadata({
   title: "Services & Products | KBS Group",
-  description:
-    "Explore KBS Group services and digital products — scalable solutions across Information Technology, Civil Engineering, Business Automation, Finance Services, and Skill Development.",
-};
+  description: "Explore KBS services and products including Vividuss, Build Right Tec, Helyi, Creavo, Finjo, WinWala, Desi Dukan, Naya Leader, AI, cloud, and BIM solutions.",
+  path: "/services-products",
+  keywords: ["KBS Group services", "KBS Group products", "software products Hyderabad", "enterprise solutions", "Vividuss", "Build Right Tec", "Helyi", "Creavo", "Finjo", "WinWala"],
+  image: "/services-ui-desing.png",
+});
 
 export default function ServicesProductsPage() {
   return (

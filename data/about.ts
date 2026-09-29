@@ -197,20 +197,20 @@ export const whatWeHaveBuilt: BuiltProductCategory[] = [
   {
     id: "health-tech",
     category: "Health Tech",
-    tagline: "Dietitian-Client Wellness",
+    tagline: "Vividuss — Digital Health & Wellness",
     description:
-      "A dietitian-client wellness platform bringing structured, B2B2C nutrition coaching online with progress tracking and personalized meal plans.",
-    products: ["B2B2C Wellness Platform"],
+      "Vividuss is a digital health and wellness platform bringing structured B2B2C nutrition coaching online with practitioner-client workflows, progress tracking, and personalized plans.",
+    products: ["Vividuss Health-Tech Platform"],
     iconName: "HeartPulse",
     accentColor: "#00C9A7",
   },
   {
     id: "construction-tech",
     category: "Construction Tech",
-    tagline: "Structural Detailing & BIM Engineering",
+    tagline: "Build Right Tec — Structural Detailing & BIM",
     description:
-      "Comprehensive structural detailing, BIM modeling, tilt-up, precast, and PEMB engineering documentation for efficient construction execution.",
-    products: ["Precast & Tilt-Up Detailing", "PEMB & Storage Engineering", "BIM & Clash Coordination"],
+      "Build Right Tec delivers structural detailing, BIM modeling, tilt-up, precast, PEMB, and self-storage engineering documentation for efficient fabrication and construction execution.",
+    products: ["Build Right Tec", "Precast & Tilt-Up Detailing", "PEMB & Storage Engineering", "BIM & Clash Coordination"],
     iconName: "HardHat",
     accentColor: "#FF9F1C",
   },

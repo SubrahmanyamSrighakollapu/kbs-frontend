@@ -1,5 +1,5 @@
 import React from "react";
-import type { Metadata } from "next";
+import { constructMetadata } from "@/lib/seo";
 import Header from "@/components/layout/Header";
 import AboutHero from "@/components/about/AboutHero";
 import WhoWeAre from "@/components/about/WhoWeAre";
@@ -12,11 +12,13 @@ import AboutStats from "@/components/about/AboutStats";
 import GroupAdvantage from "@/components/about/GroupAdvantage";
 import Footer from "@/components/layout/Footer";
 
-export const metadata: Metadata = {
-  title: "Who We Are | KBS Group",
-  description:
-    "KBS Group is a multi-vertical enterprise built on a simple belief: real transformation happens when engineering precision, digital innovation, financial access, and skilled talent come together under one roof.",
-};
+export const metadata = constructMetadata({
+  title: "About KBS Group | Engineering, Technology & Finance",
+  description: "Learn about KBS Group and its verticals and products, including Vividuss, Build Right Tec, Helyi, Creavo, Finjo, WinWala, Desi Dukan, and Naya Leader.",
+  path: "/about",
+  keywords: ["about KBS Group", "KBS Group Hyderabad", "KBS Group products", "multi-vertical enterprise", "Vividuss", "Build Right Tec", "Helyi", "Creavo"],
+  image: "/about-us-ui-design.png",
+});
 
 export default function AboutPage() {
   return (

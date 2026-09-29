@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Admin Login | KBS Group CMS",
   description: "KBS Group admin CMS login",
+  robots: { index: false, follow: false, noarchive: true },
 };
 
 export default function AdminAuthLayout({
