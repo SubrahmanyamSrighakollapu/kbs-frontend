@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { insightPosts } from "@/data/insights";
 import { popularCoursesList, learningPathsList } from "@/data/skill-hub";
+import { civilServiceDetails } from "@/data/civil-services";
 import { SITE_URL } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -42,6 +43,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const civilServiceRoutes = civilServiceDetails.map(({ slug }) => ({
+    url: `${SITE_URL}/verticals/civil/${slug}`,
+    lastModified: currentDate,
+    changeFrequency: "weekly" as const,
+    priority: 0.85,
+  }));
+
   // Insights articles
   const insightRoutes = insightPosts.map((post) => ({
     url: `${SITE_URL}/insights/${post.slug}`,
@@ -68,6 +76,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticRoutes,
     ...serviceRoutes,
+    ...civilServiceRoutes,
     ...insightRoutes,
     ...courseRoutes,
     ...pathRoutes,

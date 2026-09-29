@@ -58,6 +58,7 @@ export default function CivilPage() {
       footerNote:
         "Every deliverable is developed with a strong focus on dimensional accuracy, constructability, coordination, and fabrication requirements.",
       cta: "Explore Precast Services",
+      href: "/verticals/civil/precast-concrete-detailing",
       icon: Building2,
       accent: "#FF6B35",
     },
@@ -81,6 +82,7 @@ export default function CivilPage() {
       footerNote:
         "Our objective is to identify coordination requirements early and provide clear drawings that help project teams execute with confidence.",
       cta: "Explore Tilt-Up Services",
+      href: "/verticals/civil/tilt-up-detailing",
       icon: Layers,
       accent: "#A52BFF",
     },
@@ -104,6 +106,7 @@ export default function CivilPage() {
       footerNote:
         "From compact storage facilities to large multi-building developments, our team delivers organized and coordinated documentation for efficient construction.",
       cta: "Explore Self-Storage Services",
+      href: "/verticals/civil/self-storage-detailing",
       icon: Compass,
       accent: "#168BFF",
     },
@@ -128,6 +131,7 @@ export default function CivilPage() {
       footerNote:
         "PEMB systems can help reduce construction complexity while providing adaptable structural solutions for a wide range of building requirements.",
       cta: "Explore PEMB Services",
+      href: "/verticals/civil/pemb-detailing",
       icon: HardHat,
       accent: "#FF9F1C",
     },
@@ -523,7 +527,7 @@ export default function CivilPage() {
                     </div>
 
                     <Link
-                      href="/contact"
+                      href={s.href}
                       className="inline-flex items-center text-sm font-bold transition-colors group-hover:translate-x-1"
                       style={{ color: s.accent }}
                     >
