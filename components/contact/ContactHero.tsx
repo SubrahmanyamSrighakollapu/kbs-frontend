@@ -58,8 +58,8 @@ export default function ContactHero() {
 
           {/* Supporting Copy */}
           <p className="text-base sm:text-lg lg:text-xl text-slate-200 font-normal leading-relaxed max-w-lg">
-            Have a question, project idea, or just want to say hello? Our team is
-            ready to help.
+            Contact the KBS Group (KBS Pvt Ltd) team at our Hyderabad headquarters
+            for project consultations, partnerships, or general enquiries.
           </p>
         </div>
       </div>

@@ -61,7 +61,7 @@ export const aboutHeroData = {
   description:
     "We design, build, and scale digital products — from fintech platforms to hyperlocal marketplaces — with the reliability of a group that's been solving hard technical problems since 2021.",
   whoWeAre:
-    "KBS Information Technology is the technology arm of KBS Group, building software that runs real businesses — not demo-ware. Since 2021, we've engineered products across payments, commerce, civic-tech, and consumer platforms, giving us a rare mix: engineering depth paired with an owner's understanding of what actually drives a business.",
+    "KBS Information Technology is the technology arm of Hyderabad-based KBS Group (KBS Pvt Ltd), building software that runs real businesses — not demo-ware. Since 2021, we've engineered products across payments, commerce, civic-tech, and consumer platforms, giving us a rare mix: engineering depth paired with an owner's understanding of what actually drives a business.",
   closingCtaTitle: "Ready to Build Something That Lasts?",
   closingCtaDescription:
     "Let's talk about where technology can remove friction from your business — a new product, a platform overhaul, or infrastructure that's overdue for an upgrade.",

@@ -17,6 +17,70 @@ export interface CivilServiceDetail {
   qualityPriorities: { title: string; description: string }[];
 }
 
+export interface CivilServiceImage {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
+export const tiltUpProjectImages: CivilServiceImage[] = [
+  {
+    src: "/Tiltup-SAMPLE%20PROJECT%20-%20KBS_page-0001.jpg",
+    alt: "Isometric drawing of a coordinated tilt-up concrete panel building",
+    caption: "Coordinated isometric building and panel overview",
+  },
+  {
+    src: "/Tiltup-SAMPLE%20PROJECT%20-%20KBS_page-0002.jpg",
+    alt: "Partial tilt-up panel plan layout with grid lines and dimensions",
+    caption: "Partial panel plan layout with coordinated dimensions",
+  },
+  {
+    src: "/Tiltup-SAMPLE%20PROJECT%20-%20KBS_page-0003.jpg",
+    alt: "Tilt-up panel connection coordination questions and structural details",
+    caption: "Connection coordination questions and structural references",
+  },
+  {
+    src: "/Tiltup-SAMPLE%20PROJECT%20-%20KBS_page-0004.jpg",
+    alt: "Tilt-up concrete panel embed schedule",
+    caption: "Embed list and component schedule",
+  },
+  {
+    src: "/Tiltup-SAMPLE%20PROJECT%20-%20KBS_page-0005.jpg",
+    alt: "Tilt-up panel joint, chord splice, and intersection connection details",
+    caption: "Panel joint, chord splice, and intersection details",
+  },
+  {
+    src: "/Tiltup-SAMPLE%20PROJECT%20-%20KBS_page-0006.jpg",
+    alt: "Detailed tilt-up concrete panel elevation P2 with embeds and dimensions",
+    caption: "Panel P2 elevation, dimensions, openings, and embeds",
+  },
+  {
+    src: "/Tiltup-SAMPLE%20PROJECT%20-%20KBS_page-0007.jpg",
+    alt: "Detailed tilt-up concrete panel elevation P11A with embeds and dimensions",
+    caption: "Panel P11A elevation and embed coordination",
+  },
+  {
+    src: "/Tiltup-SAMPLE%20PROJECT%20-%20KBS_page-0008.jpg",
+    alt: "Detailed tilt-up concrete panel elevation P13 with embeds and dimensions",
+    caption: "Panel P13 elevation and embed coordination",
+  },
+  {
+    src: "/Tiltup-SAMPLE%20PROJECT%20-%20KBS_page-0009.jpg",
+    alt: "Detailed tilt-up concrete panel elevation P17A with embeds and dimensions",
+    caption: "Panel P17A elevation and embed coordination",
+  },
+  {
+    src: "/Tiltup-SAMPLE%20PROJECT%20-%20KBS_page-0010.jpg",
+    alt: "Detailed tilt-up concrete panel elevation P20 with pilaster and doorway",
+    caption: "Panel P20 elevation, pilaster, doorway, and embeds",
+  },
+  {
+    src: "/Tiltup-SAMPLE%20PROJECT%20-%20KBS_page-0011.jpg",
+    alt: "Detailed tilt-up concrete panel elevation P24C with opening and embeds",
+    caption: "Panel P24C elevation, opening, and embed coordination",
+  },
+];
+
 export const civilServiceDetails: CivilServiceDetail[] = [
   {
     slug: "precast-concrete-detailing",

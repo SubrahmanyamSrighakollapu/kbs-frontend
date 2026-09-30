@@ -73,7 +73,7 @@ export default function WhatWeAreSection() {
 
           <div className="lg:col-span-5">
             <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed mb-6">
-              KBS Group is a multi-vertical enterprise built on a simple belief: real transformation happens when engineering precision, digital innovation, financial access, and skilled talent come together under one roof. From structural and civil engineering to cutting-edge IT products, from business automation to accessible financial services, and from skill development to workforce readiness — we don&apos;t just serve industries, we power them end-to-end.
+              KBS Group (KBS Pvt Ltd) is a Hyderabad-based multi-vertical enterprise built on a simple belief: real transformation happens when engineering precision, digital innovation, financial access, and skilled talent come together under one roof. From structural and civil engineering to cutting-edge IT products, from business automation to accessible financial services, and from skill development to workforce readiness — we don&apos;t just serve industries, we power them end-to-end.
             </p>
 
             <Link

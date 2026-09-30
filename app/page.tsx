@@ -11,10 +11,10 @@ import CTASection from "@/components/home/CTASection";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = constructMetadata({
-  title: "KBS Group | One Group. Every Solution.",
-  description: "KBS Group connects IT, civil engineering, automation, finance, and skills through products including Vividuss, Build Right Tec, Helyi, Creavo, Finjo, and WinWala.",
+  title: "KBS Group | KBS Pvt Ltd Hyderabad",
+  description: "KBS Group (KBS Pvt Ltd), Hyderabad, delivers IT, civil engineering, automation, finance and skill solutions including Vividuss, Helyi and Build Right Tec.",
   path: "/",
-  keywords: ["KBS Group Hyderabad", "KBS Group 360", "engineering and technology company", "KBS Group products", "Vividuss", "Build Right Tec", "Helyi", "Creavo", "Finjo", "WinWala"],
+  keywords: ["KBS Group Hyderabad", "KBS Pvt Ltd Hyderabad", "KBS Private Limited Hyderabad", "KBS Group 360", "engineering and technology company", "KBS Group products", "Vividuss", "Build Right Tec", "Helyi", "Creavo", "Finjo", "WinWala"],
   image: "/hero-images.png",
 });
 

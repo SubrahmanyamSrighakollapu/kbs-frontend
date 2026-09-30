@@ -9,8 +9,8 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: "KBS Group | One Group. Every Solution.", template: "%s | KBS Group" },
-  description: "KBS Group is a Hyderabad-based multi-vertical enterprise delivering information technology, civil engineering, business automation, financial services, and industry-led skill development.",
+  title: { default: "KBS Group | KBS Pvt Ltd Hyderabad", template: "%s | KBS Group" },
+  description: "KBS Group (KBS Pvt Ltd) is a Hyderabad-based enterprise delivering IT, civil engineering, business automation, financial services and skill development.",
   applicationName: "KBS Group",
   authors: [{ name: "KBS Group", url: SITE_URL }],
   creator: "KBS Group",
@@ -24,14 +24,14 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: SITE_URL,
     siteName: "KBS Group",
-    title: "KBS Group | One Group. Every Solution.",
-    description: "Engineering, technology, automation, finance, and skill development solutions from one integrated group.",
+    title: "KBS Group | KBS Pvt Ltd Hyderabad",
+    description: "KBS Group (KBS Pvt Ltd) delivers engineering, technology, automation, finance, and skill development solutions from Hyderabad, India.",
     images: [{ url: "/kbs-group-logo.png", width: 1200, height: 630, alt: "KBS Group" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "KBS Group | One Group. Every Solution.",
-    description: "Engineering, technology, automation, finance, and skill development solutions from one integrated group.",
+    title: "KBS Group | KBS Pvt Ltd Hyderabad",
+    description: "KBS Group (KBS Pvt Ltd) delivers engineering, technology, automation, finance, and skill development solutions from Hyderabad, India.",
     images: ["/kbs-group-logo.png"],
   },
   robots: {

@@ -70,7 +70,7 @@ export const faqList: FAQItem[] = [
   },
   {
     id: "faq-4",
-    question: "Where is KBS IT located?",
+    question: "Where is KBS Group (KBS Pvt Ltd) located?",
     answer:
       "Our corporate headquarters is located at KBS PVT LTD, Manjeera Trinity Corporate, 1010, 10th floor, KPHB Phase 3, Kukatpally, Hyderabad, Telangana 500072.",
   },

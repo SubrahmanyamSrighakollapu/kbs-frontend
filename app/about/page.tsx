@@ -13,10 +13,10 @@ import GroupAdvantage from "@/components/about/GroupAdvantage";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = constructMetadata({
-  title: "About KBS Group | Engineering, Technology & Finance",
-  description: "Learn about KBS Group and its verticals and products, including Vividuss, Build Right Tec, Helyi, Creavo, Finjo, WinWala, Desi Dukan, and Naya Leader.",
+  title: "About KBS Group | KBS Pvt Ltd Hyderabad",
+  description: "Learn about KBS Group (KBS Pvt Ltd), its Hyderabad headquarters, five business verticals and products including Vividuss, Build Right Tec, Helyi and Creavo.",
   path: "/about",
-  keywords: ["about KBS Group", "KBS Group Hyderabad", "KBS Group products", "multi-vertical enterprise", "Vividuss", "Build Right Tec", "Helyi", "Creavo"],
+  keywords: ["about KBS Group", "about KBS Pvt Ltd", "KBS Group Hyderabad", "KBS Pvt Ltd Hyderabad", "KBS Private Limited Hyderabad", "KBS Group products", "multi-vertical enterprise", "Vividuss", "Build Right Tec", "Helyi", "Creavo"],
   image: "/about-us-ui-design.png",
 });
 

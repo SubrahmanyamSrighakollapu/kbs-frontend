@@ -16,7 +16,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/seo/JsonLd";
 import { DrawingCarouselSlot, SectionImageSlot } from "@/components/civil/CivilServiceMediaSlots";
-import { civilServiceDetails, getCivilServiceDetail } from "@/data/civil-services";
+import { civilServiceDetails, getCivilServiceDetail, tiltUpProjectImages } from "@/data/civil-services";
 import { constructMetadata, getBreadcrumbSchema, getServiceSchema } from "@/lib/seo";
 
 interface CivilServicePageProps {
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: CivilServicePageProps): Promi
     description: service.description,
     path: `/verticals/civil/${service.slug}`,
     keywords: service.keywords,
-    image: "/Civil Services.png",
+    image: service.slug === "tilt-up-detailing" ? tiltUpProjectImages[0].src : "/Civil Services.png",
   });
 }
 
@@ -56,6 +56,7 @@ export default async function CivilServicePage({ params }: CivilServicePageProps
 
   const path = `/verticals/civil/${service.slug}`;
   const relatedServices = civilServiceDetails.filter((item) => item.slug !== service.slug);
+  const projectImages = service.slug === "tilt-up-detailing" ? tiltUpProjectImages : [];
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-[#111827] selection:bg-[#FF6B35] selection:text-white">
@@ -107,7 +108,7 @@ export default async function CivilServicePage({ params }: CivilServicePageProps
               <span className="text-xs font-bold uppercase tracking-widest" style={{ color: service.accent }}>Project Drawing Showcase</span>
               <h2 className="text-2xl sm:text-3xl font-extrabold mt-2">Drawing &amp; Project Gallery</h2>
             </div>
-            <DrawingCarouselSlot />
+            <DrawingCarouselSlot images={projectImages} />
           </div>
         </section>
 
@@ -122,7 +123,7 @@ export default async function CivilServicePage({ params }: CivilServicePageProps
                 ))}
               </div>
             </div>
-            <SectionImageSlot label={`${service.shortName} overview image`} />
+            <SectionImageSlot label={`${service.shortName} overview image`} image={projectImages[0]} />
           </div>
         </section>
 
@@ -167,7 +168,7 @@ export default async function CivilServicePage({ params }: CivilServicePageProps
 
         <section className="py-20 sm:py-28">
           <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <SectionImageSlot label={`${service.shortName} coordination image`} />
+            <SectionImageSlot label={`${service.shortName} coordination image`} image={projectImages[1]} />
             <div>
               <div className="inline-flex items-center gap-2 mb-4" style={{ color: service.accent }}>
                 <Layers3 className="w-5 h-5" />

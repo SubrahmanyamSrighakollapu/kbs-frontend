@@ -11,10 +11,10 @@ import NewsletterCTA from "@/components/contact/NewsletterCTA";
 import Footer from "@/components/layout/Footer";
 
 export const metadata = constructMetadata({
-  title: "Contact KBS Group Hyderabad",
-  description: "Contact KBS Group in Hyderabad for IT, civil engineering, business automation, financial services, training, partnerships, and project consultations.",
+  title: "Contact KBS Pvt Ltd | KBS Group Hyderabad",
+  description: "Contact KBS Group (KBS Pvt Ltd) in Hyderabad for IT, civil engineering, automation, finance, training, partnerships and project consultations.",
   path: "/contact",
-  keywords: ["contact KBS Group", "KBS Group Hyderabad address", "KBS Group phone"],
+  keywords: ["contact KBS Group", "contact KBS Pvt Ltd", "KBS Pvt Ltd Hyderabad address", "KBS Group Hyderabad address", "KBS Group Kukatpally", "KBS Group phone"],
   image: "/contact-us-hero.png",
 });
 
