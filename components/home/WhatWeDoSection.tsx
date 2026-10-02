@@ -17,10 +17,10 @@ export default function WhatWeDoSection() {
       description:
         "Precision-driven structural detailing, BIM, and engineering support for commercial, industrial, infrastructure, residential, and storage projects.",
       bullets: [
-        "Precast Concrete Detailing",
-        "Tilt-Up Detailing Services",
-        "Mini & Self-Storage Detailing",
-        "PEMB Design & Detailing",
+        { label: "Precast Concrete Detailing", link: "/verticals/civil/precast-concrete-detailing" },
+        { label: "Tilt-Up Detailing Services", link: "/verticals/civil/tilt-up-detailing" },
+        { label: "Mini & Self-Storage Detailing", link: "/verticals/civil/self-storage-detailing" },
+        { label: "PEMB Design & Detailing", link: "/verticals/civil/pemb-detailing" },
       ],
       image: "/Civil Services.png",
       link: "/verticals/civil",
@@ -35,10 +35,10 @@ export default function WhatWeDoSection() {
       description:
         "Since 2021, we've been building digital products and platforms that solve real business problems, from custom software to scalable digital ecosystems.",
       bullets: [
-        "Custom Software Development",
-        "Scalable Digital Ecosystems",
-        "Websites & Mobile Applications",
-        "Cloud Architecture & AI Products",
+        { label: "Custom Software Development", link: "/verticals/it" },
+        { label: "Scalable Digital Ecosystems", link: "/verticals/it" },
+        { label: "Websites & Mobile Applications", link: "/verticals/it" },
+        { label: "Cloud Architecture & AI Products", link: "/verticals/it" },
       ],
       image: "/It Services.png",
       link: "/verticals/it",
@@ -53,10 +53,10 @@ export default function WhatWeDoSection() {
       description:
         "Smart, streamlined systems that help businesses eliminate manual bottlenecks and operate at their full potential.",
       bullets: [
-        "WinWala Retail Loyalty Platform",
-        "Creavo Self-Service Creative Studio",
-        "AI Website Generator & Automation",
-        "SCADA Central System Monitoring",
+        { label: "WinWala Retail Loyalty Platform", link: "/verticals/automation" },
+        { label: "Creavo Self-Service Creative Studio", link: "/verticals/automation" },
+        { label: "AI Website Generator & Automation", link: "/verticals/automation" },
+        { label: "SCADA Central System Monitoring", link: "/verticals/automation" },
       ],
       image: "/Automation Tools.png",
       link: "/verticals/automation",
@@ -71,10 +71,10 @@ export default function WhatWeDoSection() {
       description:
         "Payment gateways, payouts, BNPL, and business lending solutions designed to make capital and transactions frictionless for businesses of every size.",
       bullets: [
-        "Secure Payment Gateways",
-        "Automated Recipient Payouts",
-        "Retail Buy Now Pay Later (BNPL)",
-        "Practical Business Lending",
+        { label: "Secure Payment Gateways", link: "/verticals/financial" },
+        { label: "Automated Recipient Payouts", link: "/verticals/financial" },
+        { label: "Retail Buy Now Pay Later (BNPL)", link: "/verticals/financial" },
+        { label: "Practical Business Lending", link: "/verticals/financial" },
       ],
       image: "/Financial services.png",
       link: "/verticals/financial",
@@ -89,10 +89,10 @@ export default function WhatWeDoSection() {
       description:
         "Talent development and training programs that build the workforce of tomorrow, bridging the gap between industry needs and employable skills.",
       bullets: [
-        "Industry-Oriented Software Training",
-        "IT & Civil Tool-Level Mastery",
-        "Practitioner-Led Instruction",
-        "Job-Ready Talent Development",
+        { label: "Industry-Oriented Software Training", link: "/skill-hub" },
+        { label: "IT & Civil Tool-Level Mastery", link: "/skill-hub" },
+        { label: "Practitioner-Led Instruction", link: "/skill-hub" },
+        { label: "Job-Ready Talent Development", link: "/skill-hub" },
       ],
       image: "/Skill Hub.png",
       link: "/skill-hub",
@@ -146,7 +146,7 @@ export default function WhatWeDoSection() {
         </div>
 
         {/* Active Tab Highlight Showcase Card */}
-        <Link href={current.link} className="block rounded-3xl bg-white border border-slate-200/80 p-8 sm:p-12 shadow-xl hover:shadow-2xl transition-all group">
+        <div className="rounded-3xl bg-white border border-slate-200/80 p-8 sm:p-12 shadow-xl hover:shadow-2xl transition-all">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Text & Bullets */}
             <div className="lg:col-span-7">
@@ -168,45 +168,53 @@ export default function WhatWeDoSection() {
 
               {/* Bullet Points */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                {current.bullets.map((item, bIdx) => (
-                  <div key={bIdx} className="flex items-center gap-3">
+                {current.bullets.map((bullet, bIdx) => (
+                  <Link
+                    key={bIdx}
+                    href={bullet.link}
+                    className="flex items-center gap-3 p-2 -m-2 rounded-xl hover:bg-slate-50 transition-all group/item"
+                  >
                     <div
-                      className="w-6 h-6 rounded-full flex items-center justify-center shrink-0"
+                      className="w-6 h-6 rounded-full flex items-center justify-center shrink-0 transition-transform group-hover/item:scale-110"
                       style={{ backgroundColor: `${current.accent}15`, color: current.accent }}
                     >
                       <CheckCircle2 className="w-4 h-4" />
                     </div>
-                    <span className="text-sm font-bold text-[#111827]">{item}</span>
-                  </div>
+                    <span className="text-sm font-bold text-[#111827] group-hover/item:text-[#168BFF] transition-colors flex items-center gap-1.5">
+                      {bullet.label}
+                      <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-[#168BFF]" />
+                    </span>
+                  </Link>
                 ))}
               </div>
 
-              <div
-                className="inline-flex items-center justify-center px-7 py-3.5 rounded-full text-white font-semibold text-sm sm:text-base hover:opacity-95 active:scale-95 transition-all shadow-md"
+              <Link
+                href={current.link}
+                className="inline-flex items-center justify-center px-7 py-3.5 rounded-full text-white font-semibold text-sm sm:text-base hover:opacity-95 active:scale-95 transition-all shadow-md group/btn"
                 style={{
                   background: `linear-gradient(135deg, ${current.accent}, #03142B)`,
                 }}
               >
                 Explore {current.label} Vertical
-                <ArrowRight className="w-4 h-4 ml-2.5 group-hover:translate-x-1.5 transition-transform" />
-              </div>
+                <ArrowRight className="w-4 h-4 ml-2.5 group-hover/btn:translate-x-1.5 transition-transform" />
+              </Link>
             </div>
 
             {/* Right Image Display */}
-            <div className="lg:col-span-5">
+            <Link href={current.link} className="lg:col-span-5 block group/img">
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-slate-900 border border-slate-200">
                 <Image
                   src={current.image}
                   alt={current.title}
                   fill
                   priority
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="object-cover object-center group-hover/img:scale-105 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#03142B]/60 via-transparent to-transparent pointer-events-none" />
               </div>
-            </div>
+            </Link>
           </div>
-        </Link>
+        </div>
 
         {/* Why KBS Group Showcase Card */}
         <div className="mt-16 bg-[#061A36] rounded-3xl p-8 sm:p-12 text-white border border-[#82A0FF]/20 shadow-2xl relative overflow-hidden">

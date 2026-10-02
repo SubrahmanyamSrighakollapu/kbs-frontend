@@ -25,59 +25,92 @@ export interface CivilServiceImage {
 
 export const tiltUpProjectImages: CivilServiceImage[] = [
   {
-    src: "/Tiltup-SAMPLE%20PROJECT%20-%20KBS_page-0001.jpg",
-    alt: "Isometric drawing of a coordinated tilt-up concrete panel building",
-    caption: "Coordinated isometric building and panel overview",
+    src: "/Tiltup_Page_02_300DPI.png",
+    alt: "Tilt-Up panel plan layout and grid coordination drawing",
+    caption: "Partial panel plan layout with grid lines and dimensions",
   },
   {
-    src: "/Tiltup-SAMPLE%20PROJECT%20-%20KBS_page-0002.jpg",
-    alt: "Partial tilt-up panel plan layout with grid lines and dimensions",
-    caption: "Partial panel plan layout with coordinated dimensions",
-  },
-  {
-    src: "/Tiltup-SAMPLE%20PROJECT%20-%20KBS_page-0003.jpg",
-    alt: "Tilt-up panel connection coordination questions and structural details",
-    caption: "Connection coordination questions and structural references",
-  },
-  {
-    src: "/Tiltup-SAMPLE%20PROJECT%20-%20KBS_page-0004.jpg",
-    alt: "Tilt-up concrete panel embed schedule",
-    caption: "Embed list and component schedule",
-  },
-  {
-    src: "/Tiltup-SAMPLE%20PROJECT%20-%20KBS_page-0005.jpg",
-    alt: "Tilt-up panel joint, chord splice, and intersection connection details",
-    caption: "Panel joint, chord splice, and intersection details",
-  },
-  {
-    src: "/Tiltup-SAMPLE%20PROJECT%20-%20KBS_page-0006.jpg",
-    alt: "Detailed tilt-up concrete panel elevation P2 with embeds and dimensions",
+    src: "/Tiltup_Page_06_300DPI.png",
+    alt: "Tilt-Up panel P2 elevation with embed details and dimensions",
     caption: "Panel P2 elevation, dimensions, openings, and embeds",
   },
   {
-    src: "/Tiltup-SAMPLE%20PROJECT%20-%20KBS_page-0007.jpg",
-    alt: "Detailed tilt-up concrete panel elevation P11A with embeds and dimensions",
+    src: "/Tiltup_Page_07_300DPI.png",
+    alt: "Tilt-Up panel P11A elevation drawing with embed details",
     caption: "Panel P11A elevation and embed coordination",
   },
   {
-    src: "/Tiltup-SAMPLE%20PROJECT%20-%20KBS_page-0008.jpg",
-    alt: "Detailed tilt-up concrete panel elevation P13 with embeds and dimensions",
+    src: "/Tiltup_Page_08_300DPI.png",
+    alt: "Tilt-Up panel P13 elevation drawing with embed layout",
     caption: "Panel P13 elevation and embed coordination",
   },
   {
-    src: "/Tiltup-SAMPLE%20PROJECT%20-%20KBS_page-0009.jpg",
-    alt: "Detailed tilt-up concrete panel elevation P17A with embeds and dimensions",
+    src: "/Tiltup_Page_09_300DPI.png",
+    alt: "Tilt-Up panel P17A elevation drawing with embed details",
     caption: "Panel P17A elevation and embed coordination",
   },
   {
-    src: "/Tiltup-SAMPLE%20PROJECT%20-%20KBS_page-0010.jpg",
-    alt: "Detailed tilt-up concrete panel elevation P20 with pilaster and doorway",
+    src: "/Tiltup_Page_10_300DPI.png",
+    alt: "Tilt-Up panel P20 elevation drawing with pilaster and doorway",
     caption: "Panel P20 elevation, pilaster, doorway, and embeds",
   },
   {
-    src: "/Tiltup-SAMPLE%20PROJECT%20-%20KBS_page-0011.jpg",
-    alt: "Detailed tilt-up concrete panel elevation P24C with opening and embeds",
+    src: "/Tiltup_Page_11_300DPI.png",
+    alt: "Tilt-Up panel P24C elevation drawing with opening and embed details",
     caption: "Panel P24C elevation, opening, and embed coordination",
+  },
+];
+
+export const selfStorageProjectImages: CivilServiceImage[] = [
+  {
+    src: "/kbs-light-gauge-page-01.jpg",
+    alt: "Light gauge steel framing overview for self-storage building",
+    caption: "Self-storage structural framing & layout overview (Sheet 1)",
+  },
+  {
+    src: "/kbs-light-gauge-page-02.jpg",
+    alt: "Light gauge framing plan and grid layout details",
+    caption: "Framing plan layout with grid dimensions (Sheet 2)",
+  },
+  {
+    src: "/kbs-light-gauge-page-03.jpg",
+    alt: "Self-storage unit partition wall and corridor framing details",
+    caption: "Partition wall & corridor framing details (Sheet 3)",
+  },
+  {
+    src: "/kbs-light-gauge-page-04.jpg",
+    alt: "Light gauge roof framing and truss layout details",
+    caption: "Roof framing & slope structural details (Sheet 4)",
+  },
+  {
+    src: "/kbs-light-gauge-page-05.jpg",
+    alt: "Self-storage wall elevation and roll-up door opening details",
+    caption: "Wall elevations & door opening framing (Sheet 5)",
+  },
+  {
+    src: "/kbs-light-gauge-page-06.jpg",
+    alt: "Light gauge structural connection and fastener details",
+    caption: "Structural connection & fastener details (Sheet 6)",
+  },
+  {
+    src: "/kbs-light-gauge-page-07.jpg",
+    alt: "Self-storage multi-story mezzanine & floor framing details",
+    caption: "Mezzanine & floor framing details (Sheet 7)",
+  },
+  {
+    src: "/kbs-light-gauge-page-08.jpg",
+    alt: "Light gauge steel column base and foundation interface details",
+    caption: "Column base & foundation interface details (Sheet 8)",
+  },
+  {
+    src: "/kbs-light-gauge-page-09.jpg",
+    alt: "Self-storage canopy and exterior wall framing details",
+    caption: "Exterior wall & canopy framing details (Sheet 9)",
+  },
+  {
+    src: "/kbs-light-gauge-page-10.jpg",
+    alt: "Light gauge component schedule and material bill",
+    caption: "Framing component schedule & bill of materials (Sheet 10)",
   },
 ];
 
@@ -144,26 +177,24 @@ export const civilServiceDetails: CivilServiceDetail[] = [
     shortName: "Tilt-Up Detailing",
     name: "Tilt-Up Detailing Services",
     eyebrow: "TILT-UP PANEL DETAILING",
-    tagline: "Coordinated panel drawings and embed documentation for efficient casting and site erection.",
+    tagline: "Comprehensive Tilt-Up Detailing Services",
     description:
-      "KBS provides detailed tilt-up panel shop drawings, panel elevations, reinforcement and embed coordination, opening details, and construction-ready drawing packages.",
+      "We provide accurate and construction-ready Tilt-Up Shop Drawings and Embed Panel Detailing Services tailored to meet contractor and engineer requirements.",
     overview: [
       "Tilt-up projects bring structural, architectural, fabrication, and field requirements together within every panel. Accurate panel geometry and coordinated cast-in information are essential because discrepancies discovered after casting can affect erection and downstream construction activities.",
       "Our team develops panel-focused drawing packages from the approved design information, coordinating elevations, dimensions, openings, reinforcing, embeds, connections, reveals, and interface conditions. Each package is structured to make review efficient and field information clear.",
     ],
     accent: "#A52BFF",
-    keywords: ["tilt-up detailing services", "tilt-up panel shop drawings", "tilt wall detailing", "embed panel detailing", "tilt-up reinforcement drawings", "tilt-up construction drawings", "tilt panel detailing company"],
+    keywords: ["tilt-up detailing services", "tilt-up panel shop drawings", "tilt wall detailing", "embed panel detailing", "lifting and bracing design", "tilt-up construction drawings", "tilt panel detailing company"],
     deliverables: [
-      { title: "Panel Layouts", description: "Plans identifying panel locations, marks, relationships, grids, and references across the building perimeter." },
-      { title: "Panel Elevations", description: "Individual panel views showing geometry, dimensions, openings, steps, slopes, reveals, and key levels." },
-      { title: "Panel Shop Drawings", description: "Coordinated construction documents combining panel geometry, reinforcement, embeds, and project notes." },
-      { title: "Embed Detailing", description: "Location and identification of plates, inserts, anchors, weld items, and other cast-in components." },
-      { title: "Reinforcement Detailing", description: "Panel reinforcing information coordinated around openings, edges, connections, and embed zones." },
-      { title: "Opening Coordination", description: "Dimensional coordination of doors, windows, louvers, service penetrations, recesses, and block-outs." },
-      { title: "Connection Information", description: "Clear depiction of panel interfaces and connection requirements based on supplied engineering details." },
-      { title: "Lifting & Erection Information", description: "Drawing integration of engineer-provided lifting, bracing, and erection requirements where included in scope." },
-      { title: "Architectural Coordination", description: "Alignment of panel joints, reveals, finishes, parapets, elevations, and architectural design intent." },
-      { title: "Revision Management", description: "Traceable updates for review comments, revised design information, RFIs, and approved project changes." },
+      { title: "Complete Panel Layout Drawings", description: "Complete panel layout drawings based on approved architectural and structural plans." },
+      { title: "Casting Layout Plan", description: "Detailed casting layout plan for site layout and panel setup coordination." },
+      { title: "Detailed Embed Layout & Placement", description: "Detailed embed layout and placement drawings for each panel." },
+      { title: "Individual Panel Sheets", description: "Individual panel sheets with dimensions, openings, and reinforcement references." },
+      { title: "Comprehensive Embed Lists", description: "Comprehensive embed lists covering plates, angles, anchors, sizes & quantities." },
+      { title: "Connection & Bracing Details Coordination", description: "Connection and bracing details coordination, including Lifting & Bracing design." },
+      { title: "Floor Plan Layout References", description: "Floor plan layout references for accurate site positioning." },
+      { title: "Clash-Free Deliverables", description: "Clash-free, fabrication-ready deliverables tailored to contractor and engineer requirements." },
     ],
     workflow: [
       { number: "01", title: "Panel Study", description: "Establish panel breaks, geometry, grids, levels, architectural features, and project drawing standards." },

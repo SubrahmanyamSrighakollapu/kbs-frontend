@@ -7,9 +7,10 @@ import type { CivilServiceImage } from "@/data/civil-services";
 
 interface DrawingCarouselSlotProps {
   images?: CivilServiceImage[];
+  accent?: string;
 }
 
-export function DrawingCarouselSlot({ images = [] }: DrawingCarouselSlotProps) {
+export function DrawingCarouselSlot({ images = [], accent = "#168BFF" }: DrawingCarouselSlotProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   if (images.length === 0) {
@@ -58,7 +59,7 @@ export function DrawingCarouselSlot({ images = [] }: DrawingCarouselSlotProps) {
           <button
             type="button"
             onClick={showPrevious}
-            aria-label="Show previous Tilt-Up drawing"
+            aria-label="Show previous drawing"
             className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full border border-slate-200 bg-white/95 text-[#111827] flex items-center justify-center shadow-lg hover:bg-[#03142B] hover:text-white transition-colors"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -66,7 +67,7 @@ export function DrawingCarouselSlot({ images = [] }: DrawingCarouselSlotProps) {
           <button
             type="button"
             onClick={showNext}
-            aria-label="Show next Tilt-Up drawing"
+            aria-label="Show next drawing"
             className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full border border-slate-200 bg-white/95 text-[#111827] flex items-center justify-center shadow-lg hover:bg-[#03142B] hover:text-white transition-colors"
           >
             <ChevronRight className="w-5 h-5" />
@@ -74,7 +75,7 @@ export function DrawingCarouselSlot({ images = [] }: DrawingCarouselSlotProps) {
         </div>
         <figcaption className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-5 sm:px-7 py-4 border-t border-slate-200 bg-slate-50">
           <div>
-            <span className="block text-xs font-bold uppercase tracking-wider text-[#A52BFF]">
+            <span className="block text-xs font-bold uppercase tracking-wider" style={{ color: accent }}>
               Drawing {activeIndex + 1} of {images.length}
             </span>
             <span className="text-sm sm:text-base font-semibold text-[#374151]">{activeImage.caption}</span>
@@ -90,7 +91,7 @@ export function DrawingCarouselSlot({ images = [] }: DrawingCarouselSlotProps) {
         </figcaption>
       </figure>
 
-      <div className="mt-5 overflow-x-auto pb-2" aria-label="Tilt-Up drawing thumbnails">
+      <div className="mt-5 overflow-x-auto pb-2" aria-label="Project drawing thumbnails">
         <div className="flex gap-3 min-w-max">
           {images.map((item, index) => (
             <button
@@ -100,8 +101,9 @@ export function DrawingCarouselSlot({ images = [] }: DrawingCarouselSlotProps) {
               aria-label={`Show drawing ${index + 1}: ${item.caption}`}
               aria-current={index === activeIndex ? "true" : undefined}
               className={`relative w-24 sm:w-28 aspect-[4/3] overflow-hidden rounded-xl bg-white border-2 transition-all ${
-                index === activeIndex ? "border-[#A52BFF] shadow-md" : "border-slate-200 hover:border-slate-400"
+                index === activeIndex ? "shadow-md" : "border-slate-200 hover:border-slate-400"
               }`}
+              style={{ borderColor: index === activeIndex ? accent : undefined }}
             >
               <Image src={item.src} alt="" fill sizes="112px" className="object-contain p-1" />
               <span className="absolute bottom-1 right-1 min-w-5 h-5 px-1 rounded bg-[#03142B]/85 text-white text-[10px] font-bold flex items-center justify-center">

@@ -16,7 +16,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/seo/JsonLd";
 import { DrawingCarouselSlot, SectionImageSlot } from "@/components/civil/CivilServiceMediaSlots";
-import { civilServiceDetails, getCivilServiceDetail, tiltUpProjectImages } from "@/data/civil-services";
+import { civilServiceDetails, getCivilServiceDetail, tiltUpProjectImages, selfStorageProjectImages } from "@/data/civil-services";
 import { constructMetadata, getBreadcrumbSchema, getServiceSchema } from "@/lib/seo";
 
 interface CivilServicePageProps {
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: CivilServicePageProps): Promi
     description: service.description,
     path: `/verticals/civil/${service.slug}`,
     keywords: service.keywords,
-    image: service.slug === "tilt-up-detailing" ? tiltUpProjectImages[0].src : "/Civil Services.png",
+    image: service.slug === "tilt-up-detailing" ? tiltUpProjectImages[0].src : service.slug === "self-storage-detailing" ? selfStorageProjectImages[0].src : "/Civil Services.png",
   });
 }
 
@@ -56,7 +56,7 @@ export default async function CivilServicePage({ params }: CivilServicePageProps
 
   const path = `/verticals/civil/${service.slug}`;
   const relatedServices = civilServiceDetails.filter((item) => item.slug !== service.slug);
-  const projectImages = service.slug === "tilt-up-detailing" ? tiltUpProjectImages : [];
+  const projectImages = service.slug === "tilt-up-detailing" ? tiltUpProjectImages : service.slug === "self-storage-detailing" ? selfStorageProjectImages : [];
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-[#111827] selection:bg-[#FF6B35] selection:text-white">
@@ -102,15 +102,17 @@ export default async function CivilServicePage({ params }: CivilServicePageProps
           </div>
         </section>
 
-        <section className="py-16 sm:py-20 bg-slate-50 border-b border-slate-200">
-          <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-8">
-              <span className="text-xs font-bold uppercase tracking-widest" style={{ color: service.accent }}>Project Drawing Showcase</span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold mt-2">Drawing &amp; Project Gallery</h2>
+        {projectImages.length > 0 && (
+          <section className="py-16 sm:py-20 bg-slate-50 border-b border-slate-200">
+            <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="mb-8">
+                <span className="text-xs font-bold uppercase tracking-widest" style={{ color: service.accent }}>Project Drawing Showcase</span>
+                <h2 className="text-2xl sm:text-3xl font-extrabold mt-2">Drawing &amp; Project Gallery</h2>
+              </div>
+              <DrawingCarouselSlot images={projectImages} accent={service.accent} />
             </div>
-            <DrawingCarouselSlot images={projectImages} />
-          </div>
-        </section>
+          </section>
+        )}
 
         <section className="py-20 sm:py-28">
           <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -123,16 +125,39 @@ export default async function CivilServicePage({ params }: CivilServicePageProps
                 ))}
               </div>
             </div>
-            <SectionImageSlot label={`${service.shortName} overview image`} image={projectImages[0]} />
+            {projectImages.length > 0 ? (
+              <SectionImageSlot label={`${service.shortName} overview image`} image={projectImages[0]} />
+            ) : (
+              <div className="rounded-3xl bg-slate-50 border border-slate-200/80 p-8 sm:p-10 space-y-6">
+                <span className="text-xs font-bold uppercase tracking-widest block" style={{ color: service.accent }}>Quality &amp; Precision Highlights</span>
+                <h3 className="text-2xl font-extrabold text-[#111827]">Engineered For Manufacturing &amp; Field Execution</h3>
+                <div className="space-y-4">
+                  {service.qualityPriorities.map((item) => (
+                    <div key={item.title} className="p-4.5 rounded-2xl bg-white border border-slate-200/70 shadow-xs">
+                      <h4 className="text-base font-extrabold mb-1" style={{ color: service.accent }}>{item.title}</h4>
+                      <p className="text-xs sm:text-sm text-[#5B6475] leading-relaxed">{item.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </section>
 
         <section className="py-20 sm:py-28 bg-slate-50 border-y border-slate-200">
           <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mb-12">
-              <span className="text-xs sm:text-sm font-bold uppercase tracking-widest" style={{ color: service.accent }}>Scope &amp; Deliverables</span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mt-3 mb-5">What Our Team Can Deliver</h2>
-              <p className="text-base sm:text-lg text-[#5B6475] leading-relaxed">The final scope is aligned to the available design information, project stage, client standards, and agreed deliverable requirements.</p>
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-widest" style={{ color: service.accent }}>
+                {service.slug === "tilt-up-detailing" ? "What We Provide" : "Scope & Deliverables"}
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mt-3 mb-5">
+                {service.slug === "tilt-up-detailing" ? "Comprehensive Tilt-Up Detailing Services" : "What Our Team Can Deliver"}
+              </h2>
+              <p className="text-base sm:text-lg text-[#5B6475] leading-relaxed">
+                {service.slug === "tilt-up-detailing"
+                  ? "We provide accurate and construction-ready Tilt-Up Shop Drawings and Embed Panel Detailing Services tailored to meet contractor and engineer requirements."
+                  : "The final scope is aligned to the available design information, project stage, client standards, and agreed deliverable requirements."}
+              </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {service.deliverables.map((item) => (
@@ -168,7 +193,25 @@ export default async function CivilServicePage({ params }: CivilServicePageProps
 
         <section className="py-20 sm:py-28">
           <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <SectionImageSlot label={`${service.shortName} coordination image`} image={projectImages[1]} />
+            {projectImages.length > 0 ? (
+              <SectionImageSlot label={`${service.shortName} coordination image`} image={projectImages[1]} />
+            ) : (
+              <div className="rounded-3xl bg-[#03142B] text-white p-8 sm:p-10 flex flex-col justify-between h-full min-h-[340px]">
+                <div>
+                  <div className="inline-flex items-center gap-2 mb-4" style={{ color: service.accent }}>
+                    <Layers3 className="w-5 h-5" />
+                    <span className="text-xs sm:text-sm font-bold uppercase tracking-widest">Multi-Disciplinary Coordination</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold mb-4 leading-tight">Eliminating Conflicts Before Construction Begins</h3>
+                  <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-6 font-normal">
+                    Our engineering and detailing workflow identifies geometry discrepancies, reinforcement congestion, embed clearances, and structural interfaces early to streamline production and erection on site.
+                  </p>
+                </div>
+                <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/10 border border-white/15 text-xs font-bold w-fit" style={{ color: service.accent }}>
+                  <CheckCircle2 className="w-4 h-4" /> Coordinated &amp; Fabrication-Ready
+                </div>
+              </div>
+            )}
             <div>
               <div className="inline-flex items-center gap-2 mb-4" style={{ color: service.accent }}>
                 <Layers3 className="w-5 h-5" />

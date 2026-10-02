@@ -69,15 +69,15 @@ export default function CivilPage() {
       description:
         "We provide precise Tilt-Up Shop Drawings and Embed Panel Detailing Services designed to support efficient fabrication, panel construction, and site erection. Our team develops detailed and coordinated documentation based on structural and architectural requirements.",
       capabilities: [
-        "Panel shop drawings",
-        "Panel elevations",
-        "Embed detailing",
-        "Reinforcement detailing",
-        "Opening and penetration coordination",
-        "Connection detailing",
-        "Lifting and erection information",
-        "Architectural and structural drawing coordination",
-        "Construction-ready drawing packages",
+        "Complete panel layout drawings",
+        "Casting layout plan",
+        "Embed layout & placement drawings",
+        "Individual panel sheets with dimensions & openings",
+        "Comprehensive embed lists (plates, angles, anchors)",
+        "Connection & bracing details coordination",
+        "Lifting & Bracing design",
+        "Floor plan layout references for site positioning",
+        "Clash-free, fabrication-ready deliverables",
       ],
       footerNote:
         "Our objective is to identify coordination requirements early and provide clear drawings that help project teams execute with confidence.",
@@ -435,25 +435,63 @@ export default function CivilPage() {
         {/* 2. SECTION: ENGINEERING & DETAILING EXPERTISE */}
         <section className="py-20 sm:py-28 bg-slate-50 border-b border-slate-200">
           <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center">
+            {/* Section Header */}
+            <div className="max-w-3xl mx-auto text-center mb-14">
               <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#FF6B35] block mb-3">
                 ENGINEERING & DETAILING EXPERTISE
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111827] tracking-tight mb-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111827] tracking-tight mb-5">
                 Precision From Design to Construction
               </h2>
-              <p className="text-base sm:text-lg text-[#5B6475] leading-relaxed mb-4 font-normal">
-                Successful structural projects depend on more than drawings. They require accurate detailing, effective coordination, constructability, and reliable engineering information throughout the project lifecycle.
-              </p>
-              <p className="text-base sm:text-lg text-[#5B6475] leading-relaxed mb-4 font-normal">
+              <p className="text-base sm:text-lg text-[#5B6475] leading-relaxed font-normal">
                 KBS Civil Engineering Services provides technology-driven structural detailing and digital construction solutions designed to bridge the gap between engineering design, fabrication, and on-site execution.
               </p>
-              <p className="text-base sm:text-lg text-[#111827] font-normal leading-relaxed mb-8">
-                Our engineers and detailing specialists work closely with project teams to produce coordinated, fabrication-ready and construction-ready deliverables that improve accuracy, minimize conflicts, and support efficient project delivery.
-              </p>
+            </div>
 
-              <div className="inline-block px-6 py-3 rounded-full bg-[#03142B] text-white text-sm sm:text-base font-extrabold tracking-wide shadow-md">
-                Precision in Every Detail. Coordination at Every Stage.
+            {/* 3 Core Expertise Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              <div className="p-8 rounded-3xl bg-white border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 group">
+                <div className="w-12 h-12 rounded-2xl bg-[#FF6B35]/10 text-[#FF6B35] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Ruler className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-extrabold text-[#111827] mb-3">
+                  Lifecycle Precision
+                </h3>
+                <p className="text-sm text-[#5B6475] leading-relaxed font-normal">
+                  Successful structural projects depend on more than drawings. They require accurate detailing, effective coordination, constructability, and reliable engineering information throughout the project lifecycle.
+                </p>
+              </div>
+
+              <div className="p-8 rounded-3xl bg-white border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 group">
+                <div className="w-12 h-12 rounded-2xl bg-[#168BFF]/10 text-[#168BFF] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Cpu className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-extrabold text-[#111827] mb-3">
+                  Technology-Driven Solutions
+                </h3>
+                <p className="text-sm text-[#5B6475] leading-relaxed font-normal">
+                  We leverage advanced CAD, BIM, and digital coordination tools to bridge the gap between structural engineering intent, plant manufacturing, and field erection.
+                </p>
+              </div>
+
+              <div className="p-8 rounded-3xl bg-white border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 group">
+                <div className="w-12 h-12 rounded-2xl bg-[#A52BFF]/10 text-[#A52BFF] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <ShieldCheck className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-extrabold text-[#111827] mb-3">
+                  Constructability Focus
+                </h3>
+                <p className="text-sm text-[#5B6475] leading-relaxed font-normal">
+                  Our detailing specialists work closely with project teams to produce coordinated, fabrication-ready deliverables that eliminate clashes, minimize RFIs, and ensure efficient execution.
+                </p>
+              </div>
+            </div>
+
+            {/* Bottom Highlight Banner */}
+            <div className="text-center">
+              <div className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-[#03142B] text-white text-sm sm:text-base font-extrabold tracking-wide shadow-lg border border-white/10">
+                <Sparkles className="w-4 h-4 text-[#FF9F1C]" />
+                <span>Precision in Every Detail. Coordination at Every Stage.</span>
               </div>
             </div>
           </div>
@@ -508,16 +546,39 @@ export default function CivilPage() {
                         <h5 className="text-xs font-extrabold uppercase tracking-wider text-slate-400 mb-3">
                           Key Capabilities & Deliverables
                         </h5>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                          {s.capabilities.map((cap, idx) => (
-                            <div key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-[#374151]">
-                              <CheckCircle2
-                                className="w-4 h-4 shrink-0 mt-0.5"
-                                style={{ color: s.accent }}
-                              />
-                              <span>{cap}</span>
-                            </div>
-                          ))}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+                          <div className="flex flex-col gap-2">
+                            {s.capabilities
+                              .filter((_, idx) => idx % 2 === 0)
+                              .map((cap, idx) => (
+                                <div
+                                  key={idx}
+                                  className="flex items-start gap-2.5 p-2.5 rounded-xl bg-white/80 border border-slate-200/60 text-xs sm:text-sm text-[#374151] hover:border-slate-300 transition-colors"
+                                >
+                                  <CheckCircle2
+                                    className="w-4 h-4 shrink-0 mt-0.5"
+                                    style={{ color: s.accent }}
+                                  />
+                                  <span className="font-semibold leading-snug">{cap}</span>
+                                </div>
+                              ))}
+                          </div>
+                          <div className="flex flex-col gap-2">
+                            {s.capabilities
+                              .filter((_, idx) => idx % 2 === 1)
+                              .map((cap, idx) => (
+                                <div
+                                  key={idx}
+                                  className="flex items-start gap-2.5 p-2.5 rounded-xl bg-white/80 border border-slate-200/60 text-xs sm:text-sm text-[#374151] hover:border-slate-300 transition-colors"
+                                >
+                                  <CheckCircle2
+                                    className="w-4 h-4 shrink-0 mt-0.5"
+                                    style={{ color: s.accent }}
+                                  />
+                                  <span className="font-semibold leading-snug">{cap}</span>
+                                </div>
+                              ))}
+                          </div>
                         </div>
                       </div>
 
